@@ -5,6 +5,17 @@
  */
 
 function sleep(milliseconds) {
+  return new Promise((resolve) => {
+    const endTime = Date.now() + milliseconds;
+    while (Date.now() < endTime) {
+      // keeps thread busy
+    }
+    resolve();
+  });
 }
+
+const result = sleep(5000).then(() => {
+  console.log("resume after 5 seconds");
+});
 
 module.exports = sleep;
