@@ -7,7 +7,7 @@
 function wait1(t) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve('Promise resolve after: ' + t + ' ms');
+            resolve('Promise resolve after: ' + t * 1000 + ' ms');
         }, t * 1000)
     })
 }
@@ -15,7 +15,7 @@ function wait1(t) {
 function wait2(t) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve('Promise resolve after: ' + t + ' ms');
+            resolve('Promise resolve after: ' + t * 1000 + ' ms');
         }, t * 1000)
     })
 }
@@ -23,7 +23,7 @@ function wait2(t) {
 function wait3(t) {
     return Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve('Promise resolve after: ' + t + ' ms');
+            resolve('Promise resolve after: ' + t * 1000 + ' ms');
         }, t * 1000)
     })
 
