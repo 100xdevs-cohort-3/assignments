@@ -6,7 +6,10 @@
 */
 
 function findLargestElement(numbers) {
-    
+    if(numbers.length===0) throw new Error("no largest element as array is empty");
+    numbers.sort((a, b) => a - b);
+    let n=numbers.length;
+    return numbers[n-1];   
 }
 
 module.exports = findLargestElement;
