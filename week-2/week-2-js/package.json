@@ -8,5 +8,9 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "01": "file:",
+    "mathjs": "^13.0.3"
+  }
 }
