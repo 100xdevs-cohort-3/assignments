@@ -8,7 +8,7 @@ function sleep(milliseconds) {
   return new Promise((resolve) => {
     const endTime = Date.now() + milliseconds;
     while (Date.now() < endTime) {
-      // keeps thread busy
+      // keeps thread busy for input milliseconds
     }
     resolve();
   });
