@@ -142,8 +142,7 @@ nav a:hover {
 .hero {
     background: linear-gradient(180deg, #0e0e0e 0%, #141414 100%);
     color: white;
-    padding: 100px 20px;
-    text-align: center;
+    padding: 50px 20px;
 }
 
 .hero h2 {
@@ -170,26 +169,6 @@ nav a:hover {
     background: #e5b800;
 }
 
-/* Features Section Styles */
-.features {
-    color: #f4f4f4;
-    background: #111;
-    padding: 50px 20px;
-}
-
-.features .feature {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.features h3 {
-    font-size: 2em;
-}
-
-.features p {
-    font-size: 1.1em;
-}
-
 /* Language Style  */
 .language {
     color: white;
@@ -198,32 +177,27 @@ nav a:hover {
 .language .container {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    grid-auto-flow: dense;
-    grid-template-rows: auto 1fr;
     column-gap: 2rem;
 }
 
-.language .container p{
+.language .container p {
     font-size: 16px;
     font-weight: 500;
     line-height: 160%;
     color:#9ba3b4;
 }
 
-.language .language_panel{
-    grid-column: 2 / 3;
-    grid-row: 1 / 3;
+.language .languagePanel {
     display: grid;
-    grid-template-columns: max-content 1fr max-content 1fr max-content 1fr;
-    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
     padding-inline: 2.5rem
 }
 
-.language_panel img {
+.languagePanel img {
     height: 40px;
     width: auto;
 }
-/* Footer Styles */
+
 footer {
     background: #333;
     color: white;
@@ -231,11 +205,7 @@ footer {
     padding: 10px 20px;
 }
 
-footer p {
-    margin: 0;
-}
-
-/* Responsive Styles */
+/* Responsiveness, we'll discuss this when we reach tailwind
 @media (width < 1200px) {
     .heroContainer div:has(img) {
         width: 66.66666667%;
@@ -253,13 +223,6 @@ footer p {
     .language .container {
         grid-template-columns: 1fr 1fr;
     }
-    .features h3 {
-        font-size: 1.5em;
-    }
-
-    .features p {
-        font-size: 1em;
-    }
 }
 
 @media (max-width: 768px) {
@@ -271,25 +234,11 @@ footer p {
         font-size: 1em;
     }
     
-    .features {
-        padding: 30px 20px;
-    }
-    
-    .features .feature {
-        margin-bottom: 15px;
-    }
-    .features h3 {
-    font-size: 1.2em;
-    }
-
-    .features p {
-        font-size: .75em;
-    }
     .verticalCenter > div:has(.navLink) {
         display: none;
     }
     .navContainer {
-    max-width: 600px;
+       max-width: 600px;
     }
     .heroContainer {
         flex-direction: column;
@@ -303,8 +252,8 @@ footer p {
     .heroContainer div:has(img) {
         width: 100%;
     }
-    .language .language_panel {
+    .language .languagePanel {
         grid-template-columns: max-content 1fr max-content 1fr;
     }
 }
-
+ */
