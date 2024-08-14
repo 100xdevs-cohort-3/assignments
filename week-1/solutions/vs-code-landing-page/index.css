@@ -185,6 +185,39 @@ nav a:hover {
     font-size: 1.1em;
 }
 
+/* Language Style  */
+.language {
+    color: white;
+}
+
+.language .container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-auto-flow: dense;
+    grid-template-rows: auto 1fr;
+    column-gap: 2rem;
+}
+
+.language .container p{
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 160%;
+    color:#9ba3b4;
+}
+
+.language .language_panel{
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+    display: grid;
+    grid-template-columns: max-content 1fr max-content 1fr max-content 1fr;
+    align-items: center;
+    padding-inline: 2.5rem
+}
+
+.language_panel img {
+    height: 40px;
+    width: auto;
+}
 /* Footer Styles */
 footer {
     background: #333;
