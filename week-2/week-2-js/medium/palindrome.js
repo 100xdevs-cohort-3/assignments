@@ -4,7 +4,15 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  str = str.replace(/[^a-zA-Z]/g, '').toLowerCase(); //Match any character that is not an English alphabet letter, and do this globally (for all such characters in the string)
+  let rev_str2 = str.split("").reverse().join("");
+  if (str === rev_str2){
+    return true
+  }
+  else{
+    return false;
+  }
 }
+
 
 module.exports = isPalindrome;
