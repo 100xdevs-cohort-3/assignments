@@ -7,8 +7,11 @@
 function isAnagram(str1, str2) {
   if(str1.length == str2.length)
   {
-      const splited1 = str1.split("");
-      const splited2 = str2.split("");
+      const toLower1 = str1.toLowerCase();
+      const toLower2 = str2.toLowerCase();
+      console.log(toLower1,toLower2);
+      const splited1 = toLower1.split("");
+      const splited2 = toLower2.split("");
       console.log(splited1 , splited2);
       const sorted1 = splited1.sort();
       const sorted2 = splited2.sort();
@@ -18,7 +21,7 @@ function isAnagram(str1, str2) {
       console.log(joined1,joined2);
       if(joined1 == joined2)
       {
-        console.log("Anagram");
+        console.log("It is Anagram");
       }
       else
       {
@@ -29,4 +32,4 @@ function isAnagram(str1, str2) {
     console.log("Error");
   }
 }
-module.exports = isAnagram;
+isAnagram("Hello","OlleHa");
