@@ -33,3 +33,4 @@ function isAnagram(str1, str2) {
   }
 }
 isAnagram("Hello","OlleHa");
+module.exports = isAnagram;
