@@ -7,4 +7,10 @@ function print(){
   counter++
 }
 
-setInterval(print, 100)
+
+function setIntervalcounter(ms){
+  setInterval(print, ms)
+}
+
+// setIntervalcounter(1000)
+module.exports = setIntervalcounter;

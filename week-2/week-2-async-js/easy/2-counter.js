@@ -4,11 +4,20 @@
 // (Hint: setTimeout)
 
 let counter = 0;
-function print(){
+function print(ms){
   console.log(counter);
   counter++;
-  setTimeout(print,2000)
+  setTimeout(() => {
+    print(ms);
+  }, ms);
 }
 
-print()
-// setTimeout(print,2000)
+// print()
+
+function setTimeoutcounter(ms) {
+  print(ms)
+}
+
+
+// setTimeoutcounter(1000)
+module.exports = setTimeoutcounter;
