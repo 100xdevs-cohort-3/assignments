@@ -1,0 +1,1 @@
+These assignment are good for practicing javascript

@@ -5,8 +5,18 @@
   Once you've implemented the logic, test your code by running
 */
 
+function isVowel(char) {
+  return 'aeiou'.includes(char.toLowerCase());
+}
+
 function countVowels(str) {
-    // Your code here
+  let count = 0;
+  for (let char of str) {
+    if (isVowel(char)) {
+      count++;
+    }
+  }
+  return count;
 }
 
 module.exports = countVowels;
