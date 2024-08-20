@@ -32,13 +32,12 @@ function calculateTotalSpentByCategory(transactions) {
 
 
   //Returning the unique categories and total price spent for each category
-  return uniqueCategories_Keys.map((key) => ({
-    category: key,
-    totalSpent: uniqueCategories[key],
-  }));
-
-  //wrapping the map's function with () to get the object returned from the map function
-  
+  return uniqueCategories_Keys.map((key) => {
+    return {
+      category: key,
+      totalSpent: uniqueCategories[key]
+    }
+  });
 }
 
 module.exports = calculateTotalSpentByCategory;
