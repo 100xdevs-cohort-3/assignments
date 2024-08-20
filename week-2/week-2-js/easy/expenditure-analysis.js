@@ -14,7 +14,31 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+
+  //Initializing empty to accumulate unique categories
+  const uniqueCategories = {};
+
+  //Iterating through given transactions array and accumulate the total price spent for each category
+  transactions.forEach((transaction)=>{
+    if (uniqueCategories[transaction.category]){
+      uniqueCategories[transaction.category] += transaction.price;
+    }else{
+      uniqueCategories[transaction.category] = transaction.price
+    }
+  })
+
+  //Getting the keys of unique categories objects
+  const uniqueCategories_Keys =  Object.keys(uniqueCategories);
+
+
+  //Returning the unique categories and total price spent for each category
+  return uniqueCategories_Keys.map((key) => ({
+    category: key,
+    totalSpent: uniqueCategories[key],
+  }));
+
+  //wrapping the map's function with () to get the object returned from the map function
+  
 }
 
 module.exports = calculateTotalSpentByCategory;
