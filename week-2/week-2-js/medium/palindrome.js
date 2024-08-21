@@ -4,7 +4,23 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  const string = str.toLowerCase().replace(/[\s\p{P}]/gu, '');
+  const stringArray = string.split('');
+  let newArray = [];
+  let c=0;
+  for (let i=stringArray.length-1; i>=0; i--) {
+    newArray[c] = stringArray[i];
+    c++;
+  }
+
+  const newstring = newArray.join('');
+  if (string === newstring) {
+    return true;
+  }
+
+  else {
+    return false;
+  }
 }
 
 module.exports = isPalindrome;
