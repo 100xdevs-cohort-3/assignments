@@ -1,6 +1,6 @@
 /*
   Implement a class `Calculator` having below methods
-    - initialise a result variable in the constructor and keep updating it after every arithmetic operation
+    - initialize a result variable in the constructor and keep updating it after every arithmetic operation
     - add: takes a number and adds it to the result
     - subtract: takes a number and subtracts it from the result
     - multiply: takes a number and multiply it to the result
@@ -16,6 +16,45 @@
   Once you've implemented the logic, test your code by running
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
+
+  add(n) {
+    this.result += n;
+  }
+
+  subtract(n) {
+    this.result -= n;
+  }
+
+  multiply(n) {
+    this.result *= n;
+  }
+
+  divide(n) {
+    if (n === 0) throw new Error("Division by zero is not allowed");
+    this.result /= n;
+  }
+
+  clear(n) {
+    this.result = 0;
+  }
+
+  getResult() {
+    return this.result;
+  }
+
+  calculate(exp) {
+    exp = exp.replace(/\s+/g, "");
+    const regExp = /^[\d+\-/*().]*$/;
+    if (!regExp.test(exp)) throw new Error("Non-numeric characters");
+    this.result = eval(exp);
+    if (!isFinite(this.result))
+      throw new Error("Division by zero is not allowed");
+    return this.result;
+  }
+}
 
 module.exports = Calculator;

@@ -5,20 +5,32 @@
  * Compare it with the results from 3-promise-all.js
  */
 
-function wait1(t) {
+function wait(t) {
+  return new Promise((res) => {
+    setTimeout(res, t * 1000);
+  });
+}
 
+function wait1(t) {
+  return wait(t);
 }
 
 function wait2(t) {
-
+  return wait(t);
 }
 
 function wait3(t) {
-
+  return wait(t);
 }
 
-function calculateTime(t1, t2, t3) {
-
+async function calculateTime(t1, t2, t3) {
+  const start = new Date();
+  //using async await
+  await wait1(t1);
+  await wait2(t2);
+  await wait3(t3);
+  const end = new Date();
+  return end - start;
 }
 
 module.exports = calculateTime;
