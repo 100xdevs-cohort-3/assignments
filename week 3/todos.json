@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "description": "Buy milk",
+    "completed": false
+  },
+  {
+    "id": 2,
+    "description": "Exercise",
+    "completed": false
+  },
+  {
+    "id": 3,
+    "description": "Go to office",
+    "completed": false
+  },
+  {
+    "id": 4,
+    "description": "File ITR",
+    "completed": true
+  }
+]

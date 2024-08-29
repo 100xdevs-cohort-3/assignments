@@ -14,7 +14,25 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  const result = [];
+
+  transactions.forEach(transaction => {
+    // Find if the category already exists in the result array
+    const existingCategory = result.find(item => item.category === transaction.category);
+    
+    if (existingCategory) {
+      // If the category exists, update the totalSpent
+      existingCategory.totalSpent += transaction.price;
+    } else {
+      // If the category does not exist, add a new entry
+      result.push({
+        category: transaction.category,
+        totalSpent: transaction.price
+      });
+    }
+  });
+
+  return result;
 }
 
 module.exports = calculateTotalSpentByCategory;
