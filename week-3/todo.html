@@ -1,0 +1,57 @@
+<body>
+  <input type="text"></input>
+  <button onclick="addTodo()">Add todo!</button>
+
+  <button onclick="deleteLastTodo()">Delete last todo</button>
+
+  <button onclick="deleteFirstTodo()">Delete first todo</button>
+  <div id="todos"></div>
+  <script>
+    let todos = [];
+
+    function addTodo() {
+      todos.push({
+        title: document.querySelector("input").value
+      });
+      render();
+    }
+
+    function deleteLastTodo() {
+      todos.splice(todos.length - 1, 1); // remove the last element from the array
+      render();
+    }
+
+    function deleteFirstTodo() {
+      todos.splice(0, 1); // remove the first element from the array
+      render();
+    }
+
+    function deleteTodo(index) {
+      todos.splice(index, 1); // remove the specific element by index
+      render();
+    }
+
+    function createTodoComponent(todo, index) {
+      const div = document.createElement("div");
+      const h1 = document.createElement("h1");
+      const button = document.createElement("button");
+      button.innerHTML = "Delete";
+      button.onclick = function() {
+        deleteTodo(index);
+      };
+      h1.innerHTML = todo.title;
+      div.append(h1);
+      div.append(button);
+      return div;
+    }
+
+    function render() {
+      document.querySelector("#todos").innerHTML = "";
+      for (let i = 0; i < todos.length; i++) {
+        const element = createTodoComponent(todos[i], i);
+        document.querySelector("#todos").appendChild(element);
+      }
+    }
+
+  </script>
+</body>
