@@ -1,5 +1,4 @@
 const wait = require("../hard (promises)/1-promisify-setTimeout");
-
 describe("wait function", () => {
   test("resolves after 1 second", () => {
     const start = Date.now();

@@ -7,7 +7,6 @@
 
 //  - HH:MM::SS AM/PM (Eg 01:45:23 PM)
 
-
 setInterval(() => {
     console.clear()
     const t = new Date().toLocaleTimeString();
