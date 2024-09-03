@@ -38,16 +38,64 @@ class Calculator {
   clear(){
     this.result = 0;
   }
-  get getResult(){
+  getResult(){
     return this.result;
   }
+
+  helper(str){
+    let stack = [];
+    for(let i =0 ; i < str.length; i++){
+      let s = str[i];
+      if(s == "+" || s == "-" || s == "/" || s == "*"){
+          if(st.size() < 2){
+              return 0;
+          }
+          let op1 = stack.at(-1);
+          stack.pop();
+          let op2 = stack.at(-1);
+          stack.pop();
+          if(s == "+"){
+              stack.push(op1 + op2);
+          }
+          else if(s == "/"){
+              stack.push(op2/op1);
+          }
+          else if(s == "-"){
+              stack.push(op2 - op1);
+          }
+          else{
+              stack.push(op1 * op2);
+          }
+      }
+      else{
+          stack.push(parseInt(s[i]));
+      }
+    }
+    this.result = stack.at(-1);
+  }
+
+ 
   calculate(str){
     let stack = [];
+    // making a valid string to process
+    let expression = '';
     for(let i = 0; i < str.length; i++){
-      if(!isNaN(str[i]) && str[i] != ' ')
+      if(str[i] == ' '){
+        continue;
+      }
+      else if(isNaN(str[i]) && (str[i] != '+' || str[i] != '-' || str[i] != '*' || str[i] != '/' || str[i] != '(' || str[i] != ')')){
+        throw new Error('Invalid Expression')
+      }
+      else{
+        expression += str[i];
+      }
     }
-    return this.getResult();
-  }
+
+    // making use of stack and expression
+    // helper(expression);
+    this.result = eval(expression)
+    return this.getResult()
+}
 }
 
 module.exports = Calculator;
