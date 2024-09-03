@@ -1,5 +1,15 @@
 const wait = require("../hard (promises)/1-promisify-setTimeout");
 describe("wait function", () => {
+  test('resolved after 0 second', () => {
+    const start = Date.now();
+    return expect(wait(0))
+    .resolves.toBeUndefined() // wait for 0 second
+    .then(() => {
+      const end = Date.now();
+      const diff = end - start;
+      expect(diff).toBeGreaterThanOrEqual(0);
+    })
+  })
   test("resolves after 1 second", () => {
     const start = Date.now();
     return expect(wait(1))

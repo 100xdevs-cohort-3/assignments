@@ -24,6 +24,7 @@ function calculateTime(t1, t2, t3) {
     .then(() => wait3(t3))
     .then(() => {
         const end = new Date().getTime();
+        console.log(arguments)
         console.log(end - start);
         return end - start;
     }) 
