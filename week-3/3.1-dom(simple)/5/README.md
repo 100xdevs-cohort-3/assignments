@@ -1,0 +1,1 @@
+Add a `delete` button right next to the todo that deletes that `todo`
