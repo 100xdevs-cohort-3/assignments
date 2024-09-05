@@ -7,6 +7,6 @@ URL: `http://localhost:3000/sum?a=1&b=2`
 Response:
 ```json
 {
-  "sum": 12
+  "sum": 3
 }
 ```
