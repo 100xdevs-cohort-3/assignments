@@ -1,6 +1,7 @@
 You need to create an express HTTP server in Node.js which will handle the logic of a todo list app.
 
-Try to save responses in files(`todos.json`), so that even if u exit the app and run it again, the data remains (similar to databases)
+Now you will need  to store the todo list data in a `.json` file array, so that even if u exit from the app and run it again, the data remains (similar to databases).
+
 
 Each todo has a title and a description. The title is a string and the description is a string.
 
@@ -56,5 +57,5 @@ The expected API endpoints are defined below,
 
     Example: DELETE http://localhost:3000/todos/123
 
-    - For any other route not defined in the server return 404
+- For any other route not defined in the server return 404
 
