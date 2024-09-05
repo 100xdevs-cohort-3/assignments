@@ -1,14 +1,8 @@
 # Taskify Backend
 
-Create Backend of Taskify assignment ( week-3 hard ) and try Integrate it with UI you built ( if you can ). 
+Create Basic Version Backend of Taskify assignment ( week-3 hard ).
 
-- write server code in `index.js`.
-- define your models in `model folder`.
-- write middleware logic in `middleware folder`.
-- write api route logic in `route folder`.
-- write database connection logic/function in `database folder`.
-
-### setup guide
+### Setup Guide
 
 1. go inside week-4/hard and run:
 
