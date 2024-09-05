@@ -1,0 +1,1 @@
+Create a calculator app in JavaScript with add, subtract, multiply, divide, and remainder functionality.
