@@ -1,0 +1,1 @@
+Write an HTML file, that hits the backend server using `fetch` API
