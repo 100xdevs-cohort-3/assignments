@@ -1,1 +1,9 @@
   /* start from here */
+
+  #signin{
+    display:none ;
+  }
+
+  #logout{
+    display: none;
+  }
