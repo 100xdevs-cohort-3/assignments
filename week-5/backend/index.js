@@ -12,7 +12,7 @@ const server=http.createServer(app);
 
 app.use(express.json());
 app.use('/user',userRouter)
-// app.use("/todo",todoRouter)
+app.use("/todo",todoRouter)
 
 server.listen(PORT,()=>{console.log(`Server running on PORT ${PORT}`);
 })
