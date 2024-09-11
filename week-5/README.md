@@ -2,6 +2,8 @@
 
 Create a Full-Stack Task Management Application.
 
+### Note: Try to do it by yourself.
+
 ### Setup Guide
 
 #### Backend Setup
