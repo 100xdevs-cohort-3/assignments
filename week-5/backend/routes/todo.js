@@ -1,34 +1,37 @@
-//  start writing your code from here
-
 const express = require("express");
 const router = express.Router();
 const auth = require("../middleware/user.js");
 
 const todos = [];
 
-router.post("/createTODO",auth,function(req,res){
+// Create TODO Route
+router.post("/createTODO", auth, function(req, res) {
     const task = req.body.task;
-    const username = req.body.username;
+    const username = req.username; // From the auth middleware
 
-    if(!task || !username){
-        return res.status(401).json({
-            message: "task and username required"
-        })
+    // Validate task and username
+    if (!task || !username) {
+        return res.status(400).json({
+            message: "Task and username required"
+        });
     }
+
     todos.push({
-        task : task,
-        username : req.body.username
-    })
+        task: task,
+        username: username
+    });
 
     res.json({
-        message: "added task successfully"
-    })
-})
+        message: "Task added successfully"
+    });
+});
 
+// Update TODO Route
 router.post("/updateTODO", auth, function (req, res) {
     const { task, newTask } = req.body;
     const username = req.username; // From the auth middleware
 
+    // Find the task associated with the authenticated user
     let foundTodo = null;
     for (let i = 0; i < todos.length; i++) {
         if (todos[i].task === task && todos[i].username === username) {
@@ -49,6 +52,5 @@ router.post("/updateTODO", auth, function (req, res) {
         });
     }
 });
-
 
 module.exports = router;
