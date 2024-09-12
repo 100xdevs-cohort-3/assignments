@@ -4,7 +4,7 @@ Create a Personal Finance Tracker application using Express for the backend and 
 
 ## **Setup Guide**
 
-1. Navigate to `week-5/Finance-Tracker/backend` and run:
+1. Navigate to `week-5/Finance-Tracker-App/backend` and run:
 
     ```sh
     npm install
@@ -16,7 +16,7 @@ Create a Personal Finance Tracker application using Express for the backend and 
     node index.js
     ```
 
-3. Go inside `week-5/Finance-Tracker/frontend` and open `index.html` in your browser to start interacting with the application.
+3. Go inside `week-5/Finance-Tracker-App/frontend` and open `index.html` in your browser to start interacting with the application.
 
 
 ### **Backend Tasks**
