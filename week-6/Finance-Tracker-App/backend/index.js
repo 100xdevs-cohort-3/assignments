@@ -44,7 +44,7 @@ app.post('/transactions', authenticate, (req, res) => {
 });
 
 // Update transaction route
-app.put('/transactions/:id', authenticate, (req, res) => {
+app.patch('/transactions/:id', authenticate, (req, res) => {
 });
 
 // Delete transaction route

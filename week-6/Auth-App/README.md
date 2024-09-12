@@ -1,6 +1,6 @@
 # **Authentication App with Signup Signin and Logout Features**
 
-Create a complete authentication application using Express for the backend and JavaScript for the frontend. The application will support user signup, signin, and logout features.
+Create a authentication application using Express for the backend and JavaScript for the frontend. The application will support user signup, signin, and logout features.
 
 ## **Setup Guide**
 

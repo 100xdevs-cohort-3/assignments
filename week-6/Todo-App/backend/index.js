@@ -50,7 +50,7 @@ app.post("/todos", auth, function(req, res) {
 });
 
 // Route to update a To-Do
-app.put("/todos/:id", auth, function(req, res) {
+app.patch("/todos/:id", auth, function(req, res) {
     
 });
 
@@ -60,7 +60,7 @@ app.delete("/todos/:id", auth, function(req, res) {
 });
 
 // Route to mark a To-Do as done/undone using PUT
-app.put("/todos/:id/done", auth, function(req, res) {
+app.patch("/todos/:id/done", auth, function(req, res) {
     
 });
 
