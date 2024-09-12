@@ -57,7 +57,7 @@ Create a Personal Finance Tracker application using Express for the backend and 
     - **POST `/transactions`**:
         - Create new transactions with details such as amount, type, category, and date.
 
-    - **PATCH/PUT `/transactions/:id`**:
+    - **PUT `/transactions/:id`**:
         - Update the transaction details (amount, type, category, date) for a specific ID.
 
     - **DELETE `/transactions/:id`**:

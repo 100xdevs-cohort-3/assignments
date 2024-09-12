@@ -59,7 +59,7 @@ app.delete("/todos/:id", auth, function(req, res) {
     
 });
 
-// Route to mark a To-Do as done/undone using PUT
+// Route to mark a To-Do as done/undone using PATCH method
 app.patch("/todos/:id/done", auth, function(req, res) {
     
 });

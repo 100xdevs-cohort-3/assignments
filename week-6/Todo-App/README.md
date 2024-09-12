@@ -49,8 +49,8 @@ Create a complete Todo application using Express for the backend and JavaScript 
 4. Implement middleware to validate JWT tokens for protected routes.
 5. Implement the `/todos` GET route to return all todos data.
 6. Implement the `/todos` POST route to create new todos data with id, username, title and done.
-7. Implement the `/todos/:id` PATCH/PUT route to update todos title for a specific id.
-8. Implement the `/todos/:id/done` PATCH/PUT route to update todos done field true/false based on incoming request.
+7. Implement the `/todos/:id` PATCH route to update todos title for a specific id.
+8. Implement the `/todos/:id/done` PATCH route to update todos done field true/false based on incoming request.
 9. Implement the `/todos/:id` DELETE route to delete a specific todos data.
 
 
