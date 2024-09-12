@@ -6,9 +6,9 @@ const verifyJWT = require('../middleware/user');
 const router=express.Router();
 
 router.post("/create-todo",verifyJWT,createTodo);
-router.patch("update-todo",verifyJWT, updateTodo);
-router.post('delete-todo',verifyJWT, deleteTodo);
-router.get('todos-list',verifyJWT, allTodos);
-router.patch('finish-todo',verifyJWT,completeTodo);
+router.patch("/update-todo",verifyJWT, updateTodo);
+router.post('/delete-todo',verifyJWT, deleteTodo);
+router.get('/todos-list',verifyJWT, allTodos);
+router.patch('/complete-todo',verifyJWT,completeTodo);
 
 module.exports=router;
