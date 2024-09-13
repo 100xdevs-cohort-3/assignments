@@ -8,16 +8,19 @@
 </head>
 <body>
     <!-- start writing code -->
-    <div id="signup">
-        <input type="text">
-        <input type="text">
-        <button>Signup</button>
-        <div>
+
+    <form id="signup">
+        <label for="userEmail">Email</label>
+        <input id="userEmail" type="email" name="useremail" placeholder="Enter your email" >
+        <label for="userPassword">password</label>
+        <input id="userPassword" type="password" name="password" placeholder="Enter your password" >
+        <button type="submit">Signup</button>
+        <!-- <div>
             Already have an account? <button id="changer">Signin here</button>
-        </div>
-    </div>
+        </div> -->
+    </form>
     
-    <div id="signin">
+    <!-- <div id="signin">
         <input type="text">
         <input type="text">
         <button>Signin</button>
@@ -40,7 +43,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <script src="./script.js"></script>    
 </body>

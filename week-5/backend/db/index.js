@@ -13,12 +13,16 @@ const generateJWT=(useremail)=>{
 
 
 const signup=(req,res)=>{
+    console.log(req.body);
+    
     const user={
         useremail:req.body.useremail,
         password:req.body.password,
         todosCount:0,
         todos:[]
-    };
+    }
+    console.log(user.useremail,user.password);
+    
     if(!user.useremail||!user.password){
         return res.status(403).send({message:"User Details required"});
     }
