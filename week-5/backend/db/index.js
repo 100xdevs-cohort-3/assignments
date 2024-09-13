@@ -67,7 +67,7 @@ const signin=(req,res)=>{
     return res
     .status(404)
     .send({
-        message:"User doesn't exist"
+        message:"Email/Password incorrect"
     })
 }
 

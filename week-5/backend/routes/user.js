@@ -7,7 +7,7 @@ const { signup, signin, logout } = require('../db/index.js');
 
 
 router.post("/signup",signup);
-router.get('/signin',signin);
+router.post('/signin',signin);
 router.get('/logout',verifyJWT,logout);
 
 module.exports=router;
