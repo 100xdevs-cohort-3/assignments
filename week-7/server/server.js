@@ -1,3 +1,4 @@
+//  TODO: Can you create backend with standard folder structure like: week-4/hard ???
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
