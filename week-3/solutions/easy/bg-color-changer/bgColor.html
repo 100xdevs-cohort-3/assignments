@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div
+      id="container"
+      style="
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: flex-end;
+        max-width: 900px;
+        height: 500px;
+        padding: 100px;
+        transition: background-color 1s ease-in-out;
+        border: 1px solid black;
+      "
+    ></div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const colorsArray = [
+          "red",
+          "green",
+          "blue",
+          "yellow",
+          "violet",
+          "orange",
+          "black",
+          "white",
+          "gray",
+          "pink",
+        ];
+
+        const divEle = document.getElementById("container");
+        console.log("div element" + divEle);
+        function Changebg(color) {
+          divEle.style.backgroundColor = color;
+        }
+
+        // Function to create buttons dynamically based on the colorsArray
+        function createColorButtons() {
+          colorsArray.forEach((color) => {
+            const button = document.createElement("button");
+            button.innerText = color;
+            button.style.backgroundColor = color;
+            button.style.color = "white";
+            button.style.border = "none";
+            button.style.margin = "10px";
+            button.style.padding = "10px";
+            button.style.cursor = "pointer";
+            button.onclick = () => Changebg(color);
+            console.log("color " + color + "added");
+            divEle.appendChild(button);
+            console.log("after adding color " + color);
+          });
+        }
+
+        createColorButtons();
+      });
+    </script>
+  </body>
+</html>

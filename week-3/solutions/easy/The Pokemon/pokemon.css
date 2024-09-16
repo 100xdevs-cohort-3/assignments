@@ -1,0 +1,68 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+#container {
+  border: 1px solid black;
+  margin: 30px;
+  background: linear-gradient(240deg, pink, red, orange);
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+.button {
+  transition: border-color 1s;
+  border-radius: 10%;
+  background-color: lightskyblue;
+}
+.button:hover {
+  border-color: red;
+}
+
+#pokemonform {
+  margin: 5px;
+}
+
+input {
+  margin: 10px;
+  border-radius: 10%;
+}
+
+.titleCard {
+  font-family: monospace;
+  font-size: 2em;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+}
+
+.titleCard span {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 4s steps(30, end) forwards, blink 0.5s step-end infinite;
+  width: 0;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: black;
+  }
+}
