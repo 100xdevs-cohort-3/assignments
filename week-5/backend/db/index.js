@@ -12,16 +12,13 @@ const generateJWT=(useremail)=>{
 
 
 
-const signup=(req,res)=>{
-    console.log(req.body);
-    
+const signup=(req,res)=>{    
     const user={
         useremail:req.body.useremail,
         password:req.body.password,
         todosCount:0,
         todos:[]
     }
-    console.log(user.useremail,user.password);
     
     if(!user.useremail||!user.password){
         return res.status(403).send({message:"User Details required"});
@@ -35,11 +32,11 @@ const signup=(req,res)=>{
     }
 
     users.push(user);
-    const token=generateJWT(user.useremail);
+    // const token=generateJWT(user.useremail);
     return res
     .status(201)
     .send({
-        token,
+        // token,
         message:"User signed up successfully"
     })
 
