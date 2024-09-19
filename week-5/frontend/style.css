@@ -31,3 +31,10 @@ label,input{
 #logout button{
   padding:5px;
 }
+
+input, button{
+  margin-top: 3px;
+  margin-bottom: 3px;
+  padding: 3px;
+}
+
