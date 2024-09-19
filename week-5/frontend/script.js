@@ -4,6 +4,9 @@ let todosCount=0;
 const populateTodo=(todos,cls,completed,title)=>{
     const divEl=document.createElement('div');
     divEl.setAttribute('class',cls);
+    // divEl.style.border='1px solid black'
+    divEl.style.display='flex'
+    divEl.style.margin='5px 0'
 
     const checkboxEl=document.createElement('input');
     checkboxEl.setAttribute('type','checkbox');
@@ -13,6 +16,7 @@ const populateTodo=(todos,cls,completed,title)=>{
     const inputEl=document.createElement('input');
     inputEl.setAttribute('class',cls);
     inputEl.setAttribute('value',`${title}`);
+    // inputEl.style.border='none';
 
     const deleteEl=document.createElement('button');
     deleteEl.innerHTML='Delete';
@@ -58,8 +62,10 @@ signupForm.addEventListener("submit",(event)=>{
             
         // }
         alert(data.message);
-        if(data.message==="User signed up successfully")
+        if(data.message==="User signed up successfully"){
             signupForm.style.display='none'
+            signinForm.style.display='block'
+        }
     })
     .catch(err=>{
         console.log(err);        
@@ -98,6 +104,11 @@ signinForm.addEventListener("submit",(event)=>{
 
         signinForm.style.display='none';
 
+        const todoSection=document.getElementById('todoSection');
+        todoSection.style.display='block';
+        const logout=document.getElementById('logout');
+        logout.style.display='block'
+
         fetch("http://localhost:3000/todo/todos-list",{
             headers:{
                 'content-type':'application/json',
@@ -126,7 +137,7 @@ signinForm.addEventListener("submit",(event)=>{
 const createEl=document.getElementById('create');
 createEl.addEventListener('click',(event)=>{
     const todoInput=document.getElementById('todo').value;
-    console.log(todoInput);
+    // console.log(todoInput);
     todosCount+=1;
     fetch("http://localhost:3000/todo/create-todo",{
         headers:{
@@ -234,6 +245,13 @@ todos.addEventListener('click',(event)=>{
             alert("updation failed")
         })
     }
+})
+
+
+const logout=document.getElementById('logout');
+logout.addEventListener('click',()=>{
+    localStorage.removeItem('authorization');
+    location.reload(true);
 })
 
 

@@ -1,9 +1,33 @@
   /* start from here */
 
-  /* #signin{
-    display:none ;
-  }
+#todoApp{
+ margin-top: 15%;
+ margin-left: 30%;
+ border: 2px solid black;
+ display: inline-block;
+ padding: 20px;
+ border-radius: 5px;
+}
 
-  #logout{
-    display: none;
-  } */
+#signin, #todoSection{
+  display: none;
+} 
+
+label,input{
+  display: block;
+}
+
+#todos input, #todo{
+  display: inline;
+}
+
+#logout{
+  position: absolute;
+  display: none;
+  top: 10px;
+  right: 10px;
+}
+
+#logout button{
+  padding:5px;
+}

@@ -9,43 +9,49 @@
 <body>
     <!-- start writing code -->
 
-    <form id="signup">
-        <label for="userEmail">Email</label>
-        <input id="userEmail" type="email" name="useremail" placeholder="Enter your email" >
-        <label for="userPassword">password</label>
-        <input id="userPassword" type="password" name="password" placeholder="Enter your password" >
-        <button type="submit">Signup</button>
-        <!-- <div>
-            Already have an account? <button id="changer">Signin here</button>
-        </div> -->
-    </form>
-
-    <form id="signin">
-        <input type="email" name="useremail">
-        <input type="password" name="password">
-        <button>Signin</button>
-        <!-- <div>
-            Don't have account? <button id="changer">Signup here</button>
-        </div> -->
-    </form>
-
-
-    <!-- <div id="logout">
+    <div id="logout">
         <button>Logout</button>
-    </div> -->
+    </div>
 
 
-    <div>
-        <div>
-            <input type="text" id="todo">
-            <button id="create">Add</button>
-            <div id="todos">
-                <!-- <div>
-                    <input type="checkbox" name="complete" id="complete">
-                    <input type="text" value="Task 1">
-                    <button>Update</button>
-                    <button>Delete</button>
-                </div> -->
+    
+    <div id="todoApp">
+        <form id="signup">
+            <label for="userEmail">Email</label>
+            <input id="userEmail" type="email" name="useremail" placeholder="Enter your email" >
+            <label for="userPassword">password</label>
+            <input id="userPassword" type="password" name="password" placeholder="Enter your password" >
+            <button type="submit">Signup</button>
+            <!-- <div>
+                Already have an account? <button id="changer">Signin here</button>
+            </div> -->
+        </form>
+    
+        <form id="signin">
+            <input type="email" name="useremail" placeholder="Enter your email">
+            <input type="password" name="password" placeholder="Enter your password">
+            <button>Signin</button>
+            <!-- <div>
+                Don't have account? <button id="changer">Signup here</button>
+            </div> -->
+        </form>
+    
+    
+        
+    
+    
+        <div id="todoSection">
+            <div>
+                <input type="text" id="todo" placeholder="Enter your todo">
+                <button id="create">Add</button>
+                <div id="todos">
+                    <!-- <div>
+                        <input type="checkbox" name="complete" id="complete">
+                        <input type="text" value="Task 1">
+                        <button>Update</button>
+                        <button>Delete</button>
+                    </div> -->
+                </div>
             </div>
         </div>
     </div>
