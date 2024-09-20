@@ -6,27 +6,13 @@
 
 function isAnagram(str1, str2) 
 {
-//let arr1 = [];
-//arr1 = [...str1]; // or use slpit function
-let strg1 = str1.toLowerCase();
-let strg2 = str2.toLowerCase();
-let a = strg1.split("");
-let b = strg2.split("");
-//let arr2 = [];
-//arr2 = [...str2];
-  let c = a.sort(); // abccba -> aabbcc
-  let d = b.sort(); // sort() funcvtion can only e use with array
-// here we will use join function join()
-let sortedstr1 = c.join();
-let sortedstr2 = d.join();
-
-
-  if(sortedstr1 == sortedstr2) {
+let strng1 = str1.toLowerCase().split("").sort().join();
+let strng2 = str2.toLowerCase().split("").sort().join();
+  if(strng1 == strng2) {
     return true;
   }else
   {
     return false;
   }
 }
-
 module.exports = isAnagram;
