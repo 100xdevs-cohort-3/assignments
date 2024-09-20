@@ -15,7 +15,48 @@
 
   Once you've implemented the logic, test your code by running
 */
+const math = require("mathjs");
 
-class Calculator {}
+class Calculator {
+  constructor(result) {
+    this.result = result;
+  }
+
+  add(value) {
+    this.result = this.result + value;
+  }
+
+  subtract(value) {
+    this.result = this.result - value;
+  }
+
+  multiply(value) {
+    this.result = this.result * value;
+  }
+
+  divide(value) {
+    if (value === 0 || !value) throw new Error("Division not possible");
+  }
+
+  clear() {
+    this.result = 0;
+  }
+
+  getResult() {
+    console.log(`The final result is: ${this.result}`);
+  }
+
+  calculate(str) {
+    try {
+      return math.evaluate(str);
+    } catch (error) {
+      console.error("Error evaluating expression:", error);
+      return null;
+    }
+  }
+}
+
+const result = new Calculator().calculate("2 * (3 + 4) - 5");
+console.log(result);
 
 module.exports = Calculator;
