@@ -62,7 +62,9 @@ signupForm.addEventListener("submit",(event)=>{
             
         // }
         alert(data.message);
-        if(data.message==="User signed up successfully"){
+        if(data.message==="User signed up successfully" || data.message==="User already exists"){
+            console.log(data);
+            
             signupForm.style.display='none'
             signinForm.style.display='block'
         }

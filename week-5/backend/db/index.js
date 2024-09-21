@@ -1,8 +1,10 @@
 //  start writing from here
 const jwt=require('jsonwebtoken');
+const fs=require('fs');
+const { json } = require('express');
 
 let users=[];
-
+const filePath='./db/user.txt'
 
 const generateJWT=(useremail)=>{
     // const userame=req.body.useremail;
@@ -10,7 +12,23 @@ const generateJWT=(useremail)=>{
     return token;
 }
 
+const fetchData=()=>{
+    fs.readFileSync(filePath,'utf-8',(err,data)=>{
+        if(err){
+            return res.status(500).send({err,message:'Error while fetching the details'})
+        }
+    
+        users=JSON.parse(data);
+    })
+}
 
+const writeData=(users,msg)=>{
+    fs.writeFileSync(filePath,JSON.stringify(users),'utf-8',(err)=>{
+        if(err){
+            return res.status(500).send({err,message:`Error while ${msg}`})
+        }
+    })
+}
 
 const signup=(req,res)=>{    
     const user={
@@ -24,6 +42,9 @@ const signup=(req,res)=>{
         return res.status(403).send({message:"User Details required"});
     }
 
+
+    fetchData();
+
     for(let i=0;i<users.length;i++)
     {
         if(user.useremail===users[i].useremail&&user.password===users[i].password){
@@ -32,7 +53,10 @@ const signup=(req,res)=>{
     }
 
     users.push(user);
+    writeData(users,'creating user')
     // const token=generateJWT(user.useremail);
+    console.log(user);
+    
     return res
     .status(201)
     .send({
@@ -47,6 +71,8 @@ const signin=(req,res)=>{
     if(!user.useremail||!user.password){
         return res.status(403).send({message:"User Details required"});
     }
+    
+    // fetchData();
 
     for(let i=0;i<users.length;i++)
     {
@@ -81,6 +107,9 @@ const allTodos=(req,res)=>{
     if(!useremail){
         return res.status(400).send({message:"User required"});
     }
+
+    // fetchData();
+
     for(let i=0;i<users.length;i++)
     {
         if(useremail===users[i].useremail){
@@ -96,11 +125,17 @@ const createTodo=(req,res)=>{
     if(!useremail||!req.body.todo){
         return res.status(400).send({message:"Details required"});
     }
+
+    // fetchData();
+    
     for(let i=0;i<users.length;i++)
     {
         if(useremail===users[i].useremail){
             users[i].todosCount=req.body.todo.id;
             users[i].todos.push(req.body.todo);
+
+            writeData(users,'creating Todo')
+
             return res.status(201).send({message:"Todo created successfully"});
         }
     }
@@ -120,6 +155,9 @@ const deleteTodo=(req,res)=>{
     if(!useremail||!req.body.id){
         return res.status(400).send({message:"Details required"});
     }
+
+    // fetchData();
+
     for(let i=0;i<users.length;i++)
     {
         if(useremail===users[i].useremail){
@@ -130,6 +168,9 @@ const deleteTodo=(req,res)=>{
                     if(removedTodo.length===0){
                         return res.status(500).send({message:"Error occured while removing the todo"});
                     }
+
+                    writeData(users,'deleting Todo')
+
                     return res.status(200).send({message:"Todo deleted successfully"});
                 }
             }
@@ -151,6 +192,8 @@ const completeTodo=(req,res)=>{
     if(!useremail||!req.body.id){
         return res.status(400).send({message:"Details required"});
     }
+
+    // fetchData();
     for(let i=0;i<users.length;i++)
     {
         if(useremail===users[i].useremail){
@@ -158,6 +201,7 @@ const completeTodo=(req,res)=>{
             {
                 if(users[i].todos[j].id===req.body.id){
                     users[i].todos[j].completed=1;
+                    writeData(users,'marking Todo')
                     return res.status(200).send({message:"Todo marked as done successfully"});
                 }
             }
@@ -173,6 +217,8 @@ const updateTodo=(req,res)=>{
     if(!useremail||!req.body.todo){
         return res.status(400).send({message:"Details required"});
     }
+
+    // fetchData();
     for(let i=0;i<users.length;i++)
     {
         if(useremail===users[i].useremail){
@@ -180,6 +226,7 @@ const updateTodo=(req,res)=>{
             {
                 if(users[i].todos[j].id===req.body.todo.id){
                     users[i].todos[j]=req.body.todo;
+                    writeData(users,'updating Todo')
                     return res.status(200).send({message:"Todo updated successfully"});
                 }
             }
