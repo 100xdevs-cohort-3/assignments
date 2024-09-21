@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Auth Website</title>
+        <!-- Adding Axios CDN -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"></script>
+
+        <!-- Adding CSS File -->
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+    <body>
+        
+        <div id="signup-container" style="display: none">
+            <span>Signup</span>
+            <input type="text" id="signup-username" placeholder="Username" required />
+            <input type="password" id="signup-password" placeholder="Password" required />
+            <input type="number" id="signup-age" placeholder="Age" required />
+            <button onclick="signup()">Submit</button>
+
+            <button onclick="moveToSignin()">Already have an account? Sign In</button>
+        </div>
+
+        <div id="signin-container">
+            <span>Signin</span>
+            <input type="text" id="signin-username" placeholder="Username" />
+            <input type="password" id="signin-password" placeholder="Password" />
+            <button onclick="signin()">Submit</button>
+
+            <button onclick="moveToSignup()">Don't have an account? Sign Up</button>
+        </div>
+
+        <div id="info-container" style="display: none">
+            <div id="information"></div>
+            <button id="logout-btn" onclick="logout()">Logout</button>
+        </div>
+
+        <!-- Adding JS File -->
+        <script src="script.js"></script>
+    </body>
+</html>

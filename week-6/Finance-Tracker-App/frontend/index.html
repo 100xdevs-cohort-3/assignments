@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Personal Finance Tracker App</title>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"></script>
+
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+    <body>
+        
+        <div id="signup-container">
+            <h2>Signup</h2>
+            <input type="text" id="signup-username" placeholder="Username" />
+            <input type="password" id="signup-password" placeholder="Password" />
+            <input type="email" id="signup-email" placeholder="Email" />
+            <button onclick="signup()">Signup</button>
+
+            <button onclick="showSignin()">Already have an account? Sign In</button>
+        </div>
+
+        <div id="signin-container">
+            <h2>Signin</h2>
+            <input type="text" id="signin-username" placeholder="Username" />
+            <input type="password" id="signin-password" placeholder="Password" />
+            <button onclick="signin()">Signin</button>
+
+            <button onclick="showSignup()">Don't have an account? Sign Up</button>
+        </div>
+
+        <div id="dashboard">
+            <h2>Dashboard</h2>
+            <button onclick="logout()">Logout</button>
+            <div id="summary"></div>
+
+            <h3>Transactions</h3>
+            <input type="number" id="amount" placeholder="Amount" />
+            <select id="type">
+                <option value="income">Income</option>
+                <option value="expense">Expense</option>
+            </select>
+
+            <input type="text" id="category" placeholder="Category" />
+            <input type="date" id="date" />
+            
+            <button onclick="addTransaction()">Add Transaction</button>
+            <div id="transactions"></div>
+        </div>
+
+        <script src="./script.js"></script>
+    </body>
+</html>
