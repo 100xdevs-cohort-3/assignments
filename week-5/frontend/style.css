@@ -38,3 +38,11 @@ input, button{
   padding: 3px;
 }
 
+#toSignin, #toSignup{
+  display: inline-block;
+  background-color: rgb(183, 190, 197);
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+

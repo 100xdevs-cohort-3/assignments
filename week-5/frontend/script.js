@@ -35,6 +35,18 @@ const populateTodo=(todos,cls,completed,title)=>{
     todos.appendChild(divEl);
 }
 
+const toSignin=document.getElementById('toSignin');
+toSignin.addEventListener('click',()=>{
+       signupForm.style.display='none'
+            signinForm.style.display='block'
+})
+
+const toSignup=document.getElementById('toSignup');
+toSignup.addEventListener('click',()=>{
+       signupForm.style.display='block'
+            signinForm.style.display='none'
+})
+
 
 const signupForm=document.getElementById('signup');
 signupForm.addEventListener("submit",(event)=>{
@@ -62,8 +74,9 @@ signupForm.addEventListener("submit",(event)=>{
             
         // }
         alert(data.message);
+
         if(data.message==="User signed up successfully" || data.message==="User already exists"){
-            console.log(data);
+            // console.log(data);
             
             signupForm.style.display='none'
             signinForm.style.display='block'
