@@ -4,7 +4,16 @@
  * the function should return a promise just like before
  */
 
-function sleep(milliseconds) {
+function Stuck(milliseconds){
+    return new Promise(resolve => setTimeout(resolve, milliseconds));
 }
+
+async function sleep(milliseconds) {
+    console.log("Machine won't for ", milliseconds, " milliseconds");
+    await Stuck(milliseconds);
+    console.log("few seconds have passed");
+}
+
+sleep(5000);
 
 module.exports = sleep;

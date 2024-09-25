@@ -6,6 +6,17 @@
 
 function isAnagram(str1, str2) {
 
+  if(str1.length == str2.length){
+    
+    let arr1 = str1.toLowerCase().split('').sort().join();
+    let arr2 = str2.toLowerCase().split('').sort().join();
+
+    return(arr1 === arr2);
+  }
+
+  return false;
 }
+
+console.log(isAnagram('spar', 'rasp'));
 
 module.exports = isAnagram;
