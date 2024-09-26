@@ -34,7 +34,7 @@ const authMiddleware = (req, res, next) => {
 };
 
 // Connect to MongoDB
-mongoose.connect('<YourMongoDbConnectionString>'); 
+mongoose.connect("mongodb://localhost:27017/mongo").then(() => console.log("Database connected successfully")) 
 
 
 // Admin routes
