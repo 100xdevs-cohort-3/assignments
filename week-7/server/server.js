@@ -3,6 +3,7 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
 const dotenv = require("dotenv");
+const bcrypt = require("bcrypt")
 dotenv.config();
 const app = express();
 
@@ -70,12 +71,14 @@ app.post('/users/signup', async (req, res) => {
             return res.status(400).json({ message: "Username already taken, please choose another username" });
         }
 
+        const hashedpassword = await bcrypt.hash(password, 10)
+
         const newUser = await User.create({
             username,
-            password 
+            password: hashedpassword,
         });
 
-        // Generate a JWT token
+        // Generating a JWT token
         const token = jwt.sign({ id: newUser._id }, secret); 
 
         res.status(201).json({
@@ -88,8 +91,32 @@ app.post('/users/signup', async (req, res) => {
 });
 
 
-app.post('/users/login', (req, res) => {
+app.post('/users/login', async (req, res) => {
     // logic to log in user
+    try {
+        const {username, password} = req.body;
+        const user = await User.findOne({ username });
+        if(!user) {
+            return res.status(404).json("User not Found")
+        }
+        const passwordMatch = await bcrypt.compare(password, user.password)
+        if(!passwordMatch) {
+            return res.json({
+                message: "Invalid credientails"
+            })
+        }
+
+        const token = jwt.sign({ id: user._id}, secret)
+
+        res.status(200).json({
+            message: "Logged in successfully",
+            token
+        })
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: "An error occurred." });
+    }
+
 });
 
 app.get('/users/courses', (req, res) => {
