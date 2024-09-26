@@ -8,12 +8,14 @@ const app = express();
 
 app.use(express.json());
 
-const secret = process.env.JWT_SECRERT;  // This should be in an environment variable in a real application
+const secret = process.env.JWT_SECRET;  // This should be in an environment variable in a real application
 const port = process.env.PORT;
 
 // Define mongoose schemas
 const userSchema = new mongoose.Schema({
   // userSchema here
+  username:  {type: String, unique: true},
+  password: String
 });
 
 const adminSchema = new mongoose.Schema({
@@ -59,9 +61,32 @@ app.get('/admin/courses', (req, res) => {
 });
 
 // User routes
-app.post('/users/signup', (req, res) => {
-    // logic to sign up user
+app.post('/users/signup', async (req, res) => {
+    try {
+        const { username, password } = req.body;
+
+        const existUser = await User.findOne({ username });
+        if (existUser) {
+            return res.status(400).json({ message: "Username already taken, please choose another username" });
+        }
+
+        const newUser = await User.create({
+            username,
+            password 
+        });
+
+        // Generate a JWT token
+        const token = jwt.sign({ id: newUser._id }, secret); 
+
+        res.status(201).json({
+            message: "User Created Successfully",
+            token
+        });
+    } catch (error) {
+        res.status(500).json({ message: "An error occurred." });
+    }
 });
+
 
 app.post('/users/login', (req, res) => {
     // logic to log in user
