@@ -9,5 +9,27 @@ There is no automated test for this one, this is more for you to understand time
 */
 
 function calculateTime(n) {
-    return 0.01;
+  let sum = 0;
+  for (let i = 0; i <= n; i++) {
+    sum += i;
+  }
+  return sum;
 }
+
+// console.log(Date.now());
+let startTime = Date.now();
+calculateTime(100);
+let endTime = Date.now();
+let diff = endTime - startTime;
+console.log(diff);
+startTime = Date.now();
+calculateTime(100000);
+endTime = Date.now();
+diff = endTime - startTime;
+console.log(diff);
+
+startTime = Date.now();
+console.log(calculateTime(1000000000));
+endTime = Date.now();
+diff = endTime - startTime;
+console.log(diff);

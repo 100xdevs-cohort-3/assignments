@@ -4,7 +4,21 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  str = str
+    .split("")
+    .filter(
+      (char) =>
+        char !== "." &&
+        char !== "!" &&
+        char !== "?" &&
+        char !== " " &&
+        char !== ","
+    )
+    .join("")
+    .toLowerCase();
+
+  let rev = str.split("").reverse().join("");
+  return rev === str;
 }
 
 module.exports = isPalindrome;
