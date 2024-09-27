@@ -41,6 +41,18 @@ const Course = mongoose.model('Course', courseSchema);
 
 const authMiddleware = (req, res, next) => {
     //  authMiddleware logic here 
+    const token = req.header.authorization;
+    const response = jwt.verify(token, secret)
+
+    if(response) {
+        req.userId = response.id;
+        next();
+    } else {
+        res.json({
+            message: "Invalid Token"
+        })
+    }
+
 };
 
 // Connect to MongoDB
@@ -90,7 +102,7 @@ app.post('/admin/login', async (req, res) => {
         }
         const isMatched = await bcrypt.compare(password, admin.password);
         if(!isMatched) {
-            res.status(402).json({
+            res.status(401).json({
                 message: "Invalid credentials"
             })
         }
