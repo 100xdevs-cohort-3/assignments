@@ -16,7 +16,8 @@ const port = process.env.PORT;
 const userSchema = new mongoose.Schema({
     // userSchema here
     username: { type: String, unique: true },
-    password: String
+    password: String,
+    purchasedCourses: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Course' }]  // for course purchasing
 }, { timestamps: true });
 
 const adminSchema = new mongoose.Schema({
@@ -273,8 +274,42 @@ app.get('/users/courses', (req, res) => {
     // logic to list all courses
 });
 
-app.post('/users/courses/:courseId', (req, res) => {
+app.post('/users/courses/:courseId', authMiddleware, async (req, res) => {
     // logic to purchase a course
+    try {
+        const { courseId} = req.params;
+        const userId = req.userId;
+    
+        const course = await Course.findById(courseId);
+        if(!course) {
+            return res.status(404).json({
+                message: "Course not Found"
+            })
+        }
+    
+        const user = await User.findById(userId);
+        if(!user) {
+            res.status(404).json({
+                message: "User not Found"
+            })
+        }
+    
+        if(user.purchasedCourses && user.purchasedCourses.includes(courseId)) {
+            return res.status(200).json({
+                message: "Course already Purchased"
+            })
+        }
+    
+        user.purchasedCourses = user.purchasedCourses || [];
+        user.purchasedCourses.push(courseId)
+    
+        await user.save();
+    } catch (error) {
+        console.log("Error:", error);
+        res.status(500).json({
+            message: "Error Occured.."
+        })
+    }
 });
 
 app.get('/users/purchasedCourses', (req, res) => {
