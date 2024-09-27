@@ -7,6 +7,7 @@
  display: inline-block;
  padding: 20px;
  border-radius: 5px;
+ background-color: rgb(241, 237, 237);
 }
 
 #signin, #todoSection{
@@ -32,11 +33,21 @@ label,input{
   padding:5px;
 }
 
+/* button{
+  background-color: rgb(183, 190, 197);
+  border: none;
+  border-radius: 2px;
+  padding: 3px;
+} */
+
 input, button{
   margin-top: 3px;
   margin-bottom: 3px;
   padding: 3px;
+  
 }
+
+
 
 #toSignin, #toSignup{
   display: inline-block;
