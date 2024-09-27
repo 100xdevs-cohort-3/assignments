@@ -21,6 +21,8 @@ const userSchema = new mongoose.Schema({
 
 const adminSchema = new mongoose.Schema({
     // adminSchema here
+    username: { type: String, unique: true },
+    password: String
 });
 
 const courseSchema = new mongoose.Schema({
@@ -46,12 +48,65 @@ mongoose.connect(process.env.MONGO_URL).then(() => console.log("Database connect
 
 
 // Admin routes
-app.post('/admin/signup', (req, res) => {
+app.post('/admin/signup', async (req, res) => {
     // logic to sign up admin
+    try {
+        const { username, password } = req.body;
+
+        const existAdmin = await Admin.findOne({ username });
+        if (existAdmin) {
+            return res.status(400).json({ message: "Username already exists, Please try another username" });
+        }
+
+        const hashedpassword = await bcrypt.hash(password, 10)
+
+        const newAdmin = await Admin.create({
+            username,
+            password: hashedpassword,
+        });
+
+        // Generating a JWT token
+        const token = jwt.sign({ id: newAdmin._id }, secret);
+
+        res.status(201).json({
+            message: "Admin Created Successfully",
+            token
+        });
+    } catch (error) {
+        res.status(500).json({ message: "An error occurred." });
+    }
+
 });
 
-app.post('/admin/login', (req, res) => {
+app.post('/admin/login', async (req, res) => {
     // logic to log in admin
+    try {
+        const { username, password} = req.body;
+        const admin = await Admin.findOne({username});   // here getting error as findone only accept object with key-value pairs
+        if(!admin) {
+            res.status(404).json({
+                message: "Admin not found"
+            })
+        }
+        const isMatched = await bcrypt.compare(password, admin.password);
+        if(!isMatched) {
+            res.status(402).json({
+                message: "Invalid credentials"
+            })
+        }
+    
+        const token = jwt.sign({id: Admin._id}, secret)
+        res.status(200).json({
+            message: "Logged in successfully",
+            token
+        })
+    } catch (error) {
+        console.log("Error:", error);
+        res.status(500).json({
+            Error: "Error Occured.."
+        })
+        
+    }
 });
 
 app.post('/admin/courses', (req, res) => {
