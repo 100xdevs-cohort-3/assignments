@@ -42,16 +42,16 @@ const Course = mongoose.model('Course', courseSchema);
 
 const authMiddleware = (req, res, next) => {
     //  authMiddleware logic here 
-    const token = req.headers.authorization;
-    const response = jwt.verify(token, secret)
-
-    if (response) {
-        req.userId = response.id;
+    const token = req.header('Authorization')?.replace('Bearer ', '');
+    if (!token) {
+        return res.status(401).json({ message: "Access denied. No token provided." });
+    }
+    try {
+        const decoded = jwt.verify(token, secret); 
+        req.user = decoded; 
         next();
-    } else {
-        res.json({
-            message: "Invalid Token"
-        })
+    } catch (ex) {
+        return res.status(400).json({ message: "Invalid token." });
     }
 
 };
@@ -157,7 +157,7 @@ app.post('/admin/courses', authMiddleware, async (req, res) => {
     }
 });
 
-app.put('/admin/courses/:courseId', async (req, res) => {
+app.put('/admin/courses/:courseId', authMiddleware, async (req, res) => {
     // logic to edit a course
     try {
         const { courseId } = req.params;
@@ -191,7 +191,7 @@ app.put('/admin/courses/:courseId', async (req, res) => {
 });
 
 
-app.get('/admin/courses', async (req, res) => {
+app.get('/admin/courses', authMiddleware, async (req, res) => {
     // logic to get all courses
     try {
         const courses = await Course.find();
@@ -270,8 +270,24 @@ app.post('/users/login', async (req, res) => {
 
 });
 
-app.get('/users/courses', (req, res) => {
+app.get('/users/courses', authMiddleware, async (req, res) => {
     // logic to list all courses
+    try {
+        const courses = await Course.find();
+        if(courses.length < 1) {
+            return res.status(400).json({
+                message: "No Courses Available"
+            })
+        }
+        return res.status(200).json({
+            message: "Courses Retrived Successfully",
+            courses
+        })
+    } catch (error) {
+        res.status(500).json({
+            message: "Error Occured.."
+        })
+    }
 });
 
 app.post('/users/courses/:courseId', authMiddleware, async (req, res) => {
