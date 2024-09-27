@@ -159,24 +159,24 @@ app.post('/admin/courses', authMiddleware, async (req, res) => {
 app.put('/admin/courses/:courseId', async (req, res) => {
     // logic to edit a course
     try {
-        const {courseId} = req.params;
+        const { courseId } = req.params;
         const { title, description, price, imageLink, published } = req.body;
-    
+
         const course = await Course.findById(courseId);
         if (!course) {
             return res.status(404).json({
                 message: "Course not found"
             })
         }
-    
+
         if (title) course.title = title;
         if (description) course.description = description;
         if (price) course.price = price;
         if (imageLink) course.imageLink = imageLink;
         if (published !== undefined) course.published = published;
-    
+
         const updatedCourse = await course.save();
-    
+
         return res.status(200).json({
             message: "Course updated Successfully",
             updatedCourse
@@ -190,8 +190,25 @@ app.put('/admin/courses/:courseId', async (req, res) => {
 });
 
 
-app.get('/admin/courses', (req, res) => {
+app.get('/admin/courses', async (req, res) => {
     // logic to get all courses
+    try {
+        const courses = await Course.find();
+        if(courses.length < 1) {
+            return res.status(400).json({
+                message: "No Courses Available"
+            })
+        }
+        return res.status(200).json({
+            message: "Courses Retrived Successfully",
+            courses
+        })
+    } catch (error) {
+        res.status(500).json({
+            message: "Error Occured.."
+        })
+    }
+
 });
 
 // User routes
