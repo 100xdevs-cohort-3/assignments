@@ -14,17 +14,22 @@ const port = process.env.PORT;
 
 // Define mongoose schemas
 const userSchema = new mongoose.Schema({
-  // userSchema here
-  username:  {type: String, unique: true},
-  password: String
+    // userSchema here
+    username: { type: String, unique: true },
+    password: String
 });
 
 const adminSchema = new mongoose.Schema({
-// adminSchema here
+    // adminSchema here
 });
 
 const courseSchema = new mongoose.Schema({
-// courseSchema here
+    // courseSchema here
+    title: String,
+    description: String,
+    price: Number,
+    imageLink: String,
+    published: Boolean
 });
 
 // Define mongoose models
@@ -33,11 +38,11 @@ const Admin = mongoose.model('Admin', adminSchema);
 const Course = mongoose.model('Course', courseSchema);
 
 const authMiddleware = (req, res, next) => {
-//  authMiddleware logic here 
+    //  authMiddleware logic here 
 };
 
 // Connect to MongoDB
-mongoose.connect("mongodb://localhost:27017/mongo").then(() => console.log("Database connected successfully")) 
+mongoose.connect(process.env.MONGO_URL).then(() => console.log("Database connected successfully"))
 
 
 // Admin routes
@@ -79,7 +84,7 @@ app.post('/users/signup', async (req, res) => {
         });
 
         // Generating a JWT token
-        const token = jwt.sign({ id: newUser._id }, secret); 
+        const token = jwt.sign({ id: newUser._id }, secret);
 
         res.status(201).json({
             message: "User Created Successfully",
@@ -94,19 +99,19 @@ app.post('/users/signup', async (req, res) => {
 app.post('/users/login', async (req, res) => {
     // logic to log in user
     try {
-        const {username, password} = req.body;
+        const { username, password } = req.body;
         const user = await User.findOne({ username });
-        if(!user) {
+        if (!user) {
             return res.status(404).json("User not Found")
         }
         const passwordMatch = await bcrypt.compare(password, user.password)
-        if(!passwordMatch) {
+        if (!passwordMatch) {
             return res.json({
                 message: "Invalid credientails"
             })
         }
 
-        const token = jwt.sign({ id: user._id}, secret)
+        const token = jwt.sign({ id: user._id }, secret)
 
         res.status(200).json({
             message: "Logged in successfully",
