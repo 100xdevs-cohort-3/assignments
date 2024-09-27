@@ -27,7 +27,7 @@ const adminSchema = new mongoose.Schema({
 
 const courseSchema = new mongoose.Schema({
     // courseSchema here
-    title: String,
+    title: {type: String, unique: true},
     description: String,
     price: Number,
     imageLink: String,
@@ -121,8 +121,39 @@ app.post('/admin/login', async (req, res) => {
     }
 });
 
-app.post('/admin/courses', (req, res) => {
+app.post('/admin/courses', async (req, res) => {
     // logic to create a course
+    try {
+        const { title , description, price, imageLink, published } = req.body;
+
+        const existCourse = await Course.findOne({ title })
+        if(existCourse) {
+            return res.status(400).json({
+                message: "Title can't be same, Please choose another One"
+            })
+        }
+        if (!title || !description || !price || !imageLink) {
+            return res.status(400).json({
+                message: "All fields are required: title, description, price, imageLink and published"
+            });
+        }
+        const newCourse = await Course.create({
+            title, 
+            description,
+            price, 
+            imageLink,
+            published
+        })
+        return res.status(201).json({
+            message: "Course Created Successfully",
+            course: newCourse
+        })
+    } catch (error) {
+        console.log("Error:", error);
+        res.status(500).json({
+            message: "Error Occured.."
+        })
+    }
 });
 
 app.put('/admin/courses/:courseId', (req, res) => {
