@@ -17,13 +17,13 @@ const userSchema = new mongoose.Schema({
     // userSchema here
     username: { type: String, unique: true },
     password: String
-});
+}, {timestamps: true});
 
 const adminSchema = new mongoose.Schema({
     // adminSchema here
     username: { type: String, unique: true },
     password: String
-});
+}, {timestamps: true});
 
 const courseSchema = new mongoose.Schema({
     // courseSchema here
@@ -32,7 +32,7 @@ const courseSchema = new mongoose.Schema({
     price: Number,
     imageLink: String,
     published: Boolean
-});
+}, {timestamps: true});
 
 // Define mongoose models
 const User = mongoose.model('User', userSchema);
