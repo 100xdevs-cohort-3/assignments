@@ -41,7 +41,7 @@ const Course = mongoose.model('Course', courseSchema);
 
 const authMiddleware = (req, res, next) => {
     //  authMiddleware logic here 
-    const token = req.header.authorization;
+    const token = req.headers.authorization;
     const response = jwt.verify(token, secret)
 
     if(response) {
@@ -96,19 +96,19 @@ app.post('/admin/login', async (req, res) => {
         const { username, password} = req.body;
         const admin = await Admin.findOne({username});   // here getting error as findone only accept object with key-value pairs
         if(!admin) {
-            res.status(404).json({
+            return res.status(404).json({
                 message: "Admin not found"
             })
         }
         const isMatched = await bcrypt.compare(password, admin.password);
         if(!isMatched) {
-            res.status(401).json({
+            return res.status(401).json({
                 message: "Invalid credentials"
             })
         }
     
         const token = jwt.sign({id: Admin._id}, secret)
-        res.status(200).json({
+        return res.status(200).json({
             message: "Logged in successfully",
             token
         })
@@ -121,7 +121,7 @@ app.post('/admin/login', async (req, res) => {
     }
 });
 
-app.post('/admin/courses', async (req, res) => {
+app.post('/admin/courses', authMiddleware, async (req, res) => {
     // logic to create a course
     try {
         const { title , description, price, imageLink, published } = req.body;
