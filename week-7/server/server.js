@@ -17,22 +17,22 @@ const userSchema = new mongoose.Schema({
     // userSchema here
     username: { type: String, unique: true },
     password: String
-}, {timestamps: true});
+}, { timestamps: true });
 
 const adminSchema = new mongoose.Schema({
     // adminSchema here
     username: { type: String, unique: true },
     password: String
-}, {timestamps: true});
+}, { timestamps: true });
 
 const courseSchema = new mongoose.Schema({
     // courseSchema here
-    title: {type: String, unique: true},
+    title: { type: String, unique: true },
     description: String,
     price: Number,
     imageLink: String,
     published: Boolean
-}, {timestamps: true});
+}, { timestamps: true });
 
 // Define mongoose models
 const User = mongoose.model('User', userSchema);
@@ -44,7 +44,7 @@ const authMiddleware = (req, res, next) => {
     const token = req.headers.authorization;
     const response = jwt.verify(token, secret)
 
-    if(response) {
+    if (response) {
         req.userId = response.id;
         next();
     } else {
@@ -93,21 +93,21 @@ app.post('/admin/signup', async (req, res) => {
 app.post('/admin/login', async (req, res) => {
     // logic to log in admin
     try {
-        const { username, password} = req.body;
-        const admin = await Admin.findOne({username});   // here getting error as findone only accept object with key-value pairs
-        if(!admin) {
+        const { username, password } = req.body;
+        const admin = await Admin.findOne({ username });   // here getting error as findone only accept object with key-value pairs
+        if (!admin) {
             return res.status(404).json({
                 message: "Admin not found"
             })
         }
         const isMatched = await bcrypt.compare(password, admin.password);
-        if(!isMatched) {
+        if (!isMatched) {
             return res.status(401).json({
                 message: "Invalid credentials"
             })
         }
-    
-        const token = jwt.sign({id: Admin._id}, secret)
+
+        const token = jwt.sign({ id: Admin._id }, secret)
         return res.status(200).json({
             message: "Logged in successfully",
             token
@@ -117,17 +117,17 @@ app.post('/admin/login', async (req, res) => {
         res.status(500).json({
             Error: "Error Occured.."
         })
-        
+
     }
 });
 
 app.post('/admin/courses', authMiddleware, async (req, res) => {
     // logic to create a course
     try {
-        const { title , description, price, imageLink, published } = req.body;
+        const { title, description, price, imageLink, published } = req.body;
 
         const existCourse = await Course.findOne({ title })
-        if(existCourse) {
+        if (existCourse) {
             return res.status(400).json({
                 message: "Title can't be same, Please choose another One"
             })
@@ -138,9 +138,9 @@ app.post('/admin/courses', authMiddleware, async (req, res) => {
             });
         }
         const newCourse = await Course.create({
-            title, 
+            title,
             description,
-            price, 
+            price,
             imageLink,
             published
         })
@@ -156,9 +156,39 @@ app.post('/admin/courses', authMiddleware, async (req, res) => {
     }
 });
 
-app.put('/admin/courses/:courseId', (req, res) => {
+app.put('/admin/courses/:courseId', async (req, res) => {
     // logic to edit a course
+    try {
+        const {courseId} = req.params;
+        const { title, description, price, imageLink, published } = req.body;
+    
+        const course = await Course.findById(courseId);
+        if (!course) {
+            return res.status(404).json({
+                message: "Course not found"
+            })
+        }
+    
+        if (title) course.title = title;
+        if (description) course.description = description;
+        if (price) course.price = price;
+        if (imageLink) course.imageLink = imageLink;
+        if (published !== undefined) course.published = published;
+    
+        const updatedCourse = await course.save();
+    
+        return res.status(200).json({
+            message: "Course updated Successfully",
+            updatedCourse
+        })
+    } catch (error) {
+        console.log("Error:", error);
+        res.status(500).json({
+            message: "Error Occured.."
+        })
+    }
 });
+
 
 app.get('/admin/courses', (req, res) => {
     // logic to get all courses
