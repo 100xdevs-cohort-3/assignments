@@ -47,8 +47,8 @@ const authMiddleware = (req, res, next) => {
         return res.status(401).json({ message: "Access denied. No token provided." });
     }
     try {
-        const decoded = jwt.verify(token, secret); 
-        req.user = decoded; 
+        const decoded = jwt.verify(token, secret);
+        req.user = decoded.id;  // simply an id is stored in this req.user
         next();
     } catch (ex) {
         return res.status(400).json({ message: "Invalid token." });
@@ -195,7 +195,7 @@ app.get('/admin/courses', authMiddleware, async (req, res) => {
     // logic to get all courses
     try {
         const courses = await Course.find();
-        if(courses.length < 1) {
+        if (courses.length < 1) {
             return res.status(400).json({
                 message: "No Courses Available"
             })
@@ -274,7 +274,7 @@ app.get('/users/courses', authMiddleware, async (req, res) => {
     // logic to list all courses
     try {
         const courses = await Course.find();
-        if(courses.length < 1) {
+        if (courses.length < 1) {
             return res.status(400).json({
                 message: "No Courses Available"
             })
@@ -293,33 +293,36 @@ app.get('/users/courses', authMiddleware, async (req, res) => {
 app.post('/users/courses/:courseId', authMiddleware, async (req, res) => {
     // logic to purchase a course
     try {
-        const { courseId} = req.params;
-        const userId = req.userId;
-    
+        const { courseId } = req.params;
+        const userId = req.user;
+
         const course = await Course.findById(courseId);
-        if(!course) {
+        if (!course) {
             return res.status(404).json({
                 message: "Course not Found"
             })
         }
-    
+
         const user = await User.findById(userId);
-        if(!user) {
+        if (!user) {
             res.status(404).json({
                 message: "User not Found"
             })
         }
-    
-        if(user.purchasedCourses && user.purchasedCourses.includes(courseId)) {
+
+        if (user.purchasedCourses && user.purchasedCourses.includes(courseId)) {
             return res.status(200).json({
                 message: "Course already Purchased"
             })
         }
-    
+
         user.purchasedCourses = user.purchasedCourses || [];
         user.purchasedCourses.push(courseId)
-    
+
         await user.save();
+        return res.status(200).json({
+            message: "Course puchased Successfully"
+        })
     } catch (error) {
         console.log("Error:", error);
         res.status(500).json({
@@ -328,8 +331,25 @@ app.post('/users/courses/:courseId', authMiddleware, async (req, res) => {
     }
 });
 
-app.get('/users/purchasedCourses', (req, res) => {
+app.get('/users/purchasedCourses', authMiddleware, async (req, res) => {
     // logic to view purchased courses
+    try {
+        const userId = req.user;
+        const user = await User.findById(userId).populate("purchasedCourses")
+        if (!user || !user.purchasedCourses || !user.purchasedCourses.length < 1) {
+            res.status(404).json({
+                message: "No Coureses Available"
+            })
+        }
+        res.status(200).json({
+            purchasedCourses: user.purchasedCourses
+        })
+    } catch (error) {
+        console.log("Error retriving puchasedCourses:", error);
+        res.status(500).json({
+            message: "Error Occured.."
+        })
+    }
 });
 
 app.listen(port, () => {
