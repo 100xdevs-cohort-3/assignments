@@ -17,7 +17,6 @@ const Login = () => {
         } catch (error) {
             console.log("Error", error);
         }
-        
     }
     return (
         <div>

@@ -30,7 +30,7 @@ const Courses = () => {
             <h4>{item.title}</h4>
             <p>{item.description}</p>
             <p>Rs.{item.price}</p>
-            <p>{item.published}</p>
+            <p>{item.published ? 'Published' : 'Not Published'}</p>
           </div>
         ))
       }
