@@ -159,6 +159,27 @@ app.post('/admin/courses', authMiddleware, async (req, res) => {
     }
 });
 
+
+// This is for getting the course from the database
+app.get('/admin/courses/:courseId', authMiddleware, async (req, res) => {
+    try {
+      const {courseId} = req.params;
+  
+      // Find the course by its ID
+      const course = await Course.findById(courseId);
+  
+      if (!course) {
+        return res.status(404).json({ message: 'Course not found' });
+      }
+  
+      // Send course data in the response
+      res.json({ course });
+    } catch (error) {
+      console.error('Error fetching course:', error);
+      res.status(500).json({ message: 'Server error. Failed to retrieve course.' });
+    }
+  });
+
 app.put('/admin/courses/:courseId', authMiddleware, async (req, res) => {
     // logic to edit a course
     try {
