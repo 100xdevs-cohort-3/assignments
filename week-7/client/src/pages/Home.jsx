@@ -12,9 +12,11 @@ const Home = () => {
           </div>
         </Link>
         {/* will work on this later */}
-        {/* <div>
-          <h1>User</h1>
-        </div> */}
+        <Link to={"/userlogin"}>
+          <div>
+            <h1>User</h1>
+          </div>
+        </Link>
       </div>
     </div>
   )

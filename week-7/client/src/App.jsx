@@ -5,6 +5,10 @@ import Register from "./components/Register"
 import Login from "./components/Login"
 import Dashboard from "./components/Dashboard"
 import UpdateCourse from "./components/UpdateCourse"
+
+import UserLogin from "./components/UserLogin"
+import UserRegister from "./components/UserRegister"
+import UserDashBoard from "./components/UserDashboard"
 function App() {
 
   return (
@@ -16,6 +20,11 @@ function App() {
       <Route path="/adminlogin" element={<Login />} />
       <Route path="/admindashboard" element={<Dashboard />} />
       <Route path="/updatecourse/:id" element={<UpdateCourse />} />
+
+      <Route path="/usersignup" element={<UserRegister />} />      
+      <Route path="/userlogin" element={<UserLogin />} />      
+      <Route path="/userdashboard" element={<UserDashBoard />} />      
+
     </Routes>
     </BrowserRouter>
     </>
