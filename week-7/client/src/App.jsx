@@ -4,6 +4,7 @@ import Home from "./pages/Home"
 import Register from "./components/Register"
 import Login from "./components/Login"
 import Dashboard from "./components/Dashboard"
+import UpdateCourse from "./components/UpdateCourse"
 function App() {
 
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path="/adminsignup" element={<Register />} />
       <Route path="/adminlogin" element={<Login />} />
       <Route path="/admindashboard" element={<Dashboard />} />
+      <Route path="/updatecourse/:id" element={<UpdateCourse />} />
     </Routes>
     </BrowserRouter>
     </>
