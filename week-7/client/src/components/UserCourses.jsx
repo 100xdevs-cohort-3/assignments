@@ -1,15 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom";
 
-// use axios here, similar to register and login
-const Courses = () => {
+const UserCourses = () => {
   const [courses, setCourses] = useState([])
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchCourses = async () => {
-      const response = await axios.get('http://localhost:3000/admin/courses', {
+      const response = await axios.get('http://localhost:3000/users/courses', {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('adminToken')}`
         }
@@ -20,15 +17,13 @@ const Courses = () => {
 
     fetchCourses();
   }, []);
-  const handleRoute = (id) => {
-    navigate(`/updatecourse/${id}`)
-  }
+
   return (
     <div>
-      <h1>All Courses</h1>
+      <h1>All Available Courses</h1>
       {
         courses.map((item, index) => (
-            <div key={index} style={{ border: "2px solid black" }} onClick={() => handleRoute(item._id)}>
+            <div key={index} style={{ border: "2px solid black" } }>
               <div>
                 <img src={item.imageLink} height={100} width={100} alt="Image" />
               </div>
@@ -43,4 +38,4 @@ const Courses = () => {
   )
 }
 
-export default Courses
+export default UserCourses

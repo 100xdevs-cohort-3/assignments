@@ -9,6 +9,7 @@ import UpdateCourse from "./components/UpdateCourse"
 import UserLogin from "./components/UserLogin"
 import UserRegister from "./components/UserRegister"
 import UserDashBoard from "./components/UserDashboard"
+import PurchasedCourses from "./components/PurchasedCourses"
 function App() {
 
   return (
@@ -24,6 +25,7 @@ function App() {
       <Route path="/usersignup" element={<UserRegister />} />      
       <Route path="/userlogin" element={<UserLogin />} />      
       <Route path="/userdashboard" element={<UserDashBoard />} />      
+      <Route path="/purchasedcourses" element={<PurchasedCourses />} />      
 
     </Routes>
     </BrowserRouter>
