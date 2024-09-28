@@ -8,7 +8,7 @@ const PurchasedCourses = () => {
     const fetchCourses = async () => {
       const response = await axios.get('http://localhost:3000/users/purchasedCourses', {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('adminToken')}`
+          Authorization: `Bearer ${localStorage.getItem('userToken')}`
         }
       });
       setCourses(response.data.purchasedCourses)
