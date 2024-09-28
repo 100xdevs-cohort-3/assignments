@@ -14,7 +14,7 @@ const Login = () => {
     const handleLogin = async () => {
         try {
             const resposne = await axios.post("http://localhost:3000/users/login", { username, password });
-            localStorage.setItem("adminToken", resposne.data.token)
+            localStorage.setItem("userToken", resposne.data.token)
             console.log(resposne.data.message);
             navigate("/userdashboard")
         } catch (error) {

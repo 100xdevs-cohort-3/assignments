@@ -10,7 +10,7 @@ const Dashboard = () => {
             try {
                 const response = await axios.get("http://localhost:3000/users/courses", {
                     headers: {
-                        Authorization: `Bearer ${localStorage.getItem("adminToken")}`
+                        Authorization: `Bearer ${localStorage.getItem("userToken")}`
                     }
                 })
                 console.log("The responses are:", response.data);
