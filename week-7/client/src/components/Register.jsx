@@ -5,14 +5,15 @@ import axios from "axios"
 
 const Register = () => {
 
-    const [userName, setUserName] = useState("")
+    const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     
     // call the functions onClick of button.
     async function handleRegister() {
         try {
-            const resposne = await axios.post("http://localhost:3000/admin/signup", { userName, password}); 
+            const resposne = await axios.post("http://localhost:3000/admin/signup", { username, password}); 
             alert(resposne.data.message)
+            console.log(resposne.data);
         } catch (error) {
             console.log("Error", error);
         }
@@ -21,8 +22,8 @@ const Register = () => {
     return (
         <div>
             <h1>Register Here</h1>
-            <input type="text" placeholder='UserName' onChange={(e) => setUserName(e.target.value) } />
-            <input type="password" placeholder='Password' onChange={(e) => setPassword(e.target.value) } />
+            <input type="text" placeholder='UserName' value={username} onChange={(e) => setUsername(e.target.value) } />
+            <input type="password" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value) } />
             <button onClick={handleRegister}>Submit</button>
         </div>
     )
