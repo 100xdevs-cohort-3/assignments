@@ -4,10 +4,12 @@ const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
 const dotenv = require("dotenv");
 const bcrypt = require("bcrypt")
+const cors = require("cors")
 dotenv.config();
 const app = express();
 
 app.use(express.json());
+app.use(cors())  // Note: This wil accept all 
 
 const secret = process.env.JWT_SECRET;  // This should be in an environment variable in a real application
 const port = process.env.PORT;
