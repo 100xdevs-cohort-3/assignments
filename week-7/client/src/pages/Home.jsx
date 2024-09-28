@@ -9,7 +9,10 @@ import Courses from '../components/Courses'
 const Home = () => {
   return (
     //  write home page UI code here
-    <div>Home</div>
+    <div>
+      <h1>Home</h1>
+      <Register />
+    </div>
   )
 }
 

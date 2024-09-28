@@ -1,6 +1,5 @@
 // login code here
 import axios from 'axios';
-import React from 'react'
 
 const Login = () => {
     // call the functions onClick of button.
