@@ -355,25 +355,31 @@ app.post('/users/courses/:courseId', authMiddleware, async (req, res) => {
 });
 
 app.get('/users/purchasedCourses', authMiddleware, async (req, res) => {
-    // logic to view purchased courses
     try {
-        const userId = req.user;
-        const user = await User.findById(userId).populate("purchasedCourses")
-        if (!user || !user.purchasedCourses || !user.purchasedCourses.length < 1) {
-            res.status(404).json({
-                message: "No Coureses Available"
-            })
+        const userId = req.user; 
+        const user = await User.findById(userId).populate("purchasedCourses");
+
+        if (!user || !user.purchasedCourses || user.purchasedCourses.length === 0) {
+            return res.status(404).json({
+                message: "No Courses Available"
+            });
         }
-        res.status(200).json({
+
+        return res.status(200).json({
+            message: "Successfully Retrived Purchased Courses",
             purchasedCourses: user.purchasedCourses
-        })
+        });
     } catch (error) {
-        console.log("Error retriving puchasedCourses:", error);
-        res.status(500).json({
-            message: "Error Occured.."
-        })
+        console.log("Error retrieving purchasedCourses:", error);
+        // Check if headers have already been sent before responding
+        if (!res.headersSent) {
+            return res.status(500).json({
+                message: "Error Occurred."
+            });
+        }
     }
 });
+
 
 app.listen(port, () => {
     console.log('Server is listening on port 3000');
