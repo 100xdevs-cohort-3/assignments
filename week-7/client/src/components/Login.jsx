@@ -1,7 +1,7 @@
 // login code here
 import axios from 'axios';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
 
@@ -26,9 +26,8 @@ const Login = () => {
             return;
         }
         try {
-            const resposne = await axios.post("http://localhost:3000/admin/login", { username, password });
-            localStorage.setItem("adminToken", resposne.data.token)
-            console.log(resposne.data.resposne);
+            const response = await axios.post("http://localhost:3000/admin/login", { username, password });
+            localStorage.setItem("adminToken", response.data.token)
             navigate("/admindashboard")
         } catch (error) {
             console.log("Error while logging", error);
@@ -48,6 +47,7 @@ const Login = () => {
                 <button
                     className='bg-blue-700 px-5 py-3 rounded-2xl outline-none font-semibold text-white w-full'
                     onClick={handleLogin}>Submit</button>
+                <p className='text-white font-semibold'>Didn&apos;t have an Account ? <Link className='text-blue-600 underline' to={"/admin/signup"}>SignUp</Link></p>
             </div>
         </main>
 
