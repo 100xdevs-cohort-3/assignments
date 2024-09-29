@@ -1,6 +1,7 @@
 // login code here
 import axios from 'axios';
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
@@ -9,35 +10,36 @@ const Login = () => {
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-    const [errormessage, setErrormessage] = useState("")
 
     // call the functions onClick of button.
     const handleLogin = async () => {
         if(!username || !password) {
-            setErrormessage("Please fill all the fields..")
+            toast.error("Please fill all the fields..")
+            return;
         }
         try {
             const resposne = await axios.post("http://localhost:3000/users/login", { username, password });
             localStorage.setItem("userToken", resposne.data.token)
-            console.log(resposne.data.message);
-            navigate("/userdashboard")
+            // console.log(resposne.data.message);
+            // toast.error(resposne.data.message);
+            const data = resposne.data.message;
+            if(data === "Invalid credientails") {
+                toast.error(data)
+            } else {
+                toast.success(data)
+                navigate("/userdashboard")
+            }
         } catch (error) {
-            console.log("Error", error);
+            console.log("While logging in user", error);
+            
+            if (error.response && error.response.status === 404) {
+                toast.error(error.response.data || "An error occurred");
+            } else {
+                toast.error(error.response.data.message);
+            }
         }
     }
     return (
-        // <div>
-        //     <h1>Login</h1>
-        //         <input type="text" placeholder='UserName' value={username} onChange={(e) => setUsername(e.target.value)} />
-        //         <input type="password" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
-        //         <button onClick={handleLogin}>Login</button>
-        //         <div>
-        //             <p>Didn&apos;t Have an account</p>
-        //             <Link to={"/usersignup"}>
-        //             <p>Click to SignUp</p>
-        //             </Link>
-        //         </div>
-        // </div>
         <main className='bg-[#030711] h-screen flex items-center justify-center'>
         <div className='flex flex-col items-center justify-center border border-white bg-gray-600 px-10 py-10 rounded-3xl gap-8 mx-auto'>
             <h1 className='text-3xl font-bold mb-6'><span className='text-white'>Login To Coursifiy</span></h1>
@@ -47,7 +49,6 @@ const Login = () => {
             <input
                 className='px-5 py-3 rounded-2xl outline-none font-semibold w-full'
                 type="password" placeholder='Enter Password' value={password} onChange={(e) => setPassword(e.target.value)} required />
-                {errormessage && <p className='text-red-600'>{errormessage}</p>}
             <button
                 className='bg-blue-700 px-5 py-3 rounded-2xl outline-none font-semibold text-white w-full'
                 onClick={handleLogin}>Submit</button>

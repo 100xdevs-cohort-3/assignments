@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import axios from "axios"
 import { Link, useNavigate } from 'react-router-dom'
+import toast from 'react-hot-toast'
 
 
 const Register = () => {
@@ -9,20 +10,25 @@ const Register = () => {
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-    const [errormessage, setErrormessage] = useState("")
+
     
     // call the functions onClick of button.
     async function handleRegister() {
         if(!username || !password) {
-            setErrormessage("Please fill all the details.")
+            toast.error("Please fill all the details.")
+            return;
         }
         try {
             const resposne = await axios.post("http://localhost:3000/users/signup", { username, password}); 
             localStorage.setItem("userToken", resposne.data.token)
-            console.log(resposne.data);
+            toast.success(resposne.data.message)
             navigate("/userdashboard")
         } catch (error) {
-            console.log("Error", error);
+            if (error.response && error.response.status === 400) {
+                toast.error(error.response.data.message || "An error occurred");
+            } else {
+                toast.error("An unexpected error occurred");
+            }
         }
     }
 
@@ -36,7 +42,6 @@ const Register = () => {
             <input
                 className='px-5 py-3 rounded-2xl outline-none font-semibold w-full'
                 type="password" placeholder='Enter Password' value={password} onChange={(e) => setPassword(e.target.value)} required />
-                {errormessage && <p className='text-red-600'>{errormessage}</p>}
             <button
                 className='bg-blue-700 px-5 py-3 rounded-2xl outline-none font-semibold text-white w-full'
                 onClick={handleRegister}>Submit</button>
