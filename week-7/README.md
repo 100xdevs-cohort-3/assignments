@@ -1,5 +1,6 @@
 # Coursify
 **Your task is to create a course-selling website where admin can publish/create courses and user can purchase courses.**
+Demo branch is created .......
 
 # Frontend
 
