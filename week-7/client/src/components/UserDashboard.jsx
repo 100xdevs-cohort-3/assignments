@@ -8,12 +8,11 @@ const Dashboard = () => {
     useEffect(() => {
         const fetchCourses = async () => {
             try {
-                const response = await axios.get("http://localhost:3000/users/courses", {
+                await axios.get("http://localhost:3000/users/courses", {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem("userToken")}`
                     }
                 })
-                console.log("The responses are:", response.data);
             } catch (error) {
                 console.log("Error in creating Post..", error)
             }
