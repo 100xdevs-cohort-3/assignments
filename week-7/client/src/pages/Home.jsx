@@ -8,7 +8,7 @@ const Home = () => {
       <div className="mt-10">
       <h2 className="text-white text-center text-3xl py-10">Who are You ?</h2>
       <div className="flex items-center justify-center gap-16 max-w-5xl mx-auto">
-        <Link to={"/adminlogin"} className="border px-20 py-10 rounded-2xl hover:scale-105 transition">
+        <Link to={"/admin/login"} className="border px-20 py-10 rounded-2xl hover:scale-105 transition">
           <div>
           <img src="admin1.webp" alt="User_Image" className="w-32 h-32 rounded-full" />
           </div>
