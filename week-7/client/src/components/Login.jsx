@@ -1,6 +1,7 @@
 // login code here
 import axios from 'axios';
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
@@ -9,28 +10,26 @@ const Login = () => {
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-    const [errormessage, setErrormessage] = useState("")
-
-    const clearMessage = () => {
-        setTimeout(() => {
-            setErrormessage("")
-        },2000)
-    }
 
     // call the functions onClick of button.
     const handleLogin = async () => {
 
         if(!username || !password) {
-            setErrormessage("Please fill all the details..")
-            clearMessage();
+            toast.error("Please fill all the details..")
             return;
         }
         try {
             const response = await axios.post("http://localhost:3000/admin/login", { username, password });
             localStorage.setItem("adminToken", response.data.token)
+            toast.success(response.data.message)
             navigate("/admindashboard")
         } catch (error) {
-            console.log("Error while logging", error);
+            console.log("While logging", error);
+            if (error.response && error.response.status === 404) {
+                toast.error(error.response.data.message || "An error occurred");
+            } else {
+                toast.error(error.response.data.message);
+            }
         }
     }
     return (
@@ -43,7 +42,6 @@ const Login = () => {
                 <input
                     className='px-5 py-3 rounded-2xl outline-none font-semibold w-full'
                     type="password" placeholder='Enter Password' value={password} onChange={(e) => setPassword(e.target.value)} required />
-                    {errormessage && <p className='text-red-600'>{errormessage}</p>}
                 <button
                     className='bg-blue-700 px-5 py-3 rounded-2xl outline-none font-semibold text-white w-full'
                     onClick={handleLogin}>Submit</button>
