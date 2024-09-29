@@ -10,6 +10,9 @@ import UserLogin from "./components/UserLogin"
 import UserRegister from "./components/UserRegister"
 import UserDashBoard from "./components/UserDashboard"
 import PurchasedCourses from "./components/PurchasedCourses"
+
+import { Toaster } from 'react-hot-toast';
+
 function App() {
 
   return (
@@ -29,6 +32,7 @@ function App() {
 
     </Routes>
     </BrowserRouter>
+    <Toaster />
     </>
   )
 }
