@@ -54,26 +54,45 @@ const UpdateCourse = () => {
     }
 
     return (
-        <div>
-            <h2>Update Course</h2>
-            {success &&
-                <>
-                    <p style={{ color: 'green' }}>{success}</p>
-                    <button onClick={handleNavigate}>Click to Back to the Dashboard</button>
-                </>
-            }
-            <form onSubmit={handleSubmit}>
-                <input type="text" placeholder="Enter title" value={course.title} onChange={(e) => setCourse({ ...course, title: e.target.value })} />
-                <input type="text" placeholder="Enter description" value={course.description} onChange={(e) => setCourse({ ...course, description: e.target.value })} />
-                <input type="number" placeholder="Enter price" value={course.price} onChange={(e) => setCourse({ ...course, price: e.target.value })} />
-                <input type="text" placeholder="Enter imageLink" value={course.imageLink} onChange={(e) => setCourse({ ...course, imageLink: e.target.value })} />
-                <label>
-                    Pulished:
-                    <input type="checkbox" checked={course.published} onChange={(e) => setCourse({ ...course, published: e.target.checked })} />
-                </label>
-                <button type="submit">Update</button>
-            </form>
-        </div>
+        <main className="h-screen flex items-center justify-center">
+        <div className="border border-black  rounded-3xl flex flex-col max-w-96 md:mx-auto mt-10 px-10 mx-10 text-center">
+        <h2 className="font-bold text-2xl py-5">Update Course</h2>
+             {success &&
+                 <>
+                     <p className="text-green-600 mb-5">{success}</p>
+                 </>
+             }
+        <form onSubmit={handleSubmit} className="flex flex-col gap-2 mb-10">
+          <input
+            className="border-2 outline-none font-semibold border-black px-5 py-2 rounded-xl"
+            type="text" placeholder="Enter Title" value={course.title} onChange={(e) => setCourse(e.target.value)} required />
+          <input
+            className="border-2 outline-none font-semibold border-black px-5 py-2 rounded-xl"
+            type="text" placeholder="Enter description" value={course.description} onChange={(e) => setCourse(e.target.value)} required />
+          <input
+            className="border-2 outline-none font-semibold border-black px-5 py-2 rounded-xl"
+            type="number" placeholder="Enter Price" value={course.price} onChange={(e) => setCourse(e.target.value)} required />
+          <input
+            className="border-2 outline-none font-semibold border-black px-5 py-2 rounded-xl"
+            type="text" placeholder="Enter Image Link" value={course.imageLink} onChange={(e) => setCourse(e.target.value)} required />
+          <label className="flex items-center gap-4">
+            <span className="text-lg font-semibold">Published:</span>
+            <input
+              type="checkbox"
+              className="h-4 w-4 cursor-pointer"
+              checked={course.published}
+              onChange={(e) => setCourse(e.target.checked)}
+            />
+          </label>
+          <button className="bg-blue-600 hover:scale-105 transition w-full px-5 py-3 rounded-2xl text-white font-bold" type="submit">Update</button>
+          {success &&
+                 <>
+                     <button className="bg-blue-600 hover:scale-105 transition w-full px-5 py-3 rounded-2xl text-white font-bold" onClick={handleNavigate}>Return to the Dashboard</button>
+                 </>
+             }
+        </form>
+      </div>
+      </main>
     );
 };
 
