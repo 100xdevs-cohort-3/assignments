@@ -25,6 +25,7 @@ const UpdateCourse = () => {
                         Authorization: `Bearer ${localStorage.getItem("adminToken")}`
                     }
                 })
+                // console.log(response.data.course._id);
                 if (response.data.course) {
                     setCourse(response.data.course)
                 }
@@ -61,23 +62,23 @@ const UpdateCourse = () => {
         <form onSubmit={handleSubmit} className="flex flex-col gap-2 mb-10">
           <input
             className="border-2 outline-none font-semibold border-black px-5 py-2 rounded-xl"
-            type="text" placeholder="Enter Title" value={course.title} onChange={(e) => setCourse(e.target.value)} required />
+            type="text" placeholder="Enter Title" value={course.title} onChange={(e) => setCourse({...course, title: e.target.value})} required />
           <input
             className="border-2 outline-none font-semibold border-black px-5 py-2 rounded-xl"
-            type="text" placeholder="Enter description" value={course.description} onChange={(e) => setCourse(e.target.value)} required />
+            type="text" placeholder="Enter description" value={course.description} onChange={(e) => setCourse({...course, description: e.target.value})} required />
           <input
             className="border-2 outline-none font-semibold border-black px-5 py-2 rounded-xl"
-            type="number" placeholder="Enter Price" value={course.price} onChange={(e) => setCourse(e.target.value)} required />
+            type="number" placeholder="Enter Price" value={course.price} onChange={(e) => setCourse({...course, price: e.target.value})} required />
           <input
             className="border-2 outline-none font-semibold border-black px-5 py-2 rounded-xl"
-            type="text" placeholder="Enter Image Link" value={course.imageLink} onChange={(e) => setCourse(e.target.value)} required />
+            type="text" placeholder="Enter Image Link" value={course.imageLink} onChange={(e) => setCourse({...course, imageLink: e.target.value})} required />
           <label className="flex items-center gap-4">
             <span className="text-lg font-semibold">Published:</span>
             <input
               type="checkbox"
               className="h-4 w-4 cursor-pointer"
               checked={course.published}
-              onChange={(e) => setCourse(e.target.checked)}
+              onChange={(e) => setCourse({...course, published: e.target.value})}
             />
           </label>
           <button className="bg-blue-600 hover:scale-105 transition w-full px-5 py-3 rounded-2xl text-white font-bold" type="submit">Update</button>
