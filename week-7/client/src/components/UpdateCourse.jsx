@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 
 const UpdateCourse = () => {
@@ -24,7 +25,6 @@ const UpdateCourse = () => {
                         Authorization: `Bearer ${localStorage.getItem("adminToken")}`
                     }
                 })
-                console.log(response.data);
                 if (response.data.course) {
                     setCourse(response.data.course)
                 }
@@ -38,12 +38,13 @@ const UpdateCourse = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`http://localhost:3000/admin/courses/${id}`, course, {
+            const response = await axios.put(`http://localhost:3000/admin/courses/${id}`, course, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("adminToken")}`
                 }
             })
             setSuccess('Course updated successfully');
+            toast.success(response.data.message)
         } catch (error) {
             console.log("Error occured while updating the course", error)
         }
@@ -57,11 +58,6 @@ const UpdateCourse = () => {
         <main className="h-screen flex items-center justify-center">
         <div className="border border-black  rounded-3xl flex flex-col max-w-96 md:mx-auto mt-10 px-10 mx-10 text-center">
         <h2 className="font-bold text-2xl py-5">Update Course</h2>
-             {success &&
-                 <>
-                     <p className="text-green-600 mb-5">{success}</p>
-                 </>
-             }
         <form onSubmit={handleSubmit} className="flex flex-col gap-2 mb-10">
           <input
             className="border-2 outline-none font-semibold border-black px-5 py-2 rounded-xl"

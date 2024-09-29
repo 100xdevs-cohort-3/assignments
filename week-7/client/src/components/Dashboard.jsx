@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import Courses from "./Courses"
+import toast from "react-hot-toast";
 const Dashboard = () => {
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
@@ -11,7 +12,7 @@ const Dashboard = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3000/admin/courses", {
+      const response = await axios.post("http://localhost:3000/admin/courses", {
         title,
         description,
         price,
@@ -22,9 +23,18 @@ const Dashboard = () => {
           Authorization: `Bearer ${localStorage.getItem("adminToken")}`
         }
       })
-      window.location.reload();
+      console.log(response.data);
+      toast.success(response.data.message)
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
     } catch (error) {
       console.log("Error in creating Post..", error)
+      if (error.response && error.response.status === 400) {
+        toast.error(error.response.data.message || "An error occurred");
+      } else {
+        toast.error("An unexpected error occurred");
+      }
     }
   }
 
