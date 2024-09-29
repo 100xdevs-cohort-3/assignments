@@ -22,8 +22,8 @@ function App() {
       <Route path="/admindashboard" element={<Dashboard />} />
       <Route path="/updatecourse/:id" element={<UpdateCourse />} />
 
-      <Route path="/usersignup" element={<UserRegister />} />      
-      <Route path="/userlogin" element={<UserLogin />} />      
+      <Route path="/user/signup" element={<UserRegister />} />      
+      <Route path="/user/login" element={<UserLogin />} />      
       <Route path="/userdashboard" element={<UserDashBoard />} />      
       <Route path="/purchasedcourses" element={<PurchasedCourses />} />      
 
