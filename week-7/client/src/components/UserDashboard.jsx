@@ -25,11 +25,13 @@ const Dashboard = () => {
 
 
     return (
-        <div>
-            <h2>Your Dashboard</h2>
-            <Link to={"/purchasedcourses"}>
-                <button>Purchased Courses</button>
-            </Link>
+        <div className="mt-10">
+            <div className="flex items-center justify-around">
+                <h2 className="bg-blue-600 hover:scale-105 transition px-5 py-3 rounded-2xl text-white font-bold">Your Dashboard</h2>
+                <Link to={"/purchasedcourses"}>
+                    <button className="bg-blue-600 hover:scale-105 transition w-full px-5 py-3 rounded-2xl text-white font-bold">Purchased Courses</button>
+                </Link>
+            </div>
             <UserCourses />
         </div>
     );
