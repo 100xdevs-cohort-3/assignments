@@ -1,0 +1,16 @@
+body
+{
+    background-color: black;
+}
+.space
+{
+    padding-left: 19px;
+    
+}
+a
+{
+    color:rgb(161, 150, 150);
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
