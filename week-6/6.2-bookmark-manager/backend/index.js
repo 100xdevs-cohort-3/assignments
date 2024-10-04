@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const { addBookmark, deleteBookmark, getAllBookmarks } = require('./routes/bookmarks'); // importing callback functions for routes
+const { addBookmark, deleteBookmark, getAllBookmarks, getBookmark, favoriteBookmark } = require('./routes/bookmarks'); // importing callback functions for routes
 const app = express();
 const PORT = 3001;
 
@@ -19,6 +19,10 @@ app.post('/bookmarks', addBookmark);
 app.delete('/bookmarks/:id', deleteBookmark);
 
 //  TODO: Can u implement searching bookmark and favorite and unfavorite bookmark route ??
+
+app.put('/bookmarks/:id',favoriteBookmark);
+
+app.post('/bookmarks/search',getBookmark);
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

@@ -1,25 +1,48 @@
 body {
  /*start here  */
+ background-color: rgb(49, 48, 48);
+ color: white;
+ display: flex;
+ justify-content: center;
+ /* align-content: center; */
 }
   
 .container {
  /*start here  */
+ background-color: rgb(80, 78, 78);
+ display: inline-block;
+ border-radius: 5px;
+ box-shadow: black;
+ padding: 5em;
 }
   
 h1 {
    /*start here  */
 }
-   
-button {
+.input-container{
+  margin: .25em 0;
+}
+
+button, input {
   /*start here  */
+  padding: 0.5em;
+  border-radius: 5px;
 }
   
 #bookmark-list {
  /*start here  */
+ list-style: none;
+ padding-left: 0;
 }
   
 #bookmark-list li {
  /*start here  */
+ background-color: rgb(105, 103, 103);
+ display: flex;
+ justify-content: space-between;
+ padding: 0.5em;
+ margin: 0.25em 0;
+ border-radius: 5px;
 }
   
 button.favorite-btn {
@@ -29,4 +52,29 @@ button.favorite-btn {
 button.delete-btn {
  /*start here  */
 }
+
+a{
+  text-decoration: none;
+  color: white;
+  margin-top: 0.25em;
+}
+
+@media (max-width: 600px){
+ .input-container, li,.search-container{
+  display: flex;
+  flex-direction: column;
+ }
+
+ input,button{
+  margin: 0.25em 0;
+ }
+}
+
+i{
+  cursor: pointer;
+  margin: 0.25em 1em;
+  margin-left: 0;
+}
+
+
   
