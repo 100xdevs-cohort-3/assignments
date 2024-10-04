@@ -8,6 +8,56 @@
 </head>
 <body>
     <!-- start writing code -->
+
+    <div id="logout">
+        <button>Logout</button>
+    </div>
+
+
+
+    <div id="todoApp">
+        <form id="signup">
+            <label for="userEmail">Email</label>
+            <input id="userEmail" type="email" name="useremail" placeholder="Enter your email" >
+            <label for="userPassword">password</label>
+            <input id="userPassword" type="password" name="password" placeholder="Enter your password" >
+            <button type="submit">Signup</button>
+            <div>
+                Already have an account? <div id="toSignin">Signin here</div>
+            </div>
+        </form>
+    
+        <form id="signin">
+            <label for="email">Email</label>
+            <input type="email" name="useremail" placeholder="Enter your email">
+            <label for="password">Password</label>
+            <input type="password" name="password" placeholder="Enter your password">
+            <button>Signin</button>
+            <div>
+                Don't have account? <div id="toSignup">Signup here</div>
+            </div>
+        </form>
+    
+    
+        
+    
+    
+        <div id="todoSection">
+            <div>
+                <input type="text" id="todo" placeholder="Enter your todo">
+                <button id="create">Add</button>
+                <div id="todos">
+                    <!-- <div>
+                        <input type="checkbox" name="complete" id="complete">
+                        <input type="text" value="Task 1">
+                        <button>Update</button>
+                        <button>Delete</button>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="./script.js"></script>    
 </body>
 </html>
