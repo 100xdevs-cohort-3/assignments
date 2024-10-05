@@ -19,6 +19,7 @@ In Express.js, **middleware** refers to functions that have access to the reques
 1. Modifying the request or response objects.
 2. Ending the request-response cycle.
 3. Calling the next middleware function in the stack.
+4. The only way to pass data between the middlewares is to put the data in `req` object
 
 
 ## Route specific middlewares

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div style="margin-top: 200px;">
+        User information: 
+        <div id="information"></div>
+    </div>
+
+    <div>
+        <button onclick="logout()">Logout</button>
+    </div>
+    <main style="display: flex">
+
+      <section class="signup-container" style="display: flex; flex-direction: column;">
+        <h1>Signup</h1>
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" />
+        <label for="password">Password</label>
+        <input type="text" name="password" id="password" />
+        <button onclick="signup()">Signup</button>
+      </section>
+      <section class="signin-container" style="display: flex; flex-direction: column;">
+        <h1>Signin</h1>
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" />
+        <label for="password">password</label>
+        <input type="text" name="password" id="password" />
+        <button onclick="signin()" type="submit">Signin</button>
+      </section>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"></script>
+    <script>
+        const API = 'http://localhost:3000'
+        let isSignedIn = false;
+        isSignedIn  = localStorage.getItem('token') ? true : false;
+        if(isSignedIn){
+            document.querySelector('.signup-container').style.display = 'none';
+            document.querySelector('.signin-container').style.display = 'none';
+        }
+        let username = document.querySelector('#username')
+        let password = document.querySelector('#password')
+        let userInfoContainer = document.querySelector('#information')
+        async function signup() {
+            const {data} = await axios.post(API + '/signup', {
+                username : username.value,
+                password : password.value
+            })
+            console.log(data.message)
+        }
+
+
+        async function  signin() {
+            const {data} = await axios.post(API + '/signin',{
+                username : username.value,
+                password : password.value
+            })
+            const {token} = data;
+            if(token){
+                localStorage.setItem('token', token);
+                getUserInfo();
+            }
+        }
+
+        async function  getUserInfo() {
+            const {data} = await axios.get(API + '/me', {
+                headers : {
+                     authorization: localStorage.getItem('token')
+                }
+            })
+            console.log(data)
+            userInfoContainer.innerHTML = JSON.stringify(data)
+        }
+
+        function logout(){
+            localStorage.removeItem('token');
+            window.location.reload();
+        }
+
+        if(isSignedIn){
+            getUserInfo();
+        }
+    </script>
+  </body>
+</html>

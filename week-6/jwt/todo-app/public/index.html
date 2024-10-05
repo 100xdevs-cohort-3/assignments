@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="signup-container">
+      <h1>Sign up</h1>
+
+      <section style="display: flex; flex-direction: column">
+        <input
+          id="signup-username"
+          type="text"
+          name="username"
+          placeholder="username"
+        />
+        <input
+          id="signup-password"
+          type="text"
+          name="password"
+          placeholder="password"
+        />
+      </section>
+
+      <button onclick="signup()" type="submit">Sign up</button>
+    </div>
+
+    <div class="signin-container">
+      <h1>Sign in</h1>
+      <section style="display: flex; flex-direction: column">
+        <input
+          id="signin-username"
+          type="text"
+          name="username"
+          placeholder="username"
+        />
+        <input
+          id="signin-password"
+          type="text"
+          name="password"
+          placeholder="password"
+        />
+      </section>
+      <button onclick="signin()" type="submit">Sign in</button>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
