@@ -13,7 +13,7 @@ function wait3(time) {
 }
 
 function calculateTime(t1, t2, t3) {
-    let start = new Date();
+    let start = new Date();  
 
     return call(t1, t2, t3)
         .then(function () {
