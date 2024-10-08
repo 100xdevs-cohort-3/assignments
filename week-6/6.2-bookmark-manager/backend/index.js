@@ -1,6 +1,7 @@
-const express = require('express');
-const cors = require('cors');
-const { addBookmark, deleteBookmark, getAllBookmarks } = require('./routes/bookmarks'); // importing callback functions for routes
+
+import express from 'express';
+import cors from 'cors';
+import { addBookmark, deleteBookmark, getAllBookmarks } from './routes/bookmarks.js'; // importing callback functions for routes
 const app = express();
 const PORT = 3001;
 
