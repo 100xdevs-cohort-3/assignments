@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taskify Frontend</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- <h2>Taskify Frontend</h2> -->
+
+        <div id="signup-container">
+            <h2>Signup</h2>
+            <form id="signup-form">
+                <label for="signup-username">Username:</label>
+                <input type="text" id="signup-username" required>
+                <label for="signup-password">Password:</label>
+                <input type="password" id="signup-password" required>
+                <button type="submit">Signup</button>
+            </form>
+            <p>
+                Already have an account? <a href="#" id="show-signin">Sign In</a>
+            </p>
+        </div>
+
+        <div id="signin-container" style="display: none;">
+            <h2>Signin</h2>
+            <form id="signin-form">
+                <label for="signin-username">Username:</label>
+                <input type="text" id="signin-username" required>
+                <label for="signin-password">Password:</label>
+                <input type="password" id="signin-password" required>
+                <button type="submit">Signin</button>
+            </form>
+            <p>
+                Don't have an account? <a href="#" id="show-signup">Sign Up</a>
+            </p>
+        </div>
+
+        <div id="todo-container" style="display: none;">
+            <h2>Your Todo List</h2>
+            <form id="todo-form">
+                <input type="text" id="todo-input" placeholder="Add a new todo" required>
+                <button type="submit">Add Todo</button>
+            </form>
+            <ul id="todo-list"></ul>
+            <!-- <button id="logout-button">Logout</button> -->
+
+        </div>
+
+        <p id="response-message"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
