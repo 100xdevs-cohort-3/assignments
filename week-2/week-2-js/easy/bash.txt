@@ -1,0 +1,26 @@
+#all bash advance command
+ls
+pwd
+ls week2
+ls -l
+ls -l week2
+ls -R week2
+ls -t
+ls -lt week2
+ls -la
+ls -s  #knowing the size of the directory
+ls *.json #all json file
+ls *.js
+cd ../..  #out from 2 directory
+
+cat index.html  #viewing the directory
+
+1) touch newfile.txt  #create new file
+2) cat >newfile.txt #add content on this
+3) press ctrl +D #exit from that
+4) cat newfile.txt #to see the data
+
+cat >> newfile.txt #to adda more data to this
+
+
+mkdir newdir #to create new directory
