@@ -1,0 +1,83 @@
+/* styles.css */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1b353a;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .container {
+    background: #d7c5c5;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(95, 5, 5, 0.1);
+    max-width: 600px;
+    width: 100%;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #290303;
+  }
+  
+  .field {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .field select, .field input {
+    margin-right: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+  }
+  
+  .field select:focus, .field input:focus {
+    border-color: #031120;
+  }
+  
+  button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #09407b;
+    color: #161212;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #657485;
+  }
+  
+  #add-field, #submit-form {
+    display: inline-block;
+    width: 25%;
+    margin-top: 15px;
+  }
+
+  #add-field {
+    margin-bottom: 10px;
+  }
+  
+  #form-preview {
+    margin-top: 20px;
+  }
+  
+  #form-preview div {
+    margin-bottom: 10px;
+  }
+  
+  #form-preview input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <title>form build</title>
+    </head>
+    <body >
+        <div class="container">
+           <h1>Dynamic form Builder</h1>
+           <div id="form-builder">
+                <div class="field">
+                    <select class="field-type">
+                       <option value="text">Text</option>
+                       <option value="checkbox">Checkbox</option>
+                       <option value="radio">Radio</option>
+                    </select>
+                    <input type="text" class="field-label" placeholder="Label">
+                    <button class="remove-field">Remove</button>
+                </div>
+            </div>
+            <button id="add-field">Add Field</button>
+            <button id="submit-field">Submit</button>
+            <h2>Preview</h2>
+            <div id="form-preview"></div>
+        </div>
+        <script src="index.js"></script>
+    </body>
+</html>
