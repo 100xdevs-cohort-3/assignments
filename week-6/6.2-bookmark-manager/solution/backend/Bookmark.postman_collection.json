@@ -1,0 +1,75 @@
+{
+	"info": {
+		"_postman_id": "dddc698a-c175-4363-b02b-9feb5205d4fb",
+		"name": "Bookmark",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13774837"
+	},
+	"item": [
+		{
+			"name": "bookmark",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\":\"Google\",\n    \"url\":\"https://github.com/sumana10\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/bookmarks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"bookmarks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bookmarks",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "boolmark",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/bookmarks/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"bookmarks",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

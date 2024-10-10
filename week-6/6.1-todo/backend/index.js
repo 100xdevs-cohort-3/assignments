@@ -1,6 +1,6 @@
-const express = require('express');
-const cors = require('cors');
-const { getAllTodo, createTodo, updateTodo, deleteTodoById } = require('./routes/todo'); // importing callback functions for routes
+import express from 'express';
+import cors from 'cors';
+import { getAllTodo, createTodo, updateTodo, deleteTodoById, searchTodo } from './routes/todo.js';
 const app = express();
 const PORT = 3001;
 
@@ -20,8 +20,8 @@ app.put('/todos/:id', updateTodo);
 // Delete a todo
 app.delete('/todos/:id', deleteTodoById);
 
-
-// TODO: can you implement search todo route ???
+// Search todos
+app.get('/todos/search', searchTodo); // search route
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
