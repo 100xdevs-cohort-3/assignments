@@ -7,7 +7,6 @@ const PORT = 3001;
 app.use(cors());
 app.use(express.json());
 
-let todos = []; // In-memory todos
 
 // Get all todos
 app.get('/todos', getAllTodo);
