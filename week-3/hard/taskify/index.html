@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Task Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        
+        <div class="add-task-container">
+            <input type="text" id="task-input" placeholder="Add a new task..." />
+            <button id="add-task-btn">Add Task</button>
+        </div>
+
+        <div class="category" id="todo">
+            <h3>To Do</h3>
+            <div class="task-list"></div>
+        </div>
+        
+        <div class="category" id="in-progress">
+            <h3>In Progress</h3>
+            <div class="task-list"></div>
+        </div>
+
+        <div class="category" id="done">
+            <h3>Done</h3>
+            <div class="task-list"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
