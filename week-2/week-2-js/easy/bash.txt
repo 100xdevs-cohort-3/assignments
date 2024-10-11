@@ -24,3 +24,5 @@ cat >> newfile.txt #to adda more data to this
 
 
 mkdir newdir #to create new directory
+curl is a bash command
+bash is a complicated name for the shell
