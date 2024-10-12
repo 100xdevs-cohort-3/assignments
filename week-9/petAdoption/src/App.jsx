@@ -1,10 +1,15 @@
-import './App.css';
+import "./App.css";
+import Header from "./components/Header";
+import PetAdoptionForm from "./components/PetAdoptionForm";
 
 function App() {
   return (
-    <div className="app-container">
-      <h1>Pet Adoption Project</h1>
-    </div>
+    <>
+      <Header></Header>
+      <div className="app-container">
+        <PetAdoptionForm></PetAdoptionForm>
+      </div>
+    </>
   );
 }
 
