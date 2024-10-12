@@ -1,22 +1,36 @@
 const { Router } = require("express");
-const router = Router();
-const userMiddleware = require("../middleware/user");
-
+const userRouter = Router();
+const { userMiddleware } = require("../middleware/user");
+const { User, Todo } = require("../database/index")
 // User Routes
-router.post('/signup', (req, res) => {
+userRouter.post('/signup', (req, res) => {
     // Implement user signup logic
+    const { email, password, name } = req.body;
+    try {
+        User.create({
+            email,
+            password,
+            name
+        })
+    } catch (e) {
+        console.error("error is", e)
+    }
+
+    res.json({
+        message: "signup succed"
+    })
 });
 
-router.post('/login', (req, res) => {
-     // Implement user login logic
+userRouter.post('/login', (req, res) => {
+    // Implement user login logic
 });
 
-router.get('/todos', userMiddleware, (req, res) => {
+userRouter.get('/todos', userMiddleware, (req, res) => {
     // Implement logic for getting todos for a user
 });
 
-router.post('/logout', userMiddleware, (req, res) => {
+userRouter.post('/logout', userMiddleware, (req, res) => {
     // Implement logout logic
 });
 
-module.exports = router
+module.exports = userRouter
