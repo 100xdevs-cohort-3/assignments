@@ -42,7 +42,6 @@ function App() {
           ></PetAdoptionForm>
         )}
       </div>
-      {console.log(formData)}
     </>
   );
 }

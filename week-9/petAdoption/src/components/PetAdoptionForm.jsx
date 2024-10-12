@@ -1,5 +1,5 @@
 import React from "react";
-const PetAdoptionForm = ({ formData,setFormData }) => {
+const PetAdoptionForm = ({ formData, setFormData }) => {
   const containerStyle = {
     border: "2px solid black",
     margin: "auto",
@@ -24,23 +24,44 @@ const PetAdoptionForm = ({ formData,setFormData }) => {
     fontWeight: "bold",
     fontSize: 24,
   };
-  const handleSumbit = ()=>{
-    setFormData([...formData,{
-      name : document.getElementById('pet-name').value,
-      type : document.getElementById('pet-type').value,
-      breed : document.getElementById('pet-breed').value,
-      userName : document.getElementById('user-name').value,
-      userEmail : document.getElementById('user-email').value,
-      userPhone : document.getElementById('user-phone').value
-    }])
-    alert('Data has been recorded.Thank You.')
-    document.getElementById('pet-name').value = ''
-    document.getElementById('pet-type').value = ''
-    document.getElementById('pet-breed').value = ''
-    document.getElementById('user-name').value = ''
-    document.getElementById('user-email').value = ''
-    document.getElementById('user-phone').value = ''
-  }
+  const checkInvalidInput = () => {
+    {
+      if (
+        document.getElementById("pet-name").value === "" ||
+        document.getElementById("pet-type").value === "" ||
+        document.getElementById("pet-breed").value === "" ||
+        document.getElementById("user-name").value === "" ||
+        document.getElementById("user-email").value === "" ||
+        document.getElementById("user-phone").value === ""
+      ) {
+        return false;
+      }
+    }
+  };
+  const handleSumbit = () => {
+    if (checkInvalidInput) {
+      alert("Please enter all details carefully.");
+      return;
+    }
+    setFormData([
+      ...formData,
+      {
+        name: document.getElementById("pet-name").value,
+        type: document.getElementById("pet-type").value,
+        breed: document.getElementById("pet-breed").value,
+        userName: document.getElementById("user-name").value,
+        userEmail: document.getElementById("user-email").value,
+        userPhone: document.getElementById("user-phone").value,
+      },
+    ]);
+    alert("Data has been recorded.Thank You.");
+    document.getElementById("pet-name").value = "";
+    document.getElementById("pet-type").value = "";
+    document.getElementById("pet-breed").value = "";
+    document.getElementById("user-name").value = "";
+    document.getElementById("user-email").value = "";
+    document.getElementById("user-phone").value = "";
+  };
   return (
     <div className="container" style={containerStyle}>
       <div className="pet-name" style={inputDiv}>
@@ -110,6 +131,7 @@ const PetAdoptionForm = ({ formData,setFormData }) => {
             padding: "10px",
             fontWeight: "bold",
             fontSize: "16px",
+            cursor: "pointer",
           }}
           onClick={handleSumbit}
         >
