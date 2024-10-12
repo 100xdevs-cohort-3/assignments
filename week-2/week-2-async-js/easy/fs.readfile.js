@@ -1,3 +1,4 @@
+//defining your asynchronous dunction
 const fs=require("fs");
 function setTimeoutPromisified(duration){
     return new Promise(function (resolve){
@@ -6,18 +7,28 @@ function setTimeoutPromisified(duration){
 }
 
 function readFileAsync(){
-    return new Promise(function (resolve){
-        fs.readFile("a.txt","utf-8",function(err,data){
-            resolve(data);
+    return new Promise(function (resolve,reject){ //it take 2 parameter (resolve, reject) but we can ignore reject 
+        fs.readFile("aqqq.txt","utf-8",function(err,data){//it will do 2 things either give error if file not found or give the data
+            if(err){
+                reject("File not found")
+            }else {
+                resolve(data)
+            }
         })
     })
 }
 
-async function solve(){
-    await readFileAsync(1000);
-}
 
-solve();
+//if file found
+readFileAsync().then(function(x){
+    console.log("Files has been read " + x);
+}).catch(function (e){
+    console.log("Error");
+    console.log(e);//if file not exist then control goes here
+
+})
+
+
 
 
 console.log("after solve print");
