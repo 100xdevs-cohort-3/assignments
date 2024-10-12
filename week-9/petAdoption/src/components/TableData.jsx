@@ -3,10 +3,11 @@ import React from "react";
 const TableData = ({ formData }) => {
   const tableStyle = {
     width: "80%",
-    margin: "50px auto",
+    margin: "auto",
     borderCollapse: "collapse",
     backgroundColor: "rgba(0, 0, 0, 0.6)",
     color: "white",
+    marginTop : 80
   };
   const thStyle = {
     backgroundColor: "#b9a16f",
@@ -27,7 +28,9 @@ const TableData = ({ formData }) => {
     fontSize : 18
   };
   return (
-    <div className="container">
+    <div className="container" style={{
+      margin : 'auto'
+    }}>
       <table style={tableStyle}>
         <thead>
           <tr>
