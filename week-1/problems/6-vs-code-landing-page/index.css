@@ -205,7 +205,6 @@ footer {
     padding: 10px 20px;
 }
 
-
 /* Responsiveness, we'll discuss this when we reach tailwind
 @media (width < 1200px) {
     .heroContainer div:has(img) {
