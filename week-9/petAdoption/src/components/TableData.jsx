@@ -17,7 +17,7 @@ const TableData = ({ formData }) => {
     textAlign: "center",
     border: "1px solid green",
     backgroundColor: "#c4a484",
-    fontSize : 22
+    fontSize : 26
   };
   const tdStyle = {
     color: "darkgreen",
@@ -25,7 +25,7 @@ const TableData = ({ formData }) => {
     textAlign: "center",
     border: "1px solid green",
     backgroundColor: "#c4a484",
-    fontSize : 18
+    fontSize : 22
   };
   return (
     <div className="container" style={{
@@ -43,9 +43,9 @@ const TableData = ({ formData }) => {
           </tr>
         </thead>
         <tbody>
-          {formData.map((data) => {
+          {formData.map((data,key) => {
             return (
-              <tr>
+              <tr key={data.userEmail}>
                 <td style={tdStyle}>{data.name}</td>
                 <td style={tdStyle}>{data.type}</td>
                 <td style={tdStyle}>{data.breed}</td>

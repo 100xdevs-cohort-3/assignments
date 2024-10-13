@@ -2,4 +2,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Afacad Flux", sans-serif;
+}
+body{
+  height: 100vh;
+  width: 100vw;
+  background-image: url('./assets/dog-3344414_1280.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }

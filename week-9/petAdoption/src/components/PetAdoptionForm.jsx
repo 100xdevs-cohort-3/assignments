@@ -9,7 +9,12 @@ const PetAdoptionForm = ({ formData, setFormData }) => {
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    marginTop: "60px",
+    marginTop: "40px",
+    borderRadius: "10px",
+    backgroundColor: "#FB5607",
+    color: "white",
+    position: "fixed",
+    left: 10,
   };
   const inputDiv = {
     lineHeight: "30px",
@@ -24,36 +29,47 @@ const PetAdoptionForm = ({ formData, setFormData }) => {
     fontWeight: "bold",
     fontSize: 24,
   };
-  const checkInvalidInput = () => {
-    {
-      if (
-        document.getElementById("pet-name").value === "" ||
-        document.getElementById("pet-type").value === "" ||
-        document.getElementById("pet-breed").value === "" ||
-        document.getElementById("user-name").value === "" ||
-        document.getElementById("user-email").value === "" ||
-        document.getElementById("user-phone").value === ""
-      ) {
-        return false;
-      }
-    }
-  };
+  // const checkInvalidInput = () => {
+  //   {
+  //     if (
+  //       document.getElementById("pet-name").value === "" ||
+  //       document.getElementById("pet-type").value === "" ||
+  //       document.getElementById("pet-breed").value === "" ||
+  //       document.getElementById("user-name").value === "" ||
+  //       document.getElementById("user-email").value === "" ||
+  //       document.getElementById("user-phone").value === ""
+  //     ) {
+  //       return false;
+  //     }
+  //   }
+  // };
   const handleSumbit = () => {
-    if (checkInvalidInput) {
-      alert("Please enter all details carefully.");
+    // if (checkInvalidInput) {
+    //   alert("Please enter all details carefully.");
+    //   return;
+    // }
+    if (
+      document.getElementById("pet-name").value === "" ||
+      document.getElementById("pet-type").value === "" ||
+      document.getElementById("pet-breed").value === "" ||
+      document.getElementById("user-name").value === "" ||
+      document.getElementById("user-email").value === "" ||
+      document.getElementById("user-phone").value === ""
+    ) {
+      alert("Enter all details.");
       return;
     }
-    setFormData([
-      ...formData,
-      {
-        name: document.getElementById("pet-name").value,
-        type: document.getElementById("pet-type").value,
-        breed: document.getElementById("pet-breed").value,
-        userName: document.getElementById("user-name").value,
-        userEmail: document.getElementById("user-email").value,
-        userPhone: document.getElementById("user-phone").value,
-      },
-    ]);
+    const newEntry = {
+      name: document.getElementById("pet-name").value,
+      type: document.getElementById("pet-type").value,
+      breed: document.getElementById("pet-breed").value,
+      userName: document.getElementById("user-name").value,
+      userEmail: document.getElementById("user-email").value,
+      userPhone: document.getElementById("user-phone").value,
+    };
+    const updatedFormData = [...formData, newEntry];
+    setFormData(updatedFormData);
+    localStorage.setItem("formData", JSON.stringify(updatedFormData));
     alert("Data has been recorded.Thank You.");
     document.getElementById("pet-name").value = "";
     document.getElementById("pet-type").value = "";
@@ -130,8 +146,13 @@ const PetAdoptionForm = ({ formData, setFormData }) => {
             width: "20vw",
             padding: "10px",
             fontWeight: "bold",
-            fontSize: "16px",
+            fontSize: "20px",
             cursor: "pointer",
+            backgroundColor: "#FF006E",
+            color: "white",
+            border: "none",
+            border: "2px solid black",
+            borderRadius: "8px",
           }}
           onClick={handleSumbit}
         >
