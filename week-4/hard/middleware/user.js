@@ -1,6 +1,10 @@
 const jwt = require('jsonwebtoken')
-const { JWT_USER , JWT_ADMIN } = require("../config")
+console.log(require('../config'));
 
+const { JWT_USER, JWT_ADMIN } = require('../config');
+
+console.log("JWT_USER in middleware:", JWT_USER);
+console.log("JWT_ADMIN in middleware:", JWT_ADMIN);
 
 function userMiddleware(req, res, next) {
     // Implement user auth logic

@@ -1,9 +1,8 @@
 const express = require("express");
-const dotenv = require("dotenv");
+require('dotenv').config()
 const mongoose = require("mongoose")
-dotenv.config();
-//console.log(process.env.moongose_url)
 
+//console.log(process.env.moongose_url)
 
 const UserRouter = require('./routes/user');
 const todoRouter = require('./routes/todo');
