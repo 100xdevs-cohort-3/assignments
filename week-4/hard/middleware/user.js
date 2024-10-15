@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken')
-const JWT_sceret = "saurabhk";
-const JWT_sceretA = "saurabh123"
+const { JWT_sceret , JWT_sceretA } = require("../config")
+
 
 
 function userMiddleware(req, res, next) {

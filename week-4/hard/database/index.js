@@ -1,7 +1,4 @@
 const mongoose = require('mongoose');
-//dotenv.config();
-// Connect to MongoDB
-//await mongoose.connect(process.env.moongose_url);
 
 // Define schemas
 
