@@ -5,8 +5,6 @@ dotenv.config();
 //console.log(process.env.moongose_url)
 
 
-
-
 const UserRouter = require('./routes/user');
 const todoRouter = require('./routes/todo');
 const app = express();

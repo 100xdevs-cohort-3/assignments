@@ -1,7 +1,9 @@
 const { Router } = require("express");
-const userRouter = Router();
+const { User } = require("../database/index")
+const jwt = require("jsonwebtoken");
+const { JWT_USER } = require("../config")
 const { userMiddleware } = require("../middleware/user");
-const { User, Todo } = require("../database/index")
+const userRouter = Router();
 // User Routes
 userRouter.post('/signup', (req, res) => {
     // Implement user signup logic
@@ -21,8 +23,35 @@ userRouter.post('/signup', (req, res) => {
     })
 });
 
-userRouter.post('/login', (req, res) => {
+userRouter.post('/login', async function (req, res) {
     // Implement user login logic
+    const { email, password } = req.body;
+    try {
+        const user = await User.findOne({
+            email,
+            password
+        })
+
+        if (user) {
+            const token = jwt.sign({
+                id: user._id
+            }, JWT_USER);
+
+            res.json({
+                token: token
+            })
+        }
+    } catch (error) {
+        res.status(403).json({
+            message: "incorrect credentials"
+        })
+
+    }
+
+    res.json({
+        message: "you are signin"
+    })
+
 });
 
 userRouter.get('/todos', userMiddleware, (req, res) => {

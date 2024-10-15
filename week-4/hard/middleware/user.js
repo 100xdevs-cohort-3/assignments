@@ -1,13 +1,12 @@
 const jwt = require('jsonwebtoken')
-const { JWT_sceret , JWT_sceretA } = require("../config")
-
+const { JWT_USER , JWT_ADMIN } = require("../config")
 
 
 function userMiddleware(req, res, next) {
     // Implement user auth logic
     
     const token = req.headers.token
-    const decoded = jwt.verify(token, JWT_sceret)
+    const decoded = jwt.verify(token, JWT_USER)
 
     if(decoded) {
         req.userId = decoded.id;
@@ -23,7 +22,7 @@ function userMiddleware(req, res, next) {
 
 function adminMiddleware(req, res, next) {
     const token = req.headers.token
-    const decoded = jwt.verify(token, JWT_sceretA);
+    const decoded = jwt.verify(token, JWT_ADMIN);
 
     if (decoded) {
         req.adminId = decoded.id;
