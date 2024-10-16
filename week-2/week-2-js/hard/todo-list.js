@@ -16,37 +16,37 @@ class Todo {
   }
 
   add(todo){
-    this.todos = [...this.todos, todo];
+    this.todos.push(todo)
   }
 
   remove(indexOfTodo){
-    this.todos = this.todos.filter((index) => index != indexOfTodo);
+    if(indexOfTodo >= 0 && indexOfTodo < this.todos.length){
+      this.todos.splice(indexOfTodo, 1);
+    }
   }
 
   update(index, updatedTodo){
-    this.todos[index] = updatedTodo;
+    if(index >= 0 && index < this.todos.length){
+      this.todos[index] = updatedTodo;
+    } 
   }
 
   getAll(){
     return this.todos;
   }
+
   get(indexOfTodo){
-    return this.todos[indexOfTodo];
+    if(indexOfTodo >= 0 && indexOfTodo < this.todos.length){
+      return this.todos[indexOfTodo];
+    }
+    else{
+      return null;
+    }
   }
 
   clear(){
     this.todos = [];
   }
 }
-
-const todos = new Todo();
-
-todos.add({
-  task: "Exercise",
-  deadline: "Before 6"
-})
-
-const todo = todos.getAll();
-console.log(todo);
 
 module.exports = Todo;

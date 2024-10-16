@@ -5,7 +5,11 @@
 
 
 function isPalindrome(str) {
-  str = str.toLowerCase();
+  //remove punctuations
+  const punctuation = /[!"#$%&'()*+,-./:;=?@[\]^_`{|}~]/g;
+  const cleanedText = str.replace(punctuation, '');
+  str = cleanedText.toLowerCase();
+  str = str.replace(/\s/g, '');
 
   let low = 0;
   let high = str.length-1;
@@ -19,13 +23,6 @@ function isPalindrome(str) {
   }
 
   return true;
-}
-
-if(isPalindrome('Nitin')){
-  console.log("Given String is a palindrome");
-}
-else{
-  console.log("Given String is not a palindrome");  
 }
 
 module.exports = isPalindrome;

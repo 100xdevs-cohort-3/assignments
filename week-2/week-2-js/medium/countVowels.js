@@ -9,7 +9,7 @@ function isVowel(letter){
   vowels = ['a', 'e', 'i', 'o', 'u']
 
   for(i = 0; i < vowels.length; i++){
-    if(letter === vowels[i]) return true;
+    if(letter.toLowerCase() === vowels[i]) return true;
   }
 
   return false;
