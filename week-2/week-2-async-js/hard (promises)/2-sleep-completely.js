@@ -4,16 +4,12 @@
  * the function should return a promise just like before
  */
 
-function Stuck(milliseconds){
-    return new Promise(resolve => setTimeout(resolve, milliseconds));
+function sleep(milliseconds) {
+    return new Promise((resolve) => {
+        let startTime = new Date().getTime();
+        while (new Date().getTime() < startTime + milliseconds);
+        resolve();
+    });
 }
-
-async function sleep(milliseconds) {
-    console.log("Machine won't for ", milliseconds, " milliseconds");
-    await Stuck(milliseconds);
-    console.log("few seconds have passed");
-}
-
-sleep(5000);
 
 module.exports = sleep;

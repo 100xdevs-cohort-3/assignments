@@ -28,7 +28,7 @@ async function calculateTime(t1, t2, t3) {
 
     const end = new Date();
 
-    console.log(end - start, " milliseconds are taken to complete the process");
+    return end - start;
 }
 
 const t1 = 1;
