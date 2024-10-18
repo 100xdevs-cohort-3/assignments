@@ -1,0 +1,20 @@
+body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+}
+
+#container{
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: white;
+    height: 30px;
+    display: flex;
+    gap: 10px;
+    border-radius: 5px;
+    position: relative;
+    left: 35%;
+    top: 90%;
+}
