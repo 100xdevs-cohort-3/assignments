@@ -1,3 +1,57 @@
-*{
-  margin: 0;
+body{
+  background-color: #222831;
+
+  color: #EEEEEE;
+}
+
+h2{
+  margin-right: 10px;
+}
+
+.navbar{
+  background-color: #393E46;
+  height: 70px;
+  padding: 5px 50px;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.btn{
+  font-size: x-large;
+  margin-top: 15px;
+  border-radius: 20px;
+  padding: 5px 10px;
+}
+
+.checkbox-bar{
+  height: 60px;
+  background-color: beige;
+  display: flex;
+  color: #222831;
+  padding: 5px 100px;
+}
+
+.checkbox{
+  width: 20px;
+  height: 20px;
+  margin-top: 22px;
+  margin-right: 8px;
+}
+
+.login-form{
+  border: 1px solid whitesmoke;
+  border-radius: 10px;
+  width: 400px;
+  margin: 100px auto;
+  padding: 60px;
+  text-align: center;
+}
+
+.input-div{
+  margin-bottom: 30px;
+}
+
+.username-input{
+  font-size: 30px;
 }

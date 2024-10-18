@@ -1,12 +1,12 @@
-import AuthSystem from './Demo'
-import "./App.css"
+import "./App.css";
+import AuthSystem from "./AuthSystem";
 
 function App() {
   return (
     <>
-      <AuthSystem/>
+      <AuthSystem />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
