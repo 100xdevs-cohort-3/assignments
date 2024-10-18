@@ -1,0 +1,94 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1e293b, #111827);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .timerApp {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #1e293b;
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .timerDisplay {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    margin: 0 auto 20px;
+  }
+  
+  .timerCircle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  .timerCircle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    background: conic-gradient(#3498db var(--progress, 0%), #4b5563 0);
+    mask: radial-gradient(transparent 65%, black 66%);
+    -webkit-mask: radial-gradient(transparent 65%, black 66%);
+  }
+  
+  .timerTime {
+    font-size: 48px;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .timeUnit {
+    cursor: pointer;
+  }
+  
+  .timeInput {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 48px;
+    font-weight: bold;
+    width: 70px;
+    text-align: center;
+  }
+  
+  .actionButtons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .actionButton {
+    background-color: #4b5563;
+    border: none;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .actionButton:hover {
+    background-color: #374151;
+  }

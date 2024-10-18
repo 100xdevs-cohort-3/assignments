@@ -96,16 +96,13 @@ Formats the given `time` (in seconds) into hours, minutes, and seconds. Each uni
 **Example:**
 For `time = 3661`, the result would be `{ hours: '01', minutes: '01', seconds: '01' }`.
 
----
+## To Do
 
-### Conclusion:
+### 1. Auto-move to Next Input Field on Two Digits
+- Implement functionality to automatically move the focus to the next input field (hours, minutes, or seconds) when 2 digits are entered.
 
-This React Timer App provides:
-- Real-time countdown functionality.
-- Editable time with input validation.
-- Clear and simple UI for user interaction.
-
-You can extend this timer app by adding features such as time limits, alarms, or styling improvements.
+### 2. Reverse the Progress Ring Animation
+- Modify the progress ring to fill counter-clockwise, reversing the direction of the stroke as the timer counts down.
 
 ---
 
