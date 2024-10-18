@@ -1,6 +1,7 @@
 <body>
     <input type="text">
     <button onclick="addTodo()">ADD Todo!!</button>
+    <div id="todos"></div>
     <script>
         let todos=[];//array
         function addTodo(){
@@ -14,6 +15,7 @@
         
         //it will iterate and add again and again
         function render(){ //when the fun is called if todos has 2 element  we should see 2 elements
+            document.querySelector("#todos").innerHTML="";  //clearing the todos
             for(let i=0;i<todos.length;i++){//it wprks only once 
                 const todo=todos[i];
                 const div =document.createElement("div");
@@ -23,7 +25,9 @@
                 h1.innerHTML=todo.title;
                 div.append(h1)
                 div.append(button)
-                document.querySelector("body").appendChild(div)
+                //document.querySelector("body").appendChild(div)
+                // add to the id not body work perfectly
+                document.querySelector("#todos").appendChild(div)
             }
 
 
