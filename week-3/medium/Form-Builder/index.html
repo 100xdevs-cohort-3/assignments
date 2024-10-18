@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form-Builder</title>
+</head>
+<body>
+    <div id="Form-Builder">
+        <h1>Form Builder</h1>
+        <label for="input-option">Select Field Type</label>
+        <select name="input-option" id="input-option">
+            <option value="text">Text</option>
+            <option value="radio">Radio</option>
+            <option value="checkbox">Checkbox</option>
+            <option value="password">Password</option>
+        </select>
+
+        <label for="label">Field Label</label>
+        <input type="text" name="label" id="field-label">
+
+        <button onclick="addInputField()">Add Field</button>
+    </div>
+
+    <div id="Form-Preview">
+        <h1>Form-Preview</h1>
+        <form action="" id="form"></form>
+    </div>
+
+    <script>
+        function addInputField(){
+
+            //Select the dom parent of input field
+            const form = document.getElementById("form");
+
+            //Check Both Input Option and Field Label are filled or not
+            const inputOption = document.getElementById("input-option").value;
+            const fieldLabel = document.getElementById("field-label").value;
+
+            if(!(inputOption && fieldLabel)){
+                alert("Input shouldn't be empty");
+                return;
+            }
+
+            //Create both label and input field
+            const newLabel = document.createElement('label');
+            const newInput = document.createElement("input");
+            newInput.setAttribute("type", inputOption);
+            newLabel.innerText = fieldLabel;
+            newLabel.style.margin = "10px";
+            newInput.style.marginBottom = "10px";
+
+            //Append label and input field to the form preview
+            const br = document.createElement("br");
+            form.appendChild(newLabel);
+            form.appendChild(newInput);
+            form.appendChild(br);
+        }
+    </script>
+</body>
+</html>
