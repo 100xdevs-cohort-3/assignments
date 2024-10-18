@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+</head>
+<body>
+    <form>
+        <label for="type">Type</label>
+        <input type="text" name="type" placeholder="Enter Type" id="type">
+
+        <br>
+
+        <label for="number">number</label>
+        <input type="number" name="number" placeholder="Enter number of pokemon's" id="number">
+
+        <br>
+
+        <button type="submit" onclick="fetchData(event)">Fetch</button>
+    </form>
+    <div id="container"></div>
+    <script src="./index.js"></script>
+</body>
+</html>
