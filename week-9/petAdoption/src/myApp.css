@@ -1,0 +1,112 @@
+* {
+
+    box-sizing: border-box;
+    margin: 0;
+    color: #335624;
+  
+  }
+  
+  body {
+  
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+  
+  }
+  
+  .form {
+  
+    background-color: #c59771bd;
+    max-width: 550px;
+    margin: 20px auto;
+    padding: 30px;
+    text-align: left;
+    border-radius: 3px;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.4);
+    font-family: inherit;
+    font-weight: 800;
+  
+  }
+  
+  div {
+  
+    margin-bottom: 5px;
+  
+  }
+  
+  label {
+  
+    display: block;
+    margin: 10px 0;
+  
+  }
+  
+  input[type="radio"],
+  input[type="checkbox"] {
+  
+    display: inline-block;
+    margin: 0 10px 10px 5px;
+    width: auto;
+    font-family: inherit;
+  
+  }
+  
+  input[type="text"],
+  textarea,
+  select,
+  input[type="date"],
+  input[type="file"],
+  input[type="email"],
+  input[type="password"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-family: inherit;
+  }
+  
+  button {
+  
+    padding: 10px;
+    background-color: #335624;
+    width: 100%;
+    color: #fff;
+    border: none;
+    border-radius: 2px;
+    font-size: 16px;
+    font-family: inherit;
+    margin: 20px 0 10px 0;
+  
+  }
+  
+  table {
+  
+    border: 1px solid #335624;
+    margin: 20px auto;
+    width: 65%;
+    background-color: #fff;
+    border-collapse: collapse;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.4);
+    ;
+  
+  }
+  
+  tr,
+  td,
+  th {
+  
+    border: 1px solid #335624;
+    padding: 10px;
+  
+  }
+  
+  tr {
+    background-color: #c59771bd;
+  }
+  
+  small {
+  
+    color: red;
+    font-style: italic;
+    float: right;
+    margin-top: 4px;
+  
+  }
