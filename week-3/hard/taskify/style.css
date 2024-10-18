@@ -1,0 +1,28 @@
+#container{
+    display: flex;
+    gap: 30px;
+}
+
+.card{
+    padding: 10px;
+    margin: 20px;
+    box-shadow: 2px 2px 5px black;
+    border-radius: 10px;
+    width: 350px;
+}
+
+.todo{
+    height: 70px;
+    width: 250px;
+    box-shadow: 1px 1px 2px black;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+button{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
