@@ -7,15 +7,19 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Node modules and build directories
 node_modules
 dist
 dist-ssr
 *.local
+.vite/
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
+
+# System files
 .DS_Store
 *.suo
 *.ntvs*
@@ -23,4 +27,5 @@ dist-ssr
 *.sln
 *.sw?
 
-Demo.jsx
+# Other ignored files
+components

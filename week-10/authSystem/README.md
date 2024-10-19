@@ -67,6 +67,10 @@ In this approach:
 This project demonstrates two methods for updating the AppBar component with user data after login. State Lifting is straightforward and works well for smaller applications, while Context API provides a more scalable solution for larger projects with complex state management needs.
 
 
+### Reference UI:
+
+![Image](https://utfs.io/f/A8JZzw0Laf9jwP5plZUDQN0fkp6bvhZM78nmg2zcWSAPE3eR)
+
 
 
 
