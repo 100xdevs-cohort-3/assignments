@@ -10,7 +10,7 @@ The app has three main parts:
 2. **Form**: Users fill in details like name, contact info, and pet preferences.
 3. **Table**: Shows the submitted form data after submission.
 
-## Learning Goals
+## Learning Goals  
 
 - Build React components (Header, Form, Table).
 - Use `useState` to manage form input and state.
