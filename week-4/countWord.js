@@ -14,3 +14,5 @@ function main(fileName){
     })
 }
 main("a.txt");
+
+//write this by using split function

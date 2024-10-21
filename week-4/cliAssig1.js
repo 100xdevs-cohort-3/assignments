@@ -1,4 +1,4 @@
-const fs = requires
+const fs = require('fs');
 const { Command } = require('commander');
 const program = new Command();
 
@@ -8,7 +8,7 @@ program
   .version('0.8.0');
 
 program.command('count')
-  .description('Count the number of lines in a file')
+  .description('Count the number of wordss in a file')
   .argument('<file>', 'file to count')
   .action((file) => {
        fs.readFile(file, 'utf8', (err, data) => {
@@ -21,6 +21,27 @@ program.command('count')
            }
         });
      });
+
+
+//if node -h it will give the helper function 
+//same thing i want here and also count the no of words
+
+program.command('count_sentences')
+  .description('Count the number of wordss in a file')
+  .argument('<file>', 'file to count')
+  .action((file) => {
+       fs.readFile(file, 'utf8', (err, data) => {
+          if (err) { 
+            console.log(err); 
+          } else { 
+           let words=0;
+           for(let i=0;i<data.length;i++){
+            if(data[i]==="\n"){
+              words++;
+             }
+           }
+           console.log('There are ${lines) lines in ${file)');
+           }
+        });
+     });
 program.parse();
-
-
