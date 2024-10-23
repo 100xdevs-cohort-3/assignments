@@ -1,0 +1,17 @@
+{
+  "name": "week-5",
+  "version": "1.0.0",
+  "description": "Create a Full-Stack Task Management Application.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fetch": "^1.1.0",
+    "node": "^22.10.0"
+  },
+  "devDependencies": {}
+}
