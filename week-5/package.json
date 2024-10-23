@@ -12,6 +12,7 @@
   "dependencies": {
     "express": "^4.21.1",
     "fetch": "^1.1.0",
+    "middleware": "^1.0.0",
     "node": "^22.10.0"
   }
 }
