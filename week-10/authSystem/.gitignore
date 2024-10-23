@@ -23,4 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 
+components
+context
 Demo.jsx
+Temp.jsx
+

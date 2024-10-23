@@ -1,5 +1,6 @@
-import AuthSystem from './Demo'
+import AuthSystem from './Temp'
 import "./App.css"
+
 
 function App() {
   return (
