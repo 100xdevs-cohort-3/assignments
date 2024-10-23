@@ -10,8 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.21.1",
     "fetch": "^1.1.0",
     "node": "^22.10.0"
-  },
-  "devDependencies": {}
+  }
 }

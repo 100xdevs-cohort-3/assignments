@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background request</title>
+
+
+    <head>
+    <!--this gives the access to the Asios library-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.6/axios.min.js"></script> 
+    </head>
+    
+</head>
+
+<body>
+    Linkedin
+  <div id="posts"></div>
+  <button onClick="getRecentPost()">Fetch latest posts</button>
+  <script>
+    async function getRecentPost() {
+        //same as fetch function do
+      console.log("Before sending request")
+      const response = await axios.get("https://jsonplaceholder.typicode.com/posts");
+      const arr=response.data;
+      for(let i=0;i<arr.length;i++){
+        document.getElementById("posts").innerHTML += ("<div>" + arr[i].title + "</div>");
+      }
+      
+    }
+    
+  </script>
+</body>
+
+</html>
