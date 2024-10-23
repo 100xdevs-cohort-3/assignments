@@ -1,10 +1,10 @@
-import Timer from './components/Timer'
+import RandomUser from './components/RandomUser'
 
 function App() {
 
   return (
     <>
-      <Timer />
+      <RandomUser />
     </>
   )
 }
