@@ -1,13 +1,8 @@
-import AuthSystem from './Temp'
-import "./App.css"
-
+import AuthSystem from './components/AuthSystem';
+import './Auth.css';
 
 function App() {
-  return (
-    <>
-      <AuthSystem/>
-    </>
-  )
+  return <AuthSystem />;
 }
 
-export default App
+export default App;
