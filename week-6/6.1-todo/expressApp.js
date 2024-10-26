@@ -46,7 +46,7 @@ app.post("/signup",function (req,res){
     })
 });
 
-app.get("/signin",function (req,res){
+app.post("/signin",function (req,res){
     const username=req.body.username;  //this
     const password=req.body.password;
     
