@@ -1,0 +1,12 @@
+{
+  "name": "6.1-todo",
+  "version": "1.0.0",
+  "description": "Create a simple Todo application that stores tasks in in-memory storage.",
+  "main": "backendAuth.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
