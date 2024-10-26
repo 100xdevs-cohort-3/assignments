@@ -1,0 +1,74 @@
+.random-user-container {
+    padding: 30px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+  }
+  
+  h1 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .users-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .user-card {
+    margin: 15px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 200px;
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in-out forwards;
+  }
+  
+  .user-image {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+  }
+  
+  h2 {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #555;
+  }
+  
+  p {
+    font-size: 14px;
+    color: #888;
+  }
+  
+  .loading-text {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .load-more-button {
+    padding: 12px 30px;
+    margin-top: 30px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
