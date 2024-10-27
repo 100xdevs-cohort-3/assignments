@@ -18,8 +18,9 @@ function generateToken(){
         //use a sinple function here
         token+=options[Math.floor(Math.random()*options.length)];// 0=>32 ( 22.89643=22 )gloor
 
-        return token;
+       
     }
+    return token;
 }
 
 //2 rautes have signin signup
@@ -54,7 +55,7 @@ app.post("/signin",function (req,res){
     //same
     let foundUser =null;
     for(let i=0;i<users.length;i++){
-        if(users[i].username == username && userrs[i].password==password){
+        if(users[i].username == username && users[i].password==password){
             foundUser=users[i];
         }
     }
@@ -88,6 +89,6 @@ app.post("/signin",function (req,res){
     
     */
 
-})
+});
 
 app.listen(1000);  //that the http server is listening on port 3000
