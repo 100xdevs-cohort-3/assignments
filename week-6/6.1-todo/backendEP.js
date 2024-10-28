@@ -51,7 +51,7 @@ app.post("/signin",logger,function(req,res){
     let foundUser=null;
 
     for(let i=0;i<users.length;i++){
-        if(users[i].username=== username && users[i].password===password){
+        if(users[i].username === username && users[i].password===password){
             foundUser=users[i];
         }
     }
@@ -61,8 +61,7 @@ app.post("/signin",logger,function(req,res){
             message:"Credentials incorrect"
         })
         return
-    }
-    else {
+    }else {
         const token=jwt.sign({
             username:users[i].username
         },JWT_SECRET);
@@ -94,10 +93,10 @@ function auth(req,res,next){
 }
 
 app.get("/me",logger,auth,function(req,res){
-        let foundUser=null;
+       const currentUser=req.username;
 
         for(let i=0;i<users.length;i++){
-            if(users[i].username===req.username){
+            if(users[i].username===currentUser){
                foundUser=users[i]
         }
     }
