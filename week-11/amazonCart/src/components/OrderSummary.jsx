@@ -5,7 +5,7 @@ import { itemCollectionAtom } from "../recoil/atoms/shoppingCartAtoms";
 import { orderTotalAtom } from "../recoil/atoms/orderSummaryAtoms";
 
 const OrderSummary = () => {
-  // const itemQuantity = useRecoilValue(itemCounterAtom);
+ 
  
   const summary = useRecoilValue(orderTotalAtom);
   let count = summary.quantity;
