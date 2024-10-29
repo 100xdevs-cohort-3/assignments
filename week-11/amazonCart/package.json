@@ -15,7 +15,6 @@
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.27.0",
     "recoil": "^0.7.7",
-    "recoil": "^0.7.7",
     "uuid": "^11.0.0"
   },
   "devDependencies": {
