@@ -1,7 +1,7 @@
 import React from 'react'
 import ShoppingCart from './ShoppingCart'
 import OrderSummary from './OrderSummary'
-export const AppBody = React.memo(function AppBody(){
+export default function AppBody(){
 
     return (
       <div style={{display:"flex", alignItems:"flex-start"}}>
@@ -9,6 +9,6 @@ export const AppBody = React.memo(function AppBody(){
         <OrderSummary/>
       </div>
     )
-  })
+  }
 
 // export default AppBody
