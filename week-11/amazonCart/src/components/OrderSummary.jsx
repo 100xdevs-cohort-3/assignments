@@ -1,16 +1,16 @@
 import React from "react";
-import { useRecoilValue } from "recoil";
-import { itemCounterAtom }  from "../recoil/atoms/itemAtoms";
-import { itemCollectionAtom } from "../recoil/atoms/shoppingCartAtoms";
+import { useRecoilValue,useSetRecoilState } from "recoil";
 import { orderTotalAtom } from "../recoil/atoms/orderSummaryAtoms";
-
+import { modalAtom } from "../recoil/atoms/modalAtom";
 const OrderSummary = () => {
  
- 
+  const setShowModal = useSetRecoilState(modalAtom)
   const summary = useRecoilValue(orderTotalAtom);
   let count = summary.quantity;
   let totalQuantity = summary.subtotal;
-
+  function showModal(){
+    setShowModal(prev => true)
+  }
   return (
     <div
       style={{
@@ -24,6 +24,7 @@ const OrderSummary = () => {
         maxWidth: "500px",
         marginRight: 20,
         fontSize: "2rem",
+        boxShadow:"0 4px 8px #C0C0C0"
       }}
     >
       <h3 style={{ margin: 0 }}>Order Summary</h3>
@@ -57,6 +58,7 @@ const OrderSummary = () => {
           style={{ display: "flex", justifyContent: "center", flexGrow: "1" }}
         >
           <button
+            onClick={showModal}
             style={{
               width: "100%",
               fontSize: "30px",

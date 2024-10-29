@@ -1,11 +1,7 @@
 import React, { useState } from 'react'
 import './App.css'
 import {RecoilRoot} from "recoil"
-
-
-import AppBar from './components/AppBar'
-import AppBody from './components/AppBody'
-
+import AmazonCart from './components/AmazonCart'
 function App() {
   return (
     <RecoilRoot>
@@ -13,18 +9,4 @@ function App() {
     </RecoilRoot>
   )
 }
-function AmazonCart(){
-    return(<div style={{backgroundColor:"#F3F4F6", minHeight:"100vh"}}>
-      <AppBar/>
-      <AppBody/>
-    </div>)
-
-}
-
-
-
-
-
-
-
 export default App
