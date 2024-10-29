@@ -63,7 +63,7 @@ app.post("/signin",logger,function(req,res){
         return
     }else {
         const token=jwt.sign({
-            username:users[i].username
+            username:foundUser.username
         },JWT_SECRET);
 
         res.header("jwt",token);
