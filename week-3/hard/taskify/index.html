@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Management App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Task Management App (w/ Drag & Drop)</h1>
+
+  <div class="board">
+    <div class="column" id="todo">
+      <h2>To Do</h2>
+      <div class="task" draggable="true">Tu Du</div>
+      <button class="add-btn">Add new</button>
+    </div>
+
+    <div class="column" id="in-progress">
+      <h2>In Progress</h2>
+      <div class="task" draggable="true">In-progress</div>
+
+      <button class="add-btn">Add new</button>
+    </div>
+
+    <div class="column" id="under-review">
+      <h2>Under Review</h2>
+      <div class="task" draggable="true">Under-review</div>
+      <button class="add-btn">Add new</button>
+    </div>
+
+    <div class="column" id="finished">
+      <h2>Finished</h2>
+      <div class="task" draggable="true">Finished Todo</div>
+      <button class="add-btn">Add new</button>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
