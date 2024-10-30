@@ -1,0 +1,16 @@
+{
+  "name": "week-7",
+  "version": "1.0.0",
+  "description": "**Your task is to create a course-selling website where admin can publish/create courses and user can purchase courses.**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1",
+    "mongoose": "^8.7.3"
+  }
+}
