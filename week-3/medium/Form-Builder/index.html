@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body{
+      background-color: #00174f;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+  </style>
+</head>
+<body class="w-full h-screen flex justify-center items-center">
+
+    <!-- Download Button -->
+<button id="download-btn" class="bg-[#00174f] absolute top-4 right-4 text-white px-4 py-2 rounded-md font-semibold border-2 border-white hover:bg-emerald-950">
+  Download Form Code
+</button>
+
+  
+  <div class="w-[80%] h-[80%] flex justify-between items-center mx-auto backdrop-blur-sm p-12 rounded-lg border-4 border-white">
+    
+    <!-- Form Builder Section -->
+    <div class="w-[48%] bg-gray-100 p-8 rounded-lg shadow-md">
+      <h1 class="text-2xl font-bold mb-6">Form Builder</h1>
+
+      <div class="mb-4">
+        <label for="field-type" class="block font-semibold text-gray-700 mb-2">Select Field Type</label>
+        <select id="field-type" class="w-full border border-gray-300 rounded-md p-2">
+          <option>Text Input</option>
+          <option>Password Input</option> 
+          <option>Number Input</option>
+          <option>Email Input</option>
+          <option>Checkbox</option>
+          <option>Radio Button</option>
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label for="field-label" class="block font-semibold text-gray-700 mb-2">Field Label</label>
+        <input type="text" id="field-label" placeholder="Enter field label" class="w-full border border-gray-300 rounded-md p-2" />
+      </div>
+
+      <button id="add-field" class="w-full bg-blue-600 text-white p-2 rounded-md font-semibold hover:bg-blue-700">
+        Add Field
+      </button>
+    </div>
+    
+    <!-- Form Preview Section -->
+     
+    <div class="w-[48%] h-[90%] overflow-y-auto bg-gray-100 p-8 rounded-lg shadow-md">
+      <h1 class="text-2xl font-bold mb-6">Form Preview</h1>
+      
+      <!-- This is where dynamic fields will appear -->
+      <div id="form-preview" class="min-h-[200px]"></div>
+
+      
+    </div>
+
+  </div>
+
+
+
+  <script src="./script.js"></script>
+</body>
+
+</html>
