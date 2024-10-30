@@ -45,7 +45,7 @@ columns.forEach(column => {
 
   column.addEventListener('drop', (e) => {
     e.preventDefault();
-    console.log('drop', e.target);
+    // console.log('drop', e.target);
 
     /*
     We check if the drop event is happening on a task element (another task within the same column).
@@ -58,17 +58,17 @@ columns.forEach(column => {
       e.target.classList.remove('drag-over');
       // Insert the dragged task before or after the target task based on position
       const allTasks = Array.from(column.querySelectorAll('.task'));
-      console.log(allTasks);
+      // console.log(allTasks);
       const targetIndex = allTasks.indexOf(e.target);
-      console.log('targetIndex', targetIndex);
+      // console.log('targetIndex', targetIndex);
       const draggedIndex = allTasks.indexOf(draggedTask);
-      console.log('draggedIndex', draggedIndex);
+      // console.log('draggedIndex', draggedIndex);
 
       if (draggedIndex < targetIndex) {
-        console.log('insert after', e.target);
+        // console.log('insert after', e.target);
         e.target.insertAdjacentElement('afterend', draggedTask);
       } else {
-        console.log('insert before', e.target);
+        // console.log('insert before', e.target);
         e.target.insertAdjacentElement('beforebegin', draggedTask);
       }
     } 
@@ -76,7 +76,7 @@ columns.forEach(column => {
     // If the task is dropped directly on the column itself (not on a specific task), it will be added to the end of the task list in that column.
     
     else if (e.target.classList.contains('column') && draggedTask) {
-      console.log('drop on column', e.target);
+      // console.log('drop on column', e.target);
       column.querySelector('.add-btn').insertAdjacentElement('beforebegin', draggedTask);
     }
   });
