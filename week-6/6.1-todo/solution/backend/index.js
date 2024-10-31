@@ -1,3 +1,4 @@
+
 import express from 'express';
 import cors from 'cors';
 import { getAllTodo, createTodo, updateTodo, deleteTodoById, searchTodo } from './routes/todo.js';
@@ -25,5 +26,5 @@ app.delete('/todos/:id', deleteTodoById);
 app.get('/todos/search', searchTodo); // search route
 
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Server is running on http://localhost:${PORT}`);
 });

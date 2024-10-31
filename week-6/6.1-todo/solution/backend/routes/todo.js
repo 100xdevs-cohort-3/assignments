@@ -1,3 +1,4 @@
+
 let todos = []; // in memory space
 let currentId = 1; // Counter for unique IDs
 
@@ -17,6 +18,7 @@ export async function createTodo(req, res, next) {
 }
 
 export async function updateTodo(req, res, next) {
+
     const { id } = req.params;
     const { task } = req.body;
 
@@ -39,7 +41,7 @@ export async function deleteTodoById(req, res, next) {
 
     if (todoIndex !== -1) {
         todos.splice(todoIndex, 1); // Remove todo
-        res.status(204).send(); 
+        res.status(204).send();
     } else {
         res.status(404).json({ message: 'Todo not found' });
     }
@@ -47,6 +49,7 @@ export async function deleteTodoById(req, res, next) {
 
 // Search functionality
 export async function searchTodo(req, res, next) {
+
     const { q } = req.query;
     if (!q) {
         return res.status(400).json({ message: 'Query parameter missing' });

@@ -24,5 +24,5 @@ app.delete('/todos/:id', deleteTodoById);
 app.get('/todos/search', searchTodo); // search route
 
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Server is running on http://localhost:${PORT}`);
 });

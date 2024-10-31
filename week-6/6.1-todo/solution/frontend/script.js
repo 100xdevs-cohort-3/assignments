@@ -24,7 +24,7 @@ function addTodoToDOM(todo) {
     todoItem.setAttribute('data-id', todo.id);
 
     const title = document.createElement('span');
-    title.textContent = todo.task; 
+    title.textContent = todo.task;
 
     const deleteButton = document.createElement('button');
     deleteButton.textContent = 'Delete';
@@ -38,7 +38,7 @@ function addTodoToDOM(todo) {
 
 // Add a new todo
 document.getElementById('add-todo-btn').addEventListener('click', () => {
-    const titleInput = document.getElementById('todo-input'); 
+    const titleInput = document.getElementById('todo-input');
 
     if (!titleInput) {
         console.error('Input not found');
@@ -57,7 +57,7 @@ document.getElementById('add-todo-btn').addEventListener('click', () => {
         .then(response => response.json())
         .then(todo => {
             addTodoToDOM(todo);
-            titleInput.value = ''; 
+            titleInput.value = '';
         })
         .catch(error => console.error('Error adding todo:', error));
 });
