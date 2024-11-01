@@ -13,10 +13,11 @@ const User=new Schema({
 
 
 const Todo=new Schema({
+    userId: ObjectId,
     title:String,
-    done: Boolean,
-    userId: ObjectId
-})
+    done: Boolean
+    
+});
 //
 
 

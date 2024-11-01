@@ -7,8 +7,8 @@ const JWT_SECRET="puja1234";
 const {UserModel, TodoModel}=require("./db");
 const { default: mongoose } = require("mongoose");
 
-//it will automatically create the database for us name(toodo-puja-2)
-mongoose.connect("mongodb+srv://puja02538:zyRWMwNQ1qCYfVSM@cluster0.d555e.mongodb.net/todo-puja-2");
+//it will automatically create the database for us name(toodo-puja-2)(url present in .env file)
+mongoose.connect("MONGODB");
 
 const app=express();
 
