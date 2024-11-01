@@ -1,17 +1,32 @@
+//Schema
 const mongoose =require("mongoose");
 
-const schema=mongoose.Schema;
-const Objected=mongoose.Objected;
+const Schema=mongoose.Schema;
+const ObjectId=mongoose.ObjectId;
 
 const User=new Schema({
-    email:String,
-    password: String,
-    name: String
-})
+    name: String,
+    email:{type : String, unique :true},
+    password: String
+    
+});
 
 
 const Todo=new Schema({
     title:String,
     done: Boolean,
-    userId: Objected
+    userId: ObjectId
 })
+//
+
+
+//calling the model
+const UserModel=mongoose.model('users',User);
+const TodoModel=mongoose.model('todos',Todo);
+
+//exporting this
+module.exports={
+    UserModel:UserModel,
+    TodoModel:TodoModel
+
+}
