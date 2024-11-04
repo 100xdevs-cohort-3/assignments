@@ -20,34 +20,37 @@ app.post("/signup", async function(req,res){
     const password=req.body.password;
     const name=req.body.name;
 
+    let errorThrown= false;
 
-    //Input validation written by me
-    if(typeof email !== "string" || email.length <5 || !email.include("@")){
-        res.json({
-            message:"Email incorrect"
-        })
-        return 
-    }
 
-    //hash the password
-    const hashPassword=await bcrypt.hash(password,5);
-    console.log(hashPassword);
+    try {
+        
+        //hash the password
+        const hashPassword=await bcrypt.hash(password,5);
+        console.log(hashPassword);
 
 
         //use the schema here
         //this will insert data in database
-    await UserModel.create({
-        email:email,
-        password:hashPassword,
-        name:name
+        await UserModel.create({
+            email:email,
+            password:hashPassword,
+            name:name
 
-    })
+         })
 
-  
-    res.json({
-         message:"You are logged in"
-    })
-    
+    }catch(e){
+        res.json({
+            message:"User already exists"
+        })
+        errorThrown =true;
+    }
+    if(!errorThrown){
+        res.json({
+            message:"You are logged in"
+        })
+    }
+   
 
 });
 
