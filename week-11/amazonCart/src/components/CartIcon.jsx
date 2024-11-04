@@ -1,4 +1,4 @@
-import {useRecoilValue} from "recoil"
+import { useRecoilValue } from "recoil";
 import { orderTotalAtom } from "../recoil/atoms/orderSummaryAtoms";
 import { Link } from "react-router-dom";
 export default function CartIcon(){
