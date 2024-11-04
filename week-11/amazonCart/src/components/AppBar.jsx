@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 import CartIcon from './CartIcon'
 export default function AppBar(){
   return (
@@ -8,7 +8,18 @@ export default function AppBar(){
         amazon.in
       </div>
       <CartIcon/>
+      <WishListIcon/>
     </div>
+  )
+}
+
+function WishListIcon(){
+  return (
+    <Link to="/wishlist">
+    <div>
+      Wish
+    </div>
+    </Link>
   )
 }
 
