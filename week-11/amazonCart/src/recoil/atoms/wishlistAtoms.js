@@ -1,9 +1,8 @@
 import { atomFamily } from "recoil";
 
-const wishListItemStatusAtom = atomFamily({
+export const wishListItemStatusAtom = atomFamily({
     key:"wishListItemStatus",
     default:(id)=>{
         return false;
     }
 })
-export default wishListItemStatusAtom

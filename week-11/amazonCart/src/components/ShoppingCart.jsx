@@ -23,7 +23,7 @@ export default function ShoppingCart() {
       curr.subtotal += 100;
       return curr;
     });
-  }
+  } // this is just a dummy function to check the functionality of shopping cart.The actual function which matters is in WishList.jsx
 
   return (
     <div

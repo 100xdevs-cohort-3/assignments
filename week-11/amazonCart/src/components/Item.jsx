@@ -3,6 +3,7 @@ import {useRecoilState, useSetRecoilState} from "recoil"
 import { itemCounterAtom } from "../recoil/atoms/itemAtoms";
 import { orderTotalAtom } from "../recoil/atoms/orderSummaryAtoms";
 import { itemCollectionAtom } from "../recoil/atoms/shoppingCartAtoms";
+import { wishListItemStatusAtom } from "../recoil/atoms/wishlistAtoms";
 export const Item = React.memo(function Item({identifier, title, price}){ 
     
     
@@ -10,6 +11,9 @@ export const Item = React.memo(function Item({identifier, title, price}){
     const setOrderTotal = useSetRecoilState(orderTotalAtom);
     
     const setItems = useSetRecoilState(itemCollectionAtom)
+    
+    const setAdded = useSetRecoilState(wishListItemStatusAtom(identifier));
+
     function increase(){
       setCount(currVal => currVal+1);
       setOrderTotal((prev) => {
@@ -25,6 +29,7 @@ export const Item = React.memo(function Item({identifier, title, price}){
         return {quantity:prev.quantity-1, subtotal:prev.subtotal-price}
   
         })
+      setAdded(false);
     }
     function decrease(){
       if(count == 1){

@@ -1,4 +1,4 @@
-import {atom, atomFamily} from "recoil"
+import {atomFamily} from "recoil"
 
 export const itemCounterAtom=atomFamily({
     key:"itemQuanityCounter",
