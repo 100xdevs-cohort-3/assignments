@@ -4,6 +4,7 @@ import { itemCollectionAtom } from "../recoil/atoms/shoppingCartAtoms";
 import { orderTotalAtom } from "../recoil/atoms/orderSummaryAtoms";
 import generateUniqueId from "../utils/uuid_generator";
 export default function ShoppingCart() {
+  const debug=false;
   const [items, setItems] = useRecoilState(itemCollectionAtom);
   const setOrderTotal = useSetRecoilState(orderTotalAtom);
   function addItem() {
@@ -54,7 +55,7 @@ export default function ShoppingCart() {
           />
         );
       })}
-      <button onClick={addItem}>Add</button>
+      {debug&&<button onClick={addItem}>Add</button>}
     </div>
   );
 }

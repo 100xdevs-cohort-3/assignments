@@ -9,11 +9,6 @@ export default function AppBar(){
       </div>
       <CartIcon/>
       <WishListIcon/>
-      {/* <WishListIcon/> */}
     </div>
   )
-})
-
-
-
-// export default AppBar
+}
