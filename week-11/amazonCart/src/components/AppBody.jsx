@@ -10,5 +10,3 @@ export default function AppBody(){
       </div>
     )
   }
-
-// export default AppBody

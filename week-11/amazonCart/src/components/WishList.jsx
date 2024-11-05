@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
-import { useRecoilState,useRecoilValue,useSetRecoilState } from 'recoil';
+import {useRecoilValue,useSetRecoilState } from 'recoil';
 import { itemCollectionAtom } from '../recoil/atoms/shoppingCartAtoms';
 import { orderTotalAtom } from '../recoil/atoms/orderSummaryAtoms';
-import generateUniqueId from '../utils/uuid_generator';
 import {wishListItemStatusAtom} from '../recoil/atoms/wishlistAtoms';
 const WishList = () => {
   return (
@@ -17,10 +16,11 @@ const WishList = () => {
 }
 
 function WishItem({id,title,price}){
-  // const [added,setAdded] = useRecoilState(wishListItemStatusAtom(id))
+  
   const added = useRecoilValue(wishListItemStatusAtom(id));
   const setAdded = useSetRecoilState(wishListItemStatusAtom(id));
-  const [items, setItems] = useRecoilState(itemCollectionAtom);
+  
+  const setItems = useSetRecoilState(itemCollectionAtom);
   const setOrderTotal = useSetRecoilState(orderTotalAtom);
   useEffect(()=>{
     console.log("added : ", added)

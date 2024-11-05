@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import CartIcon from './CartIcon'
 import WishListIcon from './WishListIcon'
 export default function AppBar(){
@@ -10,21 +9,6 @@ export default function AppBar(){
       </div>
       <CartIcon/>
       <WishListIcon/>
-      {/* <WishListIcon/> */}
     </div>
   )
 }
-
-// function WishListIcon(){
-//   return (
-//     <Link to="/wishlist">
-//     <div>
-//       Wish
-//     </div>
-//     </Link>
-//   )
-// }
-
-
-
-// export default AppBar
