@@ -1,4 +1,7 @@
 const express=require("express");
+
+const mongoose=require("mongoose");
+
 // const jwt=require("jsonwebtoken");
 // const JWT_SECRET="puja123";
 
@@ -15,7 +18,7 @@ const app=express();
 //better way
 app.use("/api/v1/user",userRouter);
 app.use("/api/v1/course",courseRouter);
-app.use("/api/v1/admin",userAdmin);
+app.use("/api/v1/admin",adminRouter);
 
 // createUserRoutes(app);
 // createCourseRoutes(app);
@@ -31,4 +34,12 @@ app.use("/api/v1/admin",userAdmin);
 // }
 
 
-app.listen(3000);
+//first it will run
+async function main(){
+    await mongoose.connect("mongodb+srv://puja02538:zyRWMwNQ1qCYfVSM@cluster0.d555e.mongodb.net/coursera-app")
+    app.listen(3000);
+    console.log("Listening on port 3000");
+}
+
+
+main();
