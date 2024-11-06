@@ -1,68 +1,34 @@
 const express=require("express");
-const jwt=require("jsonwebtoken");
+// const jwt=require("jsonwebtoken");
+// const JWT_SECRET="puja123";
+
+// const {createUserRoutes, userRouter}=require("./routes/user");
+// const {createCourseRoutes}=require("./routes/courses");
+
+const {userRouter}=require("./routes/user");  
+const {courseRouter}=require("./routes/courses");
+const {adminRouter}=require("./routes/admin");
 
 
 const app=express();
 
+//better way
+app.use("/api/v1/user",userRouter);
+app.use("/api/v1/course",courseRouter);
+app.use("/api/v1/admin",userAdmin);
+
+// createUserRoutes(app);
+// createCourseRoutes(app);
+
+//Routing in express , the express Router
 
 
-app.get("/user login",auth,function(req,res){
-    const user=req.body.user;
-    const password=req.body.password;
+// app.use(express.json());
 
 
-    res.json({
-        message:"You are logged in";
-    })
-    
-})
+// function auth(req,res,next){
 
-app.get("/signup",function(req,res){
-    const user=req.body.user;
-    const password=req.body.password;
-
-    res.json({
-        message:"Incorrect credential"
-    })
-
-})
-
-app.get("/purchase a course",function(req,res){
-    const user=req.body.user;
-    const password=req.body.password;
-
-    res.json({
-
-    })
-})
-
-app.get("/see course",function(req,res){
-
-})
-
-app.get("/admin login",auth,function(req,res){
-
-})
-
-app.post("/admin signup" ,function(req,res){
-
-})
-
-app.get("/create a couse",function(req,res){
-
-})
-
-app.get("/delete a couse",function(req,res){
-
-})
-
-app.get("/add couse content",function(req,res){
-
-})
-
-function auth(req,res,next){
-
-}
+// }
 
 
 app.listen(3000);
