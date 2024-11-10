@@ -2,7 +2,11 @@ import AuthSystem from './components/AuthSystem';
 import './Auth.css';
 
 function App() {
-  return <AuthSystem />;
+  return(
+    <div>
+      <AuthSystem />
+    </div>
+  )
 }
 
 export default App;

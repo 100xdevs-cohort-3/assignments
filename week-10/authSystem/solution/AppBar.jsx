@@ -9,28 +9,13 @@ const AppBar = ({ username: propUsername, isLoggedIn: propIsLoggedIn, logout: pr
   const handleLogout = contextValue?.logout ?? propLogout;
 
   return (
-    <div style={{
-      backgroundColor: '#3f98b5',
-      color: 'white',
-      padding: '1rem',
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center'
-    }}>
-      <h1 style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>Auth System Demo</h1>
+    <div>
+      <h1>Auth System Demo</h1>
       {displayIsLoggedIn ? (
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+        <div>
           <span>Welcome, {displayUsername}!</span>
           <button
-            onClick={handleLogout}
-            style={{
-              backgroundColor: 'white',
-              color: '#3f51b5',
-              border: 'none',
-              padding: '0.5rem 1rem',
-              borderRadius: '4px',
-              cursor: 'pointer'
-            }}
+          onClick={handleLogout}
           >
             Logout
           </button>
