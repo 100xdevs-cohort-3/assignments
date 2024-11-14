@@ -1,0 +1,27 @@
+/* styles.css */
+.quiz-container {
+  width: 50%;
+  margin: auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+.question-container {
+  margin-bottom: 20px;
+}
+.submit-button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.result-container {
+  margin-top: 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+  width: 50%;
+  margin: auto;
+}
