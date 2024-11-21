@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>BG-CHANGER</title>
+    <script>
+      function changeBackground(e) {
+        const bgColor = e.target.id;
+        document.body.style.backgroundColor = bgColor;
+        // console.log(element);
+      }
+    </script>
+  </head>
+  <body>
+    <div class="root">
+      <div class="container">
+        <div class="item" id="white" onclick="changeBackground(event)">
+          white
+        </div>
+        <div class="item" id="blue" onclick="changeBackground(event)">Blue</div>
+        <div class="item" id="green" onclick="changeBackground(event)">
+          Green
+        </div>
+        <div class="item" id="red" onclick="changeBackground(event)">Red</div>
+        <div class="item" id="yellow" onclick="changeBackground(event)">
+          Yellow
+        </div>
+        <div class="item" id="orange" onclick="changeBackground(event)">
+          Orange
+        </div>
+        <div class="item" id="purple" onclick="changeBackground(event)">
+          Purple
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,9 +1,22 @@
-import React from 'react'
+import React from "react";
 
-const Header = () => {
+const Header = ({ message }) => {
   return (
-    <div>Header</div>
-  )
-}
+    <div
+      style={{
+        backgroundColor: "#3ded97",
+        opacity: 0.5,
+        height: 54,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        fontSize: 24,
+        fontWeight: "bold",
+      }}
+    >
+      {message}
+    </div>
+  );
+};
 
-export default Header
+export default Header;

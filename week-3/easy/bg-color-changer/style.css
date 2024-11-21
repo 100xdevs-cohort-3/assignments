@@ -1,0 +1,48 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Align content to the bottom */
+  align-items: center;
+  width: 100vw; /* 100% of the viewport width */
+  height: 80vh; /* 100% of the viewport height */
+  font-size: medium;
+  font-style: oblique;
+}
+.container {
+  border-style: solid 1px;
+  border-color: black;
+  border-radius: 6px;
+  display: flex;
+  padding: 8px;
+  background-color: cyan;
+
+  /* align-self: flex-end; */
+}
+.item {
+  cursor: pointer;
+  padding: 8px;
+  margin: 6px;
+  border-radius: 6px;
+  box-shadow: 6px;
+}
+#white {
+  background-color: white;
+}
+#blue {
+  background-color: blue;
+}
+#red {
+  background-color: red;
+}
+#green {
+  background-color: green;
+}
+#yellow {
+  background-color: yellow;
+}
+#orange {
+  background-color: orange;
+}
+#purple {
+  background-color: purple;
+}
