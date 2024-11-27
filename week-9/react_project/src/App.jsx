@@ -1,37 +1,26 @@
-import {useState,useEffect} from "react";
- 
+import {useState} from "react";
+import "./App.css";
+
+
 function App(){
- const [count, setCount] = useState(1);
- const [count2, setCount2] = useState(1);
 
-
- function increaseCount(){
-  setCount(countVal=>countVal+1);
- }
-
- function decreaseCount(){
-   setCount(countVal=>countVal-1);
- }
-
- //on mount
- useEffect(function(){
-  console.log("abouve setinterval")
-  setInterval(increaseCount,5000);
-  setInterval(decreaseCount,8000);
- },[])
-
-
- useEffect(function(){
-  console.log("the count has been updated to " + count);
-  
- },[count]);
-
+  const [currentTab, setCurrentTab] = useState("feed");
 
   return <div>
-   {count} {count2}
+    <button onClick={function(){setCurrentTab("feed")
+
+    }} style={{color: currentTab=="feed"? "red" : "black"}}>Feed</button>
+    <button onClick={function(){setCurrentTab("notifications")
+      
+    }} style={{color:currentTab=="notifications"? "red" : "black"}}>Notifications</button>
+    <button onClick={function(){setCurrentTab("messages")
+      
+    }} style={{color: currentTab =="messages" ? "red": "black"}}>messages</button>
+    <button onClick={function(){setCurrentTab("jobs")
+      
+    }} style={{color : cuurentTab=="jobs"? "red" : "black"}}>Jobs</button>
   </div>
+
 }
-
-
 
 export default App;
