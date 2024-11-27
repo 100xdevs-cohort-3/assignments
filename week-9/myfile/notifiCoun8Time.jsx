@@ -1,3 +1,4 @@
+// increase the no by evry 5 sec
 import {useState,useEffect} from "react";
  
 function App(){
@@ -9,7 +10,7 @@ function App(){
 
  useEffect(function(){
   console.log("abouve setinterval")
-  setInterval(increaseCount,1000);
+  setInterval(increaseCount,5000);
  },[])
 
   return <div>
