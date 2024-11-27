@@ -18,7 +18,7 @@ function App(){
     }} style={{color: currentTab =="messages" ? "red": "black"}}>messages</button>
     <button onClick={function(){setCurrentTab("jobs")
       
-    }} style={{color : cuurentTab=="jobs"? "red" : "black"}}>Jobs</button>
+    }} style={{color : currentTab=="jobs"? "red" : "black"}}>Jobs</button>
   </div>
 
 }
