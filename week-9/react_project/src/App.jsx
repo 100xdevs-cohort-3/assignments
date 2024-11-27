@@ -1,62 +1,48 @@
-import {useState,useEffect} from "react";
+import {useState} from "react";
+import {PostComponent} from "./Post";
+import './App.css'
 
+function App() {
 
-function App(){
-  const [count,setCount]=useState(0);
-  const [count2,setCount2]=useState(0);
+  const [posts,setPosts]=useState([]);
 
-function increase(){
-  setCount(c=>c+1);
+ 
+  //convert array of object
+  const postComponents=posts.map(post => <PostComponent
+    name={post.name}
+    subtitle={post.subtitle}
+    time={post.time}
+    image={post.image}
+    description={post.description}
+
+  />)
+
+  function addPost(){
+    setPosts([...posts,{
+       name:"puja",
+       subtitle:"10000 followers",
+       time: "2m ago",
+       image:"https://avatars.githubusercontent.com/u/149191257?v=4",
+       description:"What to know to win big? Check out how these folks won $6000 in bounties"
+ 
+ 
+    
+    }])
+
+  }
+  
+  //then iterate and render here
+  //final array
+  return (
+    <div style={{background:"#dfe6e9", height: "100vh"}}>
+      <button onClick={addPost}>Add Post</button>
+      <div style={{display:"flex", justifyContent: "center"}}>
+        <div>
+          {postComponents}
+        </div>
+       </div>
+     </div>
+  )
 }
-
-
-function decrease(){
-  setCount2(c=>c-1);
-}
-
-  return <div>
-    <Counter count={count} count2={count2}/>
-    <button onClick={increase}>Increase Count</button>
-    <button onClick={decrease}>Decrease Count</button>
-  </div>
-
-}
-
-
-function Counter(props){
-
-//mounting works only in this case empty da
-  useEffect(function(){
-
-    //mounting
-    console.log("Mount");
-
-    //CLEANUP (runs at last not evrytime)
-    return function(){
-      console.log("unmount");
-    }
-
-  },[]);
-
-  useEffect(function(){
-    //first run once 
-    console.log("Count the chnaged");
-
-
-    //first time it will not run after that it will run everytime
-    return function(){
-      console.log("cleanup inside second effect");
-    }
-
-  },[props.count])
-
-
-  return <div>
-    Counter1 {props.count} <br />
-    Counter2 {props.count2} <br />
-  </div>
-
-}
-
 
 export default App;
