@@ -1,26 +1,22 @@
-import {useState} from "react";
-import "./App.css";
+import {useState,useEffect} from "react";
 
 
 function App(){
 
-  const [currentTab, setCurrentTab] = useState("feed");
-
-  return <div>
-    <button onClick={function(){setCurrentTab("feed")
-
-    }} style={{color: currentTab=="feed"? "red" : "black"}}>Feed</button>
-    <button onClick={function(){setCurrentTab("notifications")
-      
-    }} style={{color:currentTab=="notifications"? "red" : "black"}}>Notifications</button>
-    <button onClick={function(){setCurrentTab("messages")
-      
-    }} style={{color: currentTab =="messages" ? "red": "black"}}>messages</button>
-    <button onClick={function(){setCurrentTab("jobs")
-      
-    }} style={{color : currentTab=="jobs"? "red" : "black"}}>Jobs</button>
+  return <div style={{display: "flex"}}>
+   
   </div>
 
+}
+
+
+function Card({innerContent}){
+  //outer design
+  return <span style={{background : "black", borderRadius : 10, color: "white" , padding :10, margin:10 }}>
+
+    {innerContent}
+
+  </span>
 }
 
 export default App;
