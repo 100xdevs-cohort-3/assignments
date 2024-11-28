@@ -9,7 +9,7 @@ const Card =({children})=>{
         padding : '20px',
         margin: '10px',
         boxshadow: '2px 2px 5px rgba(0,0,0,0.1)',
-        backgroundColor: 'gray'
+        backgroundColor: 'red'
       }}>
         {children}
       </div>
