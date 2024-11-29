@@ -1,5 +1,6 @@
 import React from "react";
 
+//inthis console dont give any warning 
 const App =()=>{
 
   //give a key
