@@ -1,45 +1,18 @@
-import React from "react";
-import {useState, useEffect} from "react";
+import {useState} from "react";
+import "./App.css";
 
 
-const App=()=>{
-  return (
-    <div>
-      <MyComponent/>
+function App(){
 
-    </div>
-  )
-}
+  const [currentTab, setCurrentTab] = useState("feed");
 
- 
-function MyComponent(){
-  const [count,setCount]=useState(0);
+  return <div>
+    <button onClick={function(){setCurrentTab("feed")}} style={{color: currentTab=="feed"? "red" : "black"}}>Feed</button>
+    <button onClick={function(){setCurrentTab("notifications")  }} style={{color:currentTab=="notifications"? "red" : "black"}}>Notifications</button>
+    <button onClick={function(){setCurrentTab("messages")}} style={{color: currentTab =="messages" ? "red": "black"}}>messages</button>
+    <button onClick={function(){setCurrentTab("jobs")}} style={{color : currentTab=="jobs"? "red" : "black"}}>Jobs</button>
+  </div>
 
-  useEffect(()=>{
-    //this will run when count variable chnages
-    console.log("Component mounted or count updated")
-  },[count]);
-
-
-  useEffect(()=>{
-
-    //on mount
-    console.log("Component mounted");
-
-    //on unmount
-    return ()=>{
-      console.log("Component will unmount")
-    }
-
-  },[]);
-
-  return (
-    <div>
-      <p>Count :{count}</p>
-      <button onClick={()=>setCount(count +1)}>Increment</button>
-
-    </div>
-  )
 }
 
 export default App;
