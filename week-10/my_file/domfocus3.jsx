@@ -1,10 +1,6 @@
 import React from "react";
 
-
-
 function App(){
-
-
 
   function focusOnInput(){
     document.getElementById("name").focus();
