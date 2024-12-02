@@ -32,7 +32,7 @@ function App() {
 
 
 
-//create the counter componet that uses the custom hook
+//create the counter componet that uses the custom hook (reusing that logic)
 function Counter(){
 
   const {count,increaseCount}=useCounter();

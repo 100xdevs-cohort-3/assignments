@@ -22,19 +22,8 @@ function useCounter(){
 }
 
 function App() {
-  return <div>
-    <Counter/>
-    <Counter/>
-    <Counter/>
-    <Counter/>
-  </div>
-}
 
-
-
-//create the counter componet that uses the custom hook
-function Counter(){
-
+  // destructure the object here
   const {count,increaseCount}=useCounter();
 
   //use here
