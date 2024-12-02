@@ -19,7 +19,7 @@ class Todo {
     }
     remove(index){
       if (index >= 0 && index < this.todos.length) {
-        this.todos.splice(index)
+        this.todos.splice(index,1)
       }
     }
 
@@ -37,7 +37,7 @@ class Todo {
       if (indexOfTodo >= 0 && indexOfTodo < this.todos.length) {
         return this.todos[indexOfTodo]
       }
-         
+         return null
     }
 
     clear(){
