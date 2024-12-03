@@ -1,12 +1,15 @@
 import React from "react";
 
 import "./App.css";
-import usePostTitlle from "./hooks/useFetch";
+import usePostTitlle, { useFetch } from "./hooks/useFetch";
 
 function App(){
-  const postTitle= usePostTitlle();
+  //const postTitle= usePostTitlle();
+
+  //destructure that data here
+  const {finalData}= useFetch("https://jsonplaceholder.typicode.com/posts/1");
   return <div>
-   {postTitle}
+  {JSON.stringify(finalData)}
 
   </div>
 }
