@@ -1,47 +1,14 @@
-import './App.css';
-import {useState} from "react";
+import React from "react";
 
+import "./App.css";
+import usePostTitlle from "./hooks/useFetch";
 
-//custom hook
-function useCounter(){
-  //create the state variabke
-  const [count, setCount]=useState(0);
-
-
- // define the functiom
-  function increaseCount(){
-    setCount (count +1);
-  } 
-
-  //return the function as well as state variavle in an object
-  return {
-     count:count,
-     increaseCount:increaseCount
-  }
-
-}
-
-function App() {
+function App(){
+  const postTitle= usePostTitlle();
   return <div>
-    <Counter/>
-    <Counter/>
-    <Counter/>
-    <Counter/>
+   {postTitle}
+
   </div>
 }
 
-
-
-//create the counter componet that uses the custom hook
-function Counter(){
-
-  const {count,increaseCount}=useCounter();
-
-  //use here
-  return <div>
-    <button onClick={increaseCount}>Increase {count}</button>
-    
-  </div>
-}
-
-export default App
+export default App;
