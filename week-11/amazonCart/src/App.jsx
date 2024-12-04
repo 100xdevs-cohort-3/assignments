@@ -1,35 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import React, { useEffect, useState } from "react";
+import "./index.css"
+import "./App.css";
+import AmazonCart from "./components/AmazonCart";
+import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
+import WishList from "./components/WishList";
+import AppBar from "./components/AppBar";
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route path="/cart" element={<AmazonCart />} />
+          <Route path="/wishlist" element={<WishList />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+function Layout() {
+  console.log("layout-re rendered!")
+  useEffect(()=>{
+    console.log("Layout mounted!")
+  },[])
+
+  return (
+    <div>
+      <AppBar />
+      <Outlet />
+    </div>
+  );
+}
+export default App;

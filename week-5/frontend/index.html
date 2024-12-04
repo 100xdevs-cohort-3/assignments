@@ -1,13 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Taskify Frontend</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <!-- start writing code -->
-    <script src="./script.js"></script>    
-</body>
+    <div id="todos" style="display: none">
+      <div id="greet"></div>
+      <ul id="list"></ul>
+
+      <input type="text" placeholder="New Task" id="todoInput" />
+      <button onclick="addTodo(event)" type="button">Add</button>
+    </div>
+    <div id="credentials">
+      <input type="email" placeholder="email" id="email" />
+      <input type="password" placeholder="password" id="password" />
+      <button type="button" onclick="signup(event)">Sign Up</button>
+      <button type="button" onclick="signin(event)">SignIn</button>
+      <!-- </form> -->
+    </div>
+    <button
+      type="button"
+      id="logoutButton"
+      onclick="logout(event)"
+      style="display: none"
+    >
+      Logout
+    </button>
+    <script src="./script.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"></script>
+    <script>
+      async function signup(event){
+        event.preventDefault();
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+
+        let payload = JSON.stringify({email: email, password : password});
+
+        let response = await fetch("http://localhost:3000/users/signup", {
+          method : "POST", 
+          headers:{
+            "Content-Type" : "application/json"
+          },
+          body:payload
+        });
+        const statusCode = response.status;
+        
+        response = await response.json();
+       
+        if(statusCode == 200){
+          alert(response.message);
+        } 
+        else{
+          alert("Signup Failed. Please try again later");
+        }
+
+
+      } 
+      
+      async function signin() {
+        //event.preventDefault();
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+       
+        try {
+          /*let response = await axios.post(
+            "http://localhost:3000/users/signin",
+            {
+              email: email,
+              password: password,
+            }
+          ); */
+          //console.log(email, password)
+          let response = await fetch("http://localhost:3000/users/signin", {
+            method : "POST", 
+            headers:{"Content-Type": "application/json"},
+            body:  JSON.stringify({"email" : email, "password" : password}),
+          });
+
+          response = await response.json(); 
+          console.log("response = ",  response);
+          //response = await response.json();
+
+          if (response.token) {
+            console.log("response token : ", response.token);
+            localStorage.setItem("token", response.token);
+          }
+          else{
+            alert("token not found!");
+          }
+
+          const credDiv = document.getElementById("credentials");
+          const logoutButton = document.getElementById("logoutButton");
+          const todoDiv = document.getElementById("todos");
+          credDiv.style.display = "none";
+          logoutButton.style.display = "block";
+          todoDiv.style.display = "block";
+          getInfo();
+        } catch (err) {
+          console.log("ERR : ", err);
+        }
+      }
+
+      async function getInfo() {
+        const token = localStorage.getItem("token");
+        console.log(token);
+        /*let response = await axios.get("http://localhost:3000/users/me", {
+          headers: {
+            token: token,
+          },
+        });*/
+        let response = await fetch("http://localhost:3000/users/me",{
+          headers:{
+            "token":token
+          }
+        })
+        //event.preventDefault();
+        response = await response.json();
+        //console.log("me response", response);
+        const info = response.info;
+        const greetDiv = document.getElementById("greet");
+        greetDiv.style.display = "block";
+        greetDiv.innerText = `Here are your tasks ${info.email}`;
+
+        const list = document.getElementById("list");
+        
+        if (info.todos.length) {
+          list.innerText = "";
+          for (let todo of info.todos) {
+            const text = todo.description
+            const todoEl = document.createElement("li");
+            todoEl.innerHTML = `${text} <button type="button" class="edit" onclick="edit()">Edit</button><button type="button" class="delete" onclick="delete()">Delete</button>`;
+            list.appendChild(todoEl);
+          }
+        } 
+      }
+
+      async function logout() {
+        event.preventDefault();
+        localStorage.removeItem("token");
+        const credDiv = document.getElementById("credentials");
+        const logoutButton = document.getElementById("logoutButton");
+        const todoDiv = document.getElementById("todos");
+        credDiv.style.display = "block";
+        logoutButton.style.display = "none";
+        todoDiv.style.display = "none";
+      }
+
+      async function addTodo(event) {
+        event.preventDefault();
+        let newTodo = document.getElementById("todoInput").value;
+        const token = localStorage.getItem("token");
+        console.log(event.preventDefault);
+
+        try {
+          /*await axios.post(
+            "http://localhost:3000/todos/add",
+            {
+              newTodo: newTodo,
+            },
+            {
+              headers: {
+                token: token,
+              },
+            }
+          );*/
+
+          await fetch("http://localhost:3000/todos/add", {
+            method:"POST",
+            body: JSON.stringify({newTodo : newTodo}),
+            headers:{
+              "Content-Type": "application/json",
+              "token": token
+            } 
+
+          })
+
+          let list = document.getElementById("list");
+          let newTodoEl = document.createElement("li");
+          newTodoEl.innerHTML = `${newTodo} <button type="button" class="edit" onclick="edit()">Edit</button><button type="button" class="delete" onclick="delete()">Delete</button>`;
+          list.appendChild(newTodoEl);
+        } catch (err) {
+          console.log("ERR : ", err);
+        }
+      }
+    </script>
+  </body>
 </html>
