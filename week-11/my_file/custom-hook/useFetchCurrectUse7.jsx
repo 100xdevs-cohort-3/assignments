@@ -26,20 +26,14 @@ export function useFetch(url){
     const [finalData,setFinalData]=useState({});
     console.log(url);
 
-    const [loading ,setLoading]=useState(true);
-
 
 
     async function getDetails(){
-        //befor req goes to backend
-        setLoading(true);
 
         //send backend req to generic data
         const response=await fetch(url);
         const json=await response.json();
         setFinalData(json);
-        //after req goes to backend
-        setLoading(false);
 
     }
 
@@ -50,10 +44,39 @@ export function useFetch(url){
 
 
     return {
-        finalData,
-        loading
+        finalData
     }
 }
 
 
 export default usePostTitlle;
+
+
+
+
+// import React from "react";
+// import { useState } from "react";
+
+// import "./App.css";
+// import usePostTitlle, { useFetch } from "./hooks/useFetch";
+
+// function App(){
+//   //const postTitle= usePostTitlle();
+
+//   const [currentPost, setCurrentPost]= useState(1); 
+
+//   //destructure that data here
+//   const {finalData}= useFetch("https://jsonplaceholder.typicode.com/posts/" + currentPost);
+
+
+
+//   return <div>
+//     <button onClick={()=>setCurrentPost(1)}>1</button>
+//     <button onClick={()=>setCurrentPost(2)}>2</button>
+//     <button onClick={()=>setCurrentPost(3)}>3</button>
+//   {JSON.stringify(finalData)}
+
+//   </div>
+// }
+
+// export default App;
