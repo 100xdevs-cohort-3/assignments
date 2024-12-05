@@ -1,7 +1,7 @@
 
 const fs = require('fs')
 
-fs.readFile('example.txt', 'utf-8',(err, data)=>{
+fs.readFile('easy/example.txt', 'utf-8',(err, data)=>{
      if (err) {
         if (err.code == 'ENOENT') {
             console.log("File not found",err);
@@ -17,3 +17,15 @@ fs.readFile('example.txt', 'utf-8',(err, data)=>{
     
 });
 
+// expensive operation
+function expensiveOperation() {
+    let sum = 0
+    for (let i = 0; i < 1e8; i++) {
+        sum += i;
+        
+    }
+    console.log("Expensive operation done");
+    
+}
+
+expensiveOperation()
