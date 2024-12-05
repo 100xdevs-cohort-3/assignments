@@ -1,3 +1,25 @@
+import { useEffect,useRef } from "react";
+
+export const usePrev=(value)=>{
+
+    //send the value to ref(hold the prev value this ref)
+    const ref=useRef();
+
+    //whenever value changes update the ref
+    useEffect(()=>{//then this gets called after that
+        ref.current=value;
+
+    },[value]);
+
+    //return the ref
+    //it return first
+    return ref.current;
+    
+
+
+}
+
+
 import {useState} from "react";
 import "./App.css";
 import {usePrev} from "./hooks/usePrev";
