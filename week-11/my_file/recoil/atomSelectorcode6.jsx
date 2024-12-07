@@ -1,3 +1,25 @@
+//counter.js different folder
+
+import {atom, selector } from "recoil";
+
+
+export const counterAtom=atom({
+    default:0,
+    key:"counter"
+})
+
+export const evenSelector=selector({
+    key:"isEvenSelcetor",
+    get:function({get}){
+        const currentCount=get(counterAtom);
+        const isEven=(currentCount % 2==0);
+        return isEven;
+    }
+
+})
+
+
+//App.jsx
 import React from 'react';
 import { RecoilRoot,useRecoilValue, useSetRecoilState } from 'recoil';
 import {counterAtom, evenSelector} from "./store/atoms/counter";
