@@ -1,0 +1,33 @@
+<!---by clicking one of the todo randomly deleted-->
+<html>
+    <body id="body">
+        <h2>Todo 1</h2>
+        <h2>Todo 2</h2>
+        <h2>Todo 3</h2>
+        <button onclick="deleteRandomTodo()">Update todo!</button>
+    </body>
+    <script>
+        function deleteRandomTodo(){
+            /*
+            //update
+            const element=document.querySelector("h2");//it will give you the fisrt element Todo 1
+            element.innerHTML="something new!!";//when the button chlicked updating the element
+
+            */
+            
+
+            //delete
+            //for delete first get the element 
+            const element=document.querySelector("h2");
+            //then get the parent element we have two way to do this
+            const parentElement=element.parentNode;
+            //const parentElement=document.getElementById("body")
+
+            //the call the function to remove child
+            parentElement.removeChild(element);//remove the first child
+
+
+        }
+    </script>
+
+</html>

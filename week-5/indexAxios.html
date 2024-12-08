@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background request</title>
+    <!--this gives the access to the Asios library-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.6/axios.min.js"></script> 
+</head>
+
+<body>
+    Linkedin
+  <div id="posts"></div>
+  <script>
+    async function fetchPosts() {
+        //same as fetch function do
+      console.log("Before sending request")
+      const res = await axios.get("https://jsonplaceholder.typicode.com/posts/1");
+      document.getElementById("posts").innerHTML = res.data.title;
+    }
+
+    fetchPosts();
+  </script>
+</body>
+
+</html>

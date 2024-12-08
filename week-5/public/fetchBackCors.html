@@ -1,0 +1,39 @@
+<!---Frontend-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backend Server Fetch API</title>
+    <link rel="stylesheet" href="">
+
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.6/axios.min.js"></script>
+    </head>
+      
+</head>
+<body>
+    Backend
+
+    <input  id="a" type="text" placeholder="First value"/>
+    <input  id="b" type="text" placeholder="Second value"/>
+
+    <button onclick="sendRequest()">Find sum</button>
+
+    <script>
+        //server the http server (npx serve)
+        function sendRequest(){
+            //whatever value we pass in placeholder we get here
+            const a=document.getElementById("a").value;
+            const b=document.getElementById("b").value;
+            const response=axios.post("http//localhost:3000/sum",{
+                a: a,
+                b: b
+            })
+            console.log(response.data);
+
+        }
+    </script>
+    
+</body>
+</html>
