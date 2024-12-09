@@ -1,0 +1,24 @@
+<body>
+    <input type="text">
+    <button onclick="addTodo()">Add Todo!</button>
+    <script>
+        function deleteTodo(){
+
+        }
+        function addTodo(){
+            const value=document.querySelector("input").value;
+            const spanEl=document.createElement("span");//create a span element
+            const buttonEl=document.createElement("button");//create a button element
+            spanEl.innerHTML=value;//gives the span element some value
+            buttonEl.innerHTML="Delete";//gives button element some value which is delete
+
+            const divEl=document.createElement("div");//append to this empty element
+            divEl.appendChild(spanEl);//append to the div
+            divEl.appendChild(buttonEl);//append to the div
+    
+
+            document.querySelector("body").appendChild(divEl);//append to the body
+        }
+
+    </script>
+</body>
