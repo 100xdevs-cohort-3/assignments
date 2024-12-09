@@ -5,7 +5,11 @@
 */
 
 function isAnagram(str1, str2) {
+  function normalize(str) {
+    return str.toLowerCase().replace(/\s+/g, "").split("").sort().join("");
+  }
 
+  return normalize(str1) == normalize(str2);
 }
 
 module.exports = isAnagram;
