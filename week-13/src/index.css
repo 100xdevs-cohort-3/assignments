@@ -3,8 +3,35 @@
 @tailwind utilities;
 
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+@layer components {
+  .primary-btn{
+    background-color: white;
+    color:black;
+    border-radius: 25px;
+    /* padding: 5px 15px;
+    width: 120px; */
+  }
+  .round-btn{
+    background-color: #383838;
+    color:white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;    
+  }
+  .flip-h{
+    transform: scaleX(-1);
+  }
+  .rotate-n-90{
+    transform: rotate(-90deg);
+  }
 }

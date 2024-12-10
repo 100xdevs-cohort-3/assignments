@@ -1,0 +1,164 @@
+[
+    {
+        "q_id": 11,
+        "qname": "Container With Most Water",
+        "category": "Medium",
+        "tags": [
+            "Array",
+            " Two Pointers"
+        ]
+    },
+    {
+        "q_id": 14,
+        "qname": "Longest Common Prefix",
+        "category": "Easy",
+        "tags": [
+            " String"
+        ]
+    },
+    {
+        "q_id": 15,
+        "qname": "3Sum",
+        "category": "Medium",
+        "tags": [
+            "Array",
+            "Two Pointers",
+            " Sorting"
+        ]
+    },
+    {
+        "q_id": 20,
+        "qname": "Valid Parentheses",
+        "category": "Easy",
+        "tags": [
+            "String",
+            " Stack"
+        ]
+    },
+    {
+        "q_id": 21,
+        "qname": "Merge Two Sorted Lists",
+        "category": "Easy",
+        "tags": [
+            "Linked List",
+            " Recursion"
+        ]
+    },
+    {
+        "q_id": 26,
+        "qname": "Remove Duplicates from Sorted Array",
+        "category": "Easy",
+        "tags": [
+            "Array",
+            " Two Pointers"
+        ]
+    },
+    {
+        "q_id": 33,
+        "qname": "Search in Rotated Sorted Array",
+        "category": "Medium",
+        "tags": [
+            "Array",
+            " Binary Search"
+        ]
+    },
+    {
+        "q_id": 53,
+        "qname": "Maximum Subarray",
+        "category": "Easy",
+        "tags": [
+            "Array",
+            " Dynamic Programming"
+        ]
+    },
+    {
+        "q_id": 66,
+        "qname": "Plus One",
+        "category": "Easy",
+        "tags": [
+            "Array",
+            " Math"
+        ]
+    },
+    {
+        "q_id": 69,
+        "qname": "Sqrt(x)",
+        "category": "Easy",
+        "tags": [
+            "Math",
+            " Binary Search"
+        ]
+    },
+    {
+        "q_id": 70,
+        "qname": "Climbing Stairs",
+        "category": "Easy",
+        "tags": [
+            "Dynamic Programming",
+            " Math"
+        ]
+    },
+    {
+        "q_id": 88,
+        "qname": "Merge Sorted Array",
+        "category": "Easy",
+        "tags": [
+            "Array",
+            " Two Pointers"
+        ]
+    },
+    {
+        "q_id": 121,
+        "qname": "Best Time to Buy and Sell Stock",
+        "category": "Easy",
+        "tags": [
+            "Array",
+            " Dynamic Programming"
+        ]
+    },
+    {
+        "q_id": 125,
+        "qname": "Valid Palindrome",
+        "category": "Easy",
+        "tags": [
+            "String",
+            " Two Pointers"
+        ]
+    },
+    {
+        "q_id": 136,
+        "qname": "Single Number",
+        "category": "Easy",
+        "tags": [
+            "Array",
+            " Bit Manipulation"
+        ]
+    },
+    {
+        "q_id": 141,
+        "qname": "Linked List Cycle",
+        "category": "Easy",
+        "tags": [
+            "Linked List",
+            " Two Pointers"
+        ]
+    },
+    {
+        "q_id": 206,
+        "qname": "Reverse Linked List",
+        "category": "Easy",
+        "tags": [
+            "Linked List",
+            " Recursion"
+        ]
+    },
+    {
+        "q_id": 217,
+        "qname": "Contains Duplicate",
+        "category": "Easy",
+        "tags": [
+            "Array",
+            " Hash Table"
+        ]
+    }
+]

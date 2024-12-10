@@ -5,20 +5,26 @@ import LockSvg from "../assets/lock.svg";
 
 const SideBar = ({ toggleSideBar, handleClick }) => {
   return (
-    <>
-      <div
-        className={`${
-          toggleSideBar ? "w-80 bg-[#3e3e3e]" : "w-40 bg-[#282828]"
-        } p-1 pt-4 h-full`}
-      >
-        <div className="w-full relative">
-          {toggleSideBar && (
-            <div className="flex flex-col gap-4 pr-4">
-              <h1 className="pl-2 text-xl font-semibold">My Lists</h1>
-              <h2 className="pl-2">Created by me</h2>
-              <div className="bg-[#4b4b4b] p-2 rounded-sm flex items-center gap-2 cursor-pointer">
-                <ProfileAvatar width="6" height="5" br="sm" imgPadding="1" />
-                <div className="flex items-center w-full justify-between ">
+
+    <div
+      className={`${
+        toggleSideBar
+          ? "w-80 bg-primaryColor"
+          : "hidden md:w-40 md:flex bg-black"
+      } 
+    p-1 pt-4 z-20 overflow-y-hidden h-screen 
+    fixed md:static top-0 left-0`}
+    >
+      <div className="w-full relative ">
+        {toggleSideBar && (
+          <div className="flex flex-col gap-4 pr-4 ">
+            <h4 className="pl-2 text-xl font-semibold">My Lists</h4>
+            <p className="pl-2">Created by me</p>
+            <div className="bg-primaryActiveColor p-2 rounded-sm flex items-center gap-2 cursor-pointer">
+              <div className="w-6 h-5">
+                <ProfileAvatar br="sm" imgPadding="1" className="w-6 h-5" />
+              </div>
+              <div className="flex items-center w-full justify-between ">
                 <p>Favourite</p>
                 <span className="w-5 h-5 ">
                   <img
@@ -27,19 +33,18 @@ const SideBar = ({ toggleSideBar, handleClick }) => {
                     className="w-full h-full object-cover"
                   />
                 </span>
-                </div>
               </div>
             </div>
-          )}
-          <span className="absolute top-0 right-4">
-            <ToggleButton
-              handleClick={handleClick}
-              toggleSideBar={toggleSideBar}
-            />
-          </span>
-        </div>
+          </div>
+        )}
+        <span className="absolute top-0 right-4 hidden md:block">
+          <ToggleButton
+            handleClick={handleClick}
+            toggleSideBar={toggleSideBar}
+          />
+        </span>
       </div>
-    </>
+    </div>
   );
 };
 
