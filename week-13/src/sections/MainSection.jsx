@@ -17,7 +17,7 @@ const MainSection = ({ toggleSideBar, handleClick }) => {
             <ToggleButton toggleSideBar={toggleSideBar} handleClick={handleClick}/>
           </span>
 
-        <div className="flex w-full flex-col md:flex-row gap-4 relative p-4 pt-6  overflow-y-hidden">
+        <div className="flex w-full h-full flex-col md:flex-row gap-4 relative p-4 pt-6  overflow-y-hidden">
           <Favourite />
           <QuestionList />
           

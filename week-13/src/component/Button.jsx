@@ -10,7 +10,7 @@ const Button = ({ icon, text, className, flip ,onClick }) => {
         </>
       ) : (
         <>
-          <img src={icon} alt="icon-svg" className="w-4 h-4" />
+          <img src={icon} alt="icon-svg" className="w-4 h-4 " />
           {text && <p>{text}</p>}
         </>
       )}

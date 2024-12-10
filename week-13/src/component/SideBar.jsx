@@ -10,9 +10,9 @@ const SideBar = ({ toggleSideBar, handleClick }) => {
       className={`${
         toggleSideBar
           ? "w-80 bg-primaryColor"
-          : "hidden md:w-40 md:flex bg-black"
+          : "hidden md:w-40 md:flex bg-black "
       } 
-    p-1 pt-4 z-20 overflow-y-hidden h-screen 
+    p-1 pt-4 z-20 overflow-y-hidden  
     fixed md:static top-0 left-0`}
     >
       <div className="w-full relative ">

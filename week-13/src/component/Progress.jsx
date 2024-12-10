@@ -6,11 +6,16 @@ const Progress = () => {
     <div className="mt-6 w-full hidden md:block">
       <div className="flex items-center justify-between pb-3 ">
         <span>Progress</span>
-        <span className="p-2 hover:bg-tirtiaryButtonActiveColor rounded-full cursor-pointer ">
+        <span
+          onClick={() => {
+            window.location.reload();
+          }}
+          className="p-2 hover:bg-tirtiaryButtonActiveColor rounded-full cursor-pointer "
+        >
           <img src={RelaodSVG} alt="" className="w-4 h-4 flip-h p-[2px]" />
         </span>
       </div>
-      
+
       <div className="flex w-full gap-2">
         <div className=" bg-primaryColor w-2/3 flex items-center justify-center rounded-md">
           <div className=" w-44 h-44 p-6  relative flex  justify-center">
@@ -45,7 +50,6 @@ const Progress = () => {
             <p>1/1</p>
           </div>
         </div>
-
       </div>
     </div>
   );

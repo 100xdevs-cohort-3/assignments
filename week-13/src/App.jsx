@@ -3,7 +3,7 @@ import SideBar from "./component/SideBar";
 import MainSection from "./sections/MainSection";
 
 export default function App() {
-  const [toggleSideBar, setToggleSideBar] = useState(true);
+  const [toggleSideBar, setToggleSideBar] = useState(false);
 
   const handleClick = () => {
     setToggleSideBar(!toggleSideBar);
@@ -11,7 +11,7 @@ export default function App() {
 
   return (
     <>
-      <main className="flex h-full text-white relative">
+      <main className="flex text-white min-h-screen bg-primaryColor relative ">
         <SideBar toggleSideBar={toggleSideBar} handleClick={handleClick} />
         <MainSection toggleSideBar={toggleSideBar} handleClick={handleClick} />
       </main>
