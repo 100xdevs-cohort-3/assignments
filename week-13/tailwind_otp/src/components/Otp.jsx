@@ -57,9 +57,10 @@ function SubOtpBox({
     reference,
     onDone,
     goBack
-}){
+   }) {
 
     const [inputBoxVal, setInputBoxVal] = useState(""); 
+
     return <div>
 <input value={inputBoxVal} ref={reference} onKeyUp={(e)=>{
          if(e.key=="Backspace"){
@@ -71,8 +72,8 @@ function SubOtpBox({
             if(val == "1" || val == "2" || val == "3" || val == "4" || val == "5" || val == "6" || val == "7" || val == "8" || val == "9" || val == "0"){
                 setInputBoxVal(val);
                 onDone();
-            }
-            else {
+            }else {
+                setInputBoxVal("");
 
             }
            

@@ -1,5 +1,5 @@
 import { Otp } from './components/Otp.jsx'
-import { Button } from './components/Buttons.jsx' 
+import { Buttons } from './components/Buttons.jsx'
 import './App.css'
 
 function App() {
@@ -8,6 +8,9 @@ function App() {
     <div className='h-screen bg-blue-700 '>
       <br /><br /><br /><br />
       <Otp/>
+
+      <br /><br /><br /><br />
+      <Buttons onClick={()=>alert("hii there")}>hi</Buttons>
 
     </div>
   )
