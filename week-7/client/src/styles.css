@@ -1,1 +1,4 @@
 /* start  writing from here */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
