@@ -1,0 +1,32 @@
+<body>
+    <input type="text">
+    <button onclick="addRodo()">ADD Todo!!</button>
+    <div id="todos"></div>
+    <script>
+        //state 
+        let todos =[];
+
+        //components
+        //take a todo as an input amnd returns a top level div
+        function createTodoComponents(todo){
+            const todo=todos[i];
+            const div=document.createElement("div");
+            const h1=document.createElement("h1");
+            const button =document.createElement("button");
+            button.innerHTML="Delete";
+            h1.innerHTML=todo.title;
+            div.append(h1)
+            div.append(button)
+            return div
+        }
+
+
+        function render(){
+            document.querySelector("#todos").innerHTML="";  //CLEARNING THE DIV
+            for(let i=0;i<todos.length;i++){
+                const element=createTodo(todos[i]); //create todos
+                document.querySelector("#todos").appendChild(div)
+            }
+        }
+    </script>
+</body>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <div id="buttonParent">
+    </div>
+    <script>
+        let state = {
+        count: 0,
+        color:"red"
+        }
+
+        function onButtonPress() {
+        state.count++;
+        state.color="red";
+        buttonComponentReRender()
+        }
+
+        //react automatically take care of this
+        function buttonComponentReRender() {
+            document.getElementById("buttonParent").innerHTML = "";//remove the dyanmic element
+            const component = buttonComponent(state.count,state.color);//create a fresh one
+            document.getElementById("buttonParent").appendChild(component);//put the fresh element
+        }
+
+
+        
+      function buttonComponent(count,color) {
+      const button = document.createElement("button");
+      button.innerHTML = "Counter " +  count;
+      button.setAttribute("onclick", `onButtonPress()`);
+      button.setAttribute("style", `color: ` +color);
+      return button;
+      }
+
+       buttonComponentReRender();
+
+    </script>
+
+
+  </body>
+</html>
+

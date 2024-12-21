@@ -1,0 +1,31 @@
+<html>
+    <body>
+        <input type="text">
+        <button onclick="addTodo()">ADD todo!</button> <!--addTodo is a function-->
+    </body>
+    <script>
+        let ctr=1;
+        function deleteTodo(index){//take index
+            const element=document.getElementById("todo-" + index);
+            element.parentNode.removeChild(element);
+            
+        }
+        function addTodo(){
+            const inputEl =document.querySelector("input");//get the input in inputEl value
+            const value=inputEl.value; //insert something in DOM
+
+            const newDivEl=document.createElement("div");
+            newDivEl.setAttribute("id" , "todo-" + ctr); 
+            
+            newDivEl.innerHTML="<div>" + value + "<div><button onclick='deleteTodo(' + ctr +')'>delete</button>"; //string concatination
+
+            //get the parent and append this newDivEl what we r created
+            document.querySelector("body").appendChild(newDivEl);
+            ctr = ctr + 1;
+
+
+        }
+    </script>
+</html>
+
+<!---error-->

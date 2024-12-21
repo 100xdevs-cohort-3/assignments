@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <h1>Todo list</h1>
+  <div>
+    <div id="todo-1"  style="display:flex;">
+      <h4>1. Take class</h4>
+      <button onclick="deleteTodo(1)">delete</button>
+    </div>
+    <div id="todo-2">
+      <h4>2. Go out to eat</h4>
+      <button onclick="deleteTodo(2)">delete</button>
+    </div>
+  </div>
+  <div>
+    <input type="text"></input>
+    <button>Add Todo</button>
+  </div>
+</body>
+
+<!--delete bu index no-->
+<script>
+  function deleteTodo(index) {
+      const element = document.getElementById("todo-" + index);
+      //passing the index no
+    element.parentNode.removeChild(element);//go to parent node then delete the child
+  }
+</script>
+
+</html>

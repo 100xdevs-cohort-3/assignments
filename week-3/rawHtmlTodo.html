@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>replit</title>
+        <link rel="stylesheet" href="">
+    </head>
+
+    <!--Raw html-->
+    <body>
+        <input type="text">
+        <button onclick="addTodo()">Add Todo!</button>
+        <script>
+            function deleteTodo(){
+
+            }
+            function addTodo(){
+                const value=document.querySelector("input").value;//select the first input (gives the value of dom element)
+                const newTodoDivEl=document.createElement("div");
+                newTodoDivEl.innerHTML="<div>" + value + "</div><button onclick='deleteTodo()'>Delete</button>";
+                document.querySelector("body").appendChild(newTodoDivEl);
+            }
+
+        </script>
+    </body>
+</html>

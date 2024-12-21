@@ -1,0 +1,14 @@
+<html>
+    <body>
+        <div id="topDiv">
+            hii there
+        </div>
+    </body>
+
+    <script>
+        const divEl=document.createElement("div");
+        divEl.innerHTML="hi there";
+        const parentEl=document.querySelector("body");
+        parentEl.appendChild(divEl);//this is necessary to append child
+    </script>
+</html>
