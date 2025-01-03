@@ -4,7 +4,14 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  const sanitizedStr = [];
+
+  for (c of str) {
+    if (!",!.? ".includes(c)) {
+      sanitizedStr.push(c.toLowerCase());
+    }
+  }
+  return sanitizedStr.join("") === sanitizedStr.reverse().join("");
 }
 
 module.exports = isPalindrome;
