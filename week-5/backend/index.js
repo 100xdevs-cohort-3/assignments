@@ -8,12 +8,17 @@ const PORT = process.env.PORT
 const {user}= require("./db/index")
 const {UserRouter} = require("./routes/user");
 const {TodoRouter} = require("./routes/todo");
-
+const path = require("path");
+const cors = require("cors")
+const filepath = path.join(__dirname , "../frontend");
+console.log(filepath);
+app.use(cors())
 app.use(express.json());
 
 
 app.use("/users",UserRouter);
 app.use("/todos",TodoRouter); 
+
 
 
 

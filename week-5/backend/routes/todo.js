@@ -17,6 +17,8 @@ TodoRouter.post("/create" ,userMiddleware, async (req,res)=>{
             })
         }
 
+        console.log("user id :"+req.userid);
+        console.log(typeof req.userid);
         
         const time = new Date();
         await todosModel.create({
