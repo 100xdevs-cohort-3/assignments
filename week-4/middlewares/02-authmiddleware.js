@@ -9,6 +9,16 @@ const VALID_API_KEY = '100xdevs_cohort3_super_secret_valid_api_key'; // key is 1
 // Middleware to check for a valid API key
 function authenticateAPIKey(req, res, next) {
     //  authenticate APIKey here
+    const apikey = req.headers['100xdevs-api-key'];
+
+    if(apikey && apikey===VALID_API_KEY){
+        return next();
+    }
+
+    else{
+        return res.status(401).json({message : "Invalid or missing API key"});
+    }
+
 }
 
 app.use(authenticateAPIKey);

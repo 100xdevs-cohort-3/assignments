@@ -5,11 +5,16 @@ const app = express();
 
 function logRequests(req, res, next) {
     // write the logic for request log here
+    console.log(`${req.method} ${req.url} - ${new Date().toISOString()}`);
+    next();
 }
 
 app.use(logRequests);
 
 app.get('/', (req, res) => {
+
+    
+  
     res.status(200).json({ message: 'Hello, world!' });
 });
 
