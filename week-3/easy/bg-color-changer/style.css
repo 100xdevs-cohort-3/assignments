@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+}
+
+#colorSwitches {
+  margin-bottom: 10px;
+  display: flex;
+  gap: 10px;
+  box-shadow: 1px 2px 7px gray;
+  border-radius: 10px;
+  padding: 5px;
+  background-color: white;
+}
+
+button {
+  min-width: 100px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 2px 7px gray;
+  color: white;
+}
+
+#customButton {
+  display: flex;
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+#customButton input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 3px;
+  width: 50px;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+}
+
+#customButton button {
+  color: black;
+  background-color: white;
+  border: none;
+  box-shadow: none;
+}
+
+#red {
+  background-color: red;
+}
+
+#green {
+  background-color: #00ff00;
+}
+
+#blue {
+  background-color: blue;
+}
