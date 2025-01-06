@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+body {
+  width: 100vw;
+  overflow: hidden;
+  margin: 10px;
+  font-family: "Poppins", serif;
+}
+
+#inputsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+#limitInput {
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  gap: 5px;
+}
+
+#limitInput input {
+  border: 1px solid gray;
+  border-radius: 3px;
+  font-size: large;
+  width: 50px;
+}
+
+span {
+  font-size: x-large;
+}
+
+#categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+#category {
+  border: 1px solid gray;
+  border-radius: 100px;
+  padding: 5px 10px;
+}
+
+#category:hover {
+  background-color: rgba(255, 213, 0, 0.3);
+}
+
+#category:has(input[type="radio"]:checked) {
+  background-color: rgb(255, 213, 0);
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+button {
+  font-size: large;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 50px;
+  background-color: rgb(255, 213, 0);
+}
+
+button:hover {
+  background-color: rgb(255, 196, 0);
+}
+
+#pokemons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+#card {
+  width: 11rem;
+  background-image: url("./pokemon_card.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.pokemonName {
+  overflow-wrap: break-word;
+  margin: 0;
+  color: white;
+  text-shadow: 3px 2px 2px black;
+}
+
+.pokemonImage {
+  width: 200px;
+}

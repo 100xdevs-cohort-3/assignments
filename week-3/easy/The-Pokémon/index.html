@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon finder</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div id="inputsContainer">
+
+        <div id="limitInput">
+            <span>
+                Total Cards:
+            </span>
+
+            <input type="number" id="limit" min="1" max="10" value="1">
+        </div>
+
+        <span>
+            Category:
+        </span>
+
+        <div id="categories">
+            <div id="category">
+                <input type="radio" id="bug" name="category" checked>
+                <label for="bug">Bug</label>
+            </div>
+            <div id="category">
+                <input type="radio" id="dark" name="category">
+                <label for="dark">Dark</label>
+            </div>
+            <div id="category">
+                <input type="radio" id="dragon" name="category">
+                <label for="dragon">Dragon</label>
+            </div>
+            <div id="category">
+                <input type="radio" id="electric" name="category">
+                <label for="electric">Electric</label>
+            </div>
+            <div id="category">
+                <input type="radio" id="fairy" name="category">
+                <label for="fairy">Fairy</label>
+            </div>
+            <div id="category">
+                <input type="radio" id="fighting" name="category">
+                <label for="fighting">Fighting</label>
+            </div>
+            <div id="category">
+                <input type="radio" id="fire" name="category">
+                <label for="fire">Fire</label>
+            </div>
+            <div id="category">
+                <input type="radio" id="flying" name="category">
+                <label for="flying">Flying</label>
+            </div>
+            <div id="category">
+                <input type="radio" id="ghost" name="category">
+                <label for="ghost">Ghost</label>
+            </div>
+            <div id="category">
+                <input type="radio" id="grass" name="category">
+                <label for="grass">Grass</label>
+            </div>
+            <div id="category">
+                <input type="radio" id="ground" name="category">
+                <label for="ground">Ground</label>
+            </div>
+            <div id="category">
+                <input type="radio" id="ice" name="category">
+                <label for="ice">Ice</label>
+            </div>
+            <div id="category">
+                <input type="radio" id="normal" name="category">
+                <label for="normal">Normal</label>
+            </div>
+            <div id="category">
+                <input type="radio" id="poison" name="category">
+                <label for="poison">Poison</label>
+            </div>
+            <div id="category">
+                <input type="radio" id="psychic" name="category">
+                <label for="psychic">Psychic</label>
+            </div>
+            <div id="category">
+                <input type="radio" id="rock" name="category">
+                <label for="rock">Rock</label>
+            </div>
+            <div id="category">
+                <input type="radio" id="steel" name="category">
+                <label for="steel">Steel</label>
+            </div>
+            <div id="category">
+                <input type="radio" id="water" name="category">
+                <label for="water">Water</label>
+            </div>
+        </div>
+
+        <button onclick="fetchPokemons()">Find</button>
+    </div>
+    <div id="pokemons">
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
