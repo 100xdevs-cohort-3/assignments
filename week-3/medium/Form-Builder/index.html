@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Builder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="builder">
+        <span class="title">Form Builder</span>
+
+        <label for="field-type">Select Field</label>
+        <select id="field-type">
+            <option value="heading">Heading</option>
+            <option value="text">Input Box</option>
+            <option value="textarea">Teaxtarea</option>
+            <option value="radio">Radio Button</option>
+            <option value="checkbox">Checkbox</option>
+        </select>
+
+        <label for="label">Label</label>
+        <input type="text" id="label" placeholder="Enter label for field">
+
+        <button onclick="addField()">Add Field</button>
+    </div>
+    <div id="preview">
+        <div class="title">
+            <span>Form Preview</span>
+            <button onclick="copyCode()">Copy HTML</button>
+        </div>
+        <form>
+
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+body {
+  margin: 0;
+  padding: 10px;
+  font-family: "Poppins", serif;
+  display: flex;
+  gap: 10px;
+  background-color: whitesmoke;
+}
+
+#builder,
+#preview {
+  background-color: white;
+  width: 50vw;
+  flex-grow: 1;
+  border: 1px solid rgba(128, 128, 128, 0.279);
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+span {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+label {
+  font-size: large;
+  font-weight: 600;
+}
+
+select,
+input {
+  outline: none;
+  padding: 5px;
+  margin: 10px 0;
+  border: 1px solid rgb(215, 215, 215);
+  border-radius: 3px;
+  background-color: rgba(235, 235, 235, 0.336);
+}
+
+button {
+  color: white;
+  background-color: rgb(8, 86, 255);
+  border: 1px solid gray;
+  border-radius: 3px;
+  padding: 5px 10px;
+  font-size: medium;
+}
+
+button:hover {
+  background-color: rgb(0, 70, 220);
+}
+
+#preview div:has(input[type="text"], textarea) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+form div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+form div input[type="text"],
+textarea {
+  /* flex-grow: 1; */
+  width: 60%;
+}
+
+form label {
+  font-size: medium;
+}
+
+form #form-heading {
+  font-size: larger;
+  font-weight: bold;
+}
+
+form div:has(#form-heading) {
+  margin-top: 20px;
+}
