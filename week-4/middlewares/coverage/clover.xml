@@ -1,33 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1736418352398" clover="3.2.0">
-  <project timestamp="1736418352398" name="All files">
-    <metrics statements="24" coveredstatements="24" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1" elements="29" coveredelements="29" complexity="0" loc="24" ncloc="24" packages="1" files="1" classes="1"/>
-    <file name="02-authmiddleware.js" path="C:\Code Playground\JS\100xDev\web-dev-assignments\week-4\middlewares\02-authmiddleware.js">
-      <metrics statements="24" coveredstatements="24" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+<coverage generated="1736419659097" clover="3.2.0">
+  <project timestamp="1736419659097" name="All files">
+    <metrics statements="17" coveredstatements="17" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1" elements="20" coveredelements="20" complexity="0" loc="17" ncloc="17" packages="1" files="1" classes="1"/>
+    <file name="02-logIncomingRequests.js" path="C:\Code Playground\JS\100xDev\web-dev-assignments\week-4\middlewares\02-logIncomingRequests.js">
+      <metrics statements="17" coveredstatements="17" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
       <line num="1" count="1" type="stmt"/>
       <line num="2" count="1" type="stmt"/>
       <line num="3" count="1" type="stmt"/>
       <line num="4" count="1" type="stmt"/>
       <line num="5" count="1" type="stmt"/>
-      <line num="6" count="1" type="stmt"/>
-      <line num="7" count="1" type="stmt"/>
-      <line num="8" count="3" type="cond" truecount="1" falsecount="0"/>
-      <line num="9" count="3" type="stmt"/>
-      <line num="10" count="3" type="stmt"/>
-      <line num="11" count="3" type="cond" truecount="1" falsecount="0"/>
-      <line num="12" count="2" type="stmt"/>
-      <line num="13" count="3" type="cond" truecount="1" falsecount="0"/>
+      <line num="6" count="2" type="cond" truecount="1" falsecount="0"/>
+      <line num="7" count="2" type="stmt"/>
+      <line num="8" count="2" type="stmt"/>
+      <line num="9" count="2" type="stmt"/>
+      <line num="10" count="1" type="stmt"/>
+      <line num="11" count="1" type="stmt"/>
+      <line num="12" count="1" type="stmt"/>
+      <line num="13" count="1" type="cond" truecount="1" falsecount="0"/>
       <line num="14" count="1" type="stmt"/>
       <line num="15" count="1" type="stmt"/>
-      <line num="16" count="3" type="stmt"/>
+      <line num="16" count="1" type="stmt"/>
       <line num="17" count="1" type="stmt"/>
-      <line num="18" count="1" type="stmt"/>
-      <line num="19" count="1" type="stmt"/>
-      <line num="20" count="1" type="cond" truecount="1" falsecount="0"/>
-      <line num="21" count="1" type="stmt"/>
-      <line num="22" count="1" type="stmt"/>
-      <line num="23" count="1" type="stmt"/>
-      <line num="24" count="1" type="stmt"/>
     </file>
   </project>
 </coverage>
