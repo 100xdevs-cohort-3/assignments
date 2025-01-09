@@ -1,22 +1,26 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+dotenv.config();
 
 // Connect to MongoDB
-mongoose.connect('your-mongodb-url');
+mongoose.connect(process.env.MONGODB_URL);
 
 // Define schemas
-
 const UserSchema = new mongoose.Schema({
-    // Schema definition here
+  username: String,
+  password: String,
 });
 
 const TodoSchema = new mongoose.Schema({
-    // Schema definition here
+  title: String,
+  description: String,
+  creator: mongoose.Types.ObjectId,
 });
 
-const User = mongoose.model('User', UserSchema);
-const Todo = mongoose.model('Todo', TodoSchema);
+const User = mongoose.model("User", UserSchema);
+const Todo = mongoose.model("Todo", TodoSchema);
 
 module.exports = {
-    User,
-    Todo
-}
+  User,
+  Todo,
+};
