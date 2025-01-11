@@ -1,1 +1,157 @@
-  /* start from here */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", serif;
+  overflow: hidden;
+}
+
+#form {
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  gap: 10px;
+}
+
+h1 {
+  margin: 0;
+  text-align: center;
+}
+
+#form input {
+  border: 1px solid rgba(128, 128, 128, 0.5);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+a {
+  text-decoration: underline;
+  color: blue;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 10px;
+  color: white;
+  background-color: black;
+  border: none;
+}
+
+#error {
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: rgb(254, 55, 55);
+}
+
+#main {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#main #header {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+#header button {
+  padding: 0 35px;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+
+#header button:hover {
+  background-color: black;
+  color: white;
+  border: none;
+}
+
+#todos {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 10px;
+  gap: 5px;
+  overflow-y: auto;
+  border-top: 1px solid black;
+  padding: 5px;
+}
+
+#todos div {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 3px;
+}
+
+#todos .title {
+  min-width: 20%;
+}
+
+#todos .desc {
+  flex: 1;
+}
+
+#inputs {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#inputs input {
+  border: 1px solid rgba(128, 128, 128, 0.5);
+}
+
+#inputs input:focus {
+  outline: none;
+}
+
+#inputs #title {
+  min-width: 20%;
+}
+
+#inputs #description {
+  flex: 1;
+}
+
+#inputs button {
+  border-radius: 0;
+}
+
+/* Scrollbar CSS */
+::-webkit-scrollbar {
+  width: 10px;
+  margin: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: whitesmoke;
+}
+
+::-webkit-scrollbar-thumb {
+  background: gray;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(143, 143, 143);
+}
