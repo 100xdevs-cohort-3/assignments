@@ -1,32 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 body {
-  /*start here  */
- }
-   
- .container {
-  /*start here  */
- }
-   
- h1 {
-    /*start here  */
- }
-    
- button {
-   /*start here  */
- }
-   
- #bookmark-list {
-  /*start here  */
- }
-   
- #bookmark-list li {
-  /*start here  */
- }
-   
- button.favorite-btn {
-  /*start here  */
- }
-   
- button.delete-btn {
-  /*start here  */
- }
-   
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: skyblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", serif;
+}
+
+.container {
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  color: rgb(34, 133, 165);
+}
+
+.input-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input {
+  font-size: medium;
+  border: none;
+  padding: 10px 10px;
+  border-radius: 5px;
+  background-color: rgb(234, 234, 234);
+}
+
+button {
+  background-color: skyblue;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#bookmark-list {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0;
+  gap: 5px;
+}
+
+#bookmark-list li {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#bookmark-list a {
+  color: black;
+  text-decoration: none;
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#bookmark-list a:hover {
+  text-decoration: underline;
+}
+
+button.delete-btn {
+  color: white;
+  background-color: tomato;
+}
