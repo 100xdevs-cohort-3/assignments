@@ -1,12 +1,9 @@
-//  TODO: Can you create backend with standard folder structure like: week-4/hard ???
 const express = require("express");
-const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
+require("dotenv").config();
+
 const adminRoute = require("./routes/admin");
 const usersRoute = require("./routes/users");
-
-const dotenv = require("dotenv");
-dotenv.config();
 
 const app = express();
 const port = process.env.PORT;

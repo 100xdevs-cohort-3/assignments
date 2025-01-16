@@ -1,9 +1,7 @@
 const jwt = require("jsonwebtoken");
-const dotenv = require("dotenv");
-dotenv.config();
-const secret = process.env.JWT_SECRET;
+const { JWT_ADMIN_SECRET } = require("../config");
 
-function auth(req, res, next) {
+function adminMiddleware(req, res, next) {
   const token = req.headers.authorization;
 
   if (!token) {
@@ -11,12 +9,12 @@ function auth(req, res, next) {
   }
 
   try {
-    const payload = jwt.verify(token, secret);
-    req.username = payload.username;
+    const payload = jwt.verify(token, JWT_ADMIN_SECRET);
+    req.userId = payload.userId;
     next();
   } catch (e) {
     res.status(400).json({ error: "Invalid token." });
   }
 }
 
-module.exports = auth;
+module.exports = adminMiddleware;

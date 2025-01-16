@@ -1,13 +1,10 @@
 const { Router } = require("express");
 const bcrypt = require("bcrypt");
 const { z } = require("zod");
-const { Admin, User } = require("../db");
+const { Admin, Course } = require("../db");
 const jwt = require("jsonwebtoken");
-const auth = require("../middleware/auth");
-const dotenv = require("dotenv");
-dotenv.config();
-
-const secret = process.env.JWT_SECRET;
+const { JWT_ADMIN_SECRET } = require("../config");
+const adminMiddleware = require("../middleware/admin");
 
 const router = Router();
 
@@ -25,12 +22,6 @@ router.post("/signup", async (req, res) => {
 
   try {
     const { username, password } = parsedBody.data;
-
-    const isUserExists = await Admin.findOne({ username });
-
-    if (isUserExists) {
-      return res.status(400).json({ error: "Username already exists." });
-    }
 
     const hashedPassword = await bcrypt.hash(password, 7);
 
@@ -63,9 +54,9 @@ router.post("/login", async (req, res) => {
 
     const token = jwt.sign(
       {
-        username,
+        userId: admin._id,
       },
-      secret
+      JWT_ADMIN_SECRET
     );
 
     res.status(200).json({
@@ -77,7 +68,7 @@ router.post("/login", async (req, res) => {
   }
 });
 
-router.post("/courses", auth, (req, res) => {
+router.post("/courses", adminMiddleware, async (req, res) => {
   const requestedBody = z.object({
     title: z.string(),
     description: z.string(),
@@ -89,21 +80,75 @@ router.post("/courses", auth, (req, res) => {
   const parsedBody = requestedBody.safeParse(req.body);
 
   if (!parsedBody.success) {
-    return res.json({ error: "Invalid course data." });
+    return res.status(400).json({ error: "Invalid course data." });
   }
 
-  res.json({
+  const adminId = req.userId;
+  const { title, description, price, imageLink, published } = parsedBody.data;
+
+  const course = await Course.create({
+    title,
+    description,
+    price,
+    imageLink,
+    published,
+    creatorId: adminId,
+  });
+
+  res.status(201).json({
     message: "Course created successfully",
-    courseId: 1,
+    courseId: course._id,
   });
 });
 
-router.put("/courses/:courseId", (req, res) => {
-  // logic to edit a course
+router.put("/courses/:courseId", adminMiddleware, async (req, res) => {
+  const requestedBody = z.object({
+    title: z.string(),
+    description: z.string(),
+    price: z.number(),
+    imageLink: z.string().url(),
+    published: z.boolean(),
+  });
+
+  const parsedBody = requestedBody.safeParse(req.body);
+
+  if (!parsedBody.success) {
+    return res.status(400).json({ error: "Invalid course data." });
+  }
+
+  const { title, description, price, imageLink, published } = parsedBody.data;
+  const courseId = req.params.courseId;
+
+  try {
+    const course = await Course.updateOne(
+      { _id: courseId, creatorId: req.userId },
+      {
+        title,
+        description,
+        price,
+        imageLink,
+        published,
+      }
+    );
+
+    if (course.matchedCount === 0) {
+      return res.status(400).json({ error: "Invalid course id." });
+    }
+
+    res.status(200).json({
+      message: "Course updated successfully",
+    });
+  } catch (e) {
+    res.status(400).json({ error: "Course not found." });
+  }
 });
 
-router.get("/courses", (req, res) => {
-  // logic to get all courses
+router.get("/courses", adminMiddleware, async (req, res) => {
+  const adminId = req.userId;
+
+  const courses = await Course.find({ creatorId: adminId });
+
+  res.status(200).json({ courses });
 });
 
 module.exports = router;
