@@ -10,15 +10,19 @@ const port = process.env.PORT;
 
 app.use(express.json());
 
-// Connect to MongoDB
-mongoose.connect(process.env.MONGO_URL);
 
-// Admin routes
-app.use("/admin", adminRoute);
+async function main() {
+  // Connect to MongoDB
+  await mongoose.connect(process.env.MONGO_URL);
+  // Admin routes
+  app.use("/admin", adminRoute);
 
-// User routes
-app.use("/users", usersRoute);
+  // User routes
+  app.use("/users", usersRoute);
 
-app.listen(port, () => {
-  console.log("Server is listening on port 3000");
-});
+  app.listen(port, () => {
+    console.log("Server is listening on port 3000");
+  });
+}
+
+main()
