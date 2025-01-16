@@ -1,12 +1,12 @@
 //  TODO: Can you create backend with standard folder structure like: week-4/hard ???
 const express = require("express");
 const jwt = require("jsonwebtoken");
+const mongoose = require("mongoose");
 const adminRoute = require("./routes/admin");
 const usersRoute = require("./routes/users");
 
 const dotenv = require("dotenv");
 dotenv.config();
-const secret = process.env.JWT_SECRET; // This should be in an environment variable in a real application
 
 const app = express();
 const port = process.env.PORT;
@@ -14,7 +14,7 @@ const port = process.env.PORT;
 app.use(express.json());
 
 // Connect to MongoDB
-mongoose.connect("<YourMongoDbConnectionString>");
+mongoose.connect(process.env.MONGO_URL);
 
 // Admin routes
 app.use("/admin", adminRoute);

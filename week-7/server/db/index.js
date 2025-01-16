@@ -2,11 +2,13 @@ const mongoose = require("mongoose");
 
 // Define mongoose schemas
 const userSchema = new mongoose.Schema({
-  // userSchema here
+  username: String,
+  password: String,
 });
 
 const adminSchema = new mongoose.Schema({
-  // adminSchema here
+  username: String,
+  password: String,
 });
 
 const courseSchema = new mongoose.Schema({
