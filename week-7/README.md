@@ -1,136 +1,165 @@
+## Solution: https://github.com/DevanshBhavsar3/Coursify
+
 # Coursify
+
 **Your task is to create a course-selling website where admin can publish/create courses and user can purchase courses.**
 
 # Frontend
 
 **There are two Client folders**
+
 - if you are **not** familiar with **React**, pick `client-easy`.
 - if you are familiar with **React**, pick `client`.
 
 **Tips**: you can try cloning the UI of **app.100xdevs.com**.
+
 # Backend
 
 # Admin Routes Structure
 
-### POST /admin/signup 
+### POST /admin/signup
+
 **Description**: Creates a new admin account.  
-**Input**: 
+**Input**:
+
 ```json
-{ 
-  "username": "admin", 
-  "password": "pass" 
+{
+  "username": "admin",
+  "password": "pass"
 }
-```  
-**Output**: 
+```
+
+**Output**:
+
 ```json
-{ 
-  "message": "Admin created successfully", 
-  "token": "jwt_token_here" 
+{
+  "message": "Admin created successfully",
+  "token": "jwt_token_here"
 }
 ```
 
 ---
 
-### POST /admin/login 
+### POST /admin/login
+
 **Description**: Authenticates an admin. It requires the admin to send username and password in the headers.  
 **Input**:  
-**Headers**: 
+**Headers**:
+
 ```json
-{ 
-  "username": "admin", 
-  "password": "pass" 
+{
+  "username": "admin",
+  "password": "pass"
 }
-```  
-**Output**: 
+```
+
+**Output**:
+
 ```json
-{ 
-  "message": "Logged in successfully", 
-  "token": "jwt_token_here" 
+{
+  "message": "Logged in successfully",
+  "token": "jwt_token_here"
 }
 ```
 
 ---
 
-### POST /admin/courses 
+### POST /admin/courses
+
 **Description**: Creates a new course.  
 **Input**:  
-**Headers**: 
+**Headers**:
+
 ```json
-{ 
-  "Authorization": "Bearer jwt_token_here" 
+{
+  "Authorization": "Bearer jwt_token_here"
 }
-```  
-**Body**: 
+```
+
+**Body**:
+
 ```json
-{ 
-  "title": "course title", 
-  "description": "course description", 
-  "price": 100, 
-  "imageLink": "https://linktoimage.com", 
-  "published": true 
+{
+  "title": "course title",
+  "description": "course description",
+  "price": 100,
+  "imageLink": "https://linktoimage.com",
+  "published": true
 }
-```  
-**Output**: 
+```
+
+**Output**:
+
 ```json
-{ 
-  "message": "Course created successfully", 
-  "courseId": 1 
+{
+  "message": "Course created successfully",
+  "courseId": 1
 }
 ```
 
 ---
 
-### PUT /admin/courses/:courseId 
+### PUT /admin/courses/:courseId
+
 **Description**: Edits an existing course. `courseId` in the URL path should be replaced with the ID of the course to be edited.  
 **Input**:  
-**Headers**: 
+**Headers**:
+
 ```json
-{ 
-  "Authorization": "Bearer jwt_token_here" 
+{
+  "Authorization": "Bearer jwt_token_here"
 }
-```  
-**Body**: 
+```
+
+**Body**:
+
 ```json
-{ 
-  "title": "updated course title", 
-  "description": "updated course description", 
-  "price": 100, 
-  "imageLink": "https://updatedlinktoimage.com", 
-  "published": false 
+{
+  "title": "updated course title",
+  "description": "updated course description",
+  "price": 100,
+  "imageLink": "https://updatedlinktoimage.com",
+  "published": false
 }
-```  
-**Output**: 
+```
+
+**Output**:
+
 ```json
-{ 
-  "message": "Course updated successfully" 
+{
+  "message": "Course updated successfully"
 }
 ```
 
 ---
 
-### GET /admin/courses 
+### GET /admin/courses
+
 **Description**: Returns all the courses.  
 **Input**:  
-**Headers**: 
+**Headers**:
+
 ```json
-{ 
-  "Authorization": "Bearer jwt_token_here" 
+{
+  "Authorization": "Bearer jwt_token_here"
 }
-```  
-**Output**: 
+```
+
+**Output**:
+
 ```json
-{ 
-  "courses": [ 
-    { 
-      "id": 1, 
-      "title": "course title", 
-      "description": "course description", 
-      "price": 100, 
-      "imageLink": "https://linktoimage.com", 
-      "published": true 
-    }, 
-    ... 
-  ] 
+{
+  "courses": [
+    {
+      "id": 1,
+      "title": "course title",
+      "description": "course description",
+      "price": 100,
+      "imageLink": "https://linktoimage.com",
+      "published": true
+    },
+    ...
+  ]
 }
 ```
 
@@ -138,113 +167,133 @@
 
 ---
 
-### POST /users/signup 
+### POST /users/signup
+
 **Description**: Creates a new user account.  
-**Input**: 
+**Input**:
+
 ```json
-{ 
-  "username": "user", 
-  "password": "pass" 
+{
+  "username": "user",
+  "password": "pass"
 }
-```  
-**Output**: 
+```
+
+**Output**:
+
 ```json
-{ 
-  "message": "User created successfully", 
-  "token": "jwt_token_here" 
+{
+  "message": "User created successfully",
+  "token": "jwt_token_here"
 }
 ```
 
 ---
 
-### POST /users/login 
+### POST /users/login
+
 **Description**: Authenticates a user. It requires the user to send username and password in the headers.  
 **Input**:  
-**Headers**: 
+**Headers**:
+
 ```json
-{ 
-  "username": "user", 
-  "password": "pass" 
+{
+  "username": "user",
+  "password": "pass"
 }
-```  
-**Output**: 
+```
+
+**Output**:
+
 ```json
-{ 
-  "message": "Logged in successfully", 
-  "token": "jwt_token_here" 
+{
+  "message": "Logged in successfully",
+  "token": "jwt_token_here"
 }
 ```
 
 ---
 
-### GET /users/courses 
+### GET /users/courses
+
 **Description**: Lists all the courses.  
 **Input**:  
-**Headers**: 
+**Headers**:
+
 ```json
-{ 
-  "Authorization": "Bearer jwt_token_here" 
+{
+  "Authorization": "Bearer jwt_token_here"
 }
-```  
-**Output**: 
+```
+
+**Output**:
+
 ```json
-{ 
-  "courses": [ 
-    { 
-      "id": 1, 
-      "title": "course title", 
-      "description": "course description", 
-      "price": 100, 
-      "imageLink": "https://linktoimage.com", 
-      "published": true 
-    }, 
-    ... 
-  ] 
+{
+  "courses": [
+    {
+      "id": 1,
+      "title": "course title",
+      "description": "course description",
+      "price": 100,
+      "imageLink": "https://linktoimage.com",
+      "published": true
+    },
+    ...
+  ]
 }
 ```
 
 ---
 
-### POST /users/courses/:courseId 
+### POST /users/courses/:courseId
+
 **Description**: Purchases a course. `courseId` in the URL path should be replaced with the ID of the course to be purchased.  
 **Input**:  
-**Headers**: 
+**Headers**:
+
 ```json
-{ 
-  "Authorization": "Bearer jwt_token_here" 
+{
+  "Authorization": "Bearer jwt_token_here"
 }
-```  
-**Output**: 
+```
+
+**Output**:
+
 ```json
-{ 
-  "message": "Course purchased successfully" 
+{
+  "message": "Course purchased successfully"
 }
 ```
 
 ---
 
-### GET /users/purchasedCourses 
+### GET /users/purchasedCourses
+
 **Description**: Lists all the courses purchased by the user.  
 **Input**:  
-**Headers**: 
+**Headers**:
+
 ```json
-{ 
-  "Authorization": "Bearer jwt_token_here" 
+{
+  "Authorization": "Bearer jwt_token_here"
 }
-```  
-**Output**: 
+```
+
+**Output**:
+
 ```json
-{ 
-  "purchasedCourses": [ 
-    { 
-      "id": 1, 
-      "title": "course title", 
-      "description": "course description", 
-      "price": 100, 
-      "imageLink": "https://linktoimage.com", 
-      "published": true 
-    }, 
-    ... 
-  ] 
+{
+  "purchasedCourses": [
+    {
+      "id": 1,
+      "title": "course title",
+      "description": "course description",
+      "price": 100,
+      "imageLink": "https://linktoimage.com",
+      "published": true
+    },
+    ...
+  ]
 }
 ```
