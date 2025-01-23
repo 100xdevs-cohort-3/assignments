@@ -1,8 +1,13 @@
-import AuthSystem from './components/AuthSystem';
-import './Auth.css';
+import AuthSystem from "./components/AuthSystem";
+import UserContextProvider from "./context/AuthContext";
+import "./App.css";
 
 function App() {
-  return <AuthSystem />;
+  return (
+    <UserContextProvider>
+      <AuthSystem />
+    </UserContextProvider>
+  );
 }
 
 export default App;
