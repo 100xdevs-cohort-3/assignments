@@ -1,15 +1,16 @@
 const { Router } = require("express");
 const { userModel, adminModel, courseModel, purchaseModel } = require("../db");
 const jwt = require("jsonwebtoken");
-const { JWT_USER_PASSWORD } = require("../config")
+const { JWT_USER_PASSWORD } = require("../config");
+const { userMiddleware } = require("../middleware/user");
 const userRouter = Router();
 
 userRouter.post("/signup", async (req, res) => {
   const { email, password, firstName, lastName } = req.body; //add zod validation
 
-    // hashing password to avoid storing plaintext in database
+  // hashing password to avoid storing plaintext in database
 
-    // add try catch block
+  // add try catch block
   await userModel.create({
     email,
     password,
@@ -23,7 +24,7 @@ userRouter.post("/signup", async (req, res) => {
 });
 
 userRouter.post("/signin", async (req, res) => {
-  const { email, password } = req.body
+  const { email, password } = req.body;
 
   const user = await userModel.findOne({
     email,
@@ -48,9 +49,14 @@ userRouter.post("/signin", async (req, res) => {
   }
 });
 
-userRouter.get("/courses", (req, res) => {
+userRouter.get("/my-courses", userMiddleware, async (req, res) => {
+  const userId = req.body.userId;
+
+  const purchases = await purchaseModel.find({
+    userId,
+  });
   req.json({
-    message: "",
+    purchases,
   });
 });
 
