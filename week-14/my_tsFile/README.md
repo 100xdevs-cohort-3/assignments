@@ -1,17 +1,15 @@
 ## Start typecript project
 
 # run the command 
+ npm init -y
 
-# npm init -y
-
-
-# npm install -g typescript 
+npm install -g typescript 
 
 
-# tsc
+tsc
 
-## npx tsc -b
+npx tsc -b
 
 
-# node index.js
+node index.js
 
