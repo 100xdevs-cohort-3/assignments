@@ -1,4 +1,6 @@
-## start typecript project
+## Start typecript project
+
+# run the command 
 
 # npm init -y
 
