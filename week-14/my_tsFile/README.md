@@ -1,23 +1,24 @@
 ## start typecript project
 
 ````bash````
-npm init -y
+# npm init -y
 
+ ````
+
+
+## ````bash````
+
+# npm install -g typescript 
 ````
 
 ````bash````
-
-npm install -g typescript 
-````
-
-````bash````
-tsc
+# tsc
 ````
 
 
-````bash````
+## ````bash````
 
-npx tsc -b
+## npx tsc -b
 
 ``````
 
