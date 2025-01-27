@@ -22,8 +22,8 @@ const adminSchema = new Schema({
   lastName: String,
 });
 const purchaseSchema = new Schema({
-  courseId: ObjectId,
-  userId: ObjectId,
+  // courseId: ObjectId,
+  // userId: ObjectId,
 });
 
 const userModel = mongoose.model("users", userSchema);
