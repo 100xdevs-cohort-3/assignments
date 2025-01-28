@@ -4,5 +4,6 @@
 @theme {
   --color-primary: hsl(231 69% 60%);
   --color-secondary: hsl(0 94% 66%);
+  --color-darkBlue: hsl(229 31% 21%);
   --font-display: "Rubik", serif;
 }

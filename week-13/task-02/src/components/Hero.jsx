@@ -2,9 +2,11 @@ import React from "react";
 
 function Hero() {
   return (
-    <section className="flex justify-between items-center my-10 relative">
-      <div className="w-1/2">
-        <h1 className="text-6xl font-bold my-10">A Simple Bookmark Manager</h1>
+    <section className="flex justify-center items-center my-20 relative">
+      <div>
+        <h1 className="text-6xl font-bold my-10 max-w-xl">
+          A Simple Bookmark Manager
+        </h1>
         <p className="text-2xl text-gray-500 line-clamp-4 my-5 max-w-md">
           A clean and simple interface to organize your favourite websites. Open
           a new browser tab and see your sites load instantly. Try it for free.
@@ -19,7 +21,7 @@ function Hero() {
         </div>
       </div>
       <div className="mx-10 relative">
-        <div className="absolute top-1/2 left-38 bg-primary h-64 w-full rounded-l-full" />
+        <div className="absolute top-1/2 left-38 bg-primary h-64 w-screen rounded-l-full" />
         <img
           src="https://tailwindfromscratch.com/website-projects/bookmark/images/illustration-hero.svg"
           alt="hero-image"

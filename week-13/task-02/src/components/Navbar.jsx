@@ -2,7 +2,7 @@ import React from "react";
 
 function Navbar() {
   return (
-    <nav className="flex justify-between items-center">
+    <nav className="flex justify-between items-center max-w-screen-xl mx-auto">
       <div>
         <img src="https://tailwindfromscratch.com/website-projects/bookmark/images/logo-bookmark.svg" />
       </div>
