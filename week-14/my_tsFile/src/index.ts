@@ -72,7 +72,7 @@
 
 
 // function greet(name:string){
-//     console.log("Hello  " + name);
+//     console.lsog("Hello  " + name);
 // }
 
 // delayedCall(greet);
