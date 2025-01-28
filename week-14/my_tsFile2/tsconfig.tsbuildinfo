@@ -1,1 +1,1 @@
-{"root":["./src/index.ts","./src/optionalkeyinter.ts"],"version":"5.7.3"}
+{"root":["./src/abstractclass.ts","./src/classimpleinterface.ts","./src/index.ts","./src/interfaceasaclass.ts","./src/interfaceinsideinter.ts","./src/optionalkeyinter.ts"],"version":"5.7.3"}
