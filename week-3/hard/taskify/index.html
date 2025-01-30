@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e3f2fd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .todo-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        h2 {
+            text-align: center;
+        }
+        .input-container {
+            display: flex;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            outline: none;
+        }
+        button {
+            padding: 10px 15px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        .task-section {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            min-height: 50px;
+        }
+        .task {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 5px 0;
+            border-left: 5px solid #007bff;
+            cursor: grab;
+        }
+        .delete-btn {
+            background-color: transparent;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <div class="todo-container">
+        <h2>To-Do List</h2>
+        <div class="input-container">
+            <input type="text" id="todoInput" placeholder="Enter task...">
+            <button onclick="addTask()">+</button>
+        </div>
+        <div>
+            <h3>To-Do</h3>
+            <div class="task-section" id="todo"></div>
+        </div>
+        <div>
+            <h3>In Progress</h3>
+            <div class="task-section" id="inProgress"></div>
+        </div>
+        <div>
+            <h3>Under Review</h3>
+            <div class="task-section" id="underReview"></div>
+        </div>
+        <div>
+            <h3>Completed</h3>
+            <div class="task-section" id="completed"></div>
+        </div>
+    </div>
+
+    <script>
+        function addTask() {
+            let input = document.getElementById("todoInput");
+            let taskText = input.value.trim();
+            if (taskText === "") return;
+
+            let task = document.createElement("div");
+            task.className = "task";
+            task.draggable = true;
+            task.innerHTML = `<span>${taskText}</span> <button class="delete-btn" onclick="this.parentElement.remove()">&times;</button>`;
+            task.addEventListener("dragstart", dragStart);
+            document.getElementById("todo").appendChild(task);
+            input.value = "";
+        }
+
+        function dragStart(event) {
+            event.dataTransfer.setData("text", event.target.id);
+            event.target.classList.add("dragging");
+        }
+
+        document.querySelectorAll(".task-section").forEach(section => {
+            section.addEventListener("dragover", function(event) {
+                event.preventDefault();
+            });
+            section.addEventListener("drop", function(event) {
+                event.preventDefault();
+                let draggedTask = document.querySelector(".dragging");
+                if (draggedTask) {
+                    this.appendChild(draggedTask);
+                    draggedTask.classList.remove("dragging");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
