@@ -11,7 +11,7 @@ const Timer = () => {
 
   // Effect to update the progress bar as time counts down
   useEffect(() => {
-    const progress = initialTime > 0 ? ((initialTime - time) / initialTime) * 100 : 0;
+    const progress = initialTime > 0 ? (time / initialTime) * 100 : 0;
     document.documentElement.style.setProperty('--progress', `${progress}%`);
   }, [time, initialTime]);
 
