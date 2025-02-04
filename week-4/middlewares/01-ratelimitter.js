@@ -16,11 +16,36 @@ setInterval(() => {
     numberOfRequestsForUser = {};
 }, 1000)
 
+app.use(function(req, res, next){
+  const userId = req.headers['user-id'];
+
+  if(!userId){
+    res.status(400).send('id is required')
+  }
+
+
+  if(numberOfRequestsForUser[userId]){
+    numberOfRequestsForUser[userId]++;
+    
+  } else{
+    numberOfRequestsForUser[userId] = 1;
+  }
+
+
+  if(numberOfRequestsForUser[userId] > 5){
+    res.status(404).send('you have reached 5 requests per second')
+  } 
+
+  next()
+})
+
 app.get('/user', function(req, res) {
+
   res.status(200).json({ name: 'john' });
 });
 
 app.post('/user', function(req, res) {
+  
   res.status(200).json({ msg: 'created dummy user' });
 });
 
