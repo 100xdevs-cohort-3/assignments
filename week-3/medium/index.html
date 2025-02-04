@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Builder</title>
+    <style>
+               
+        body { font-family: Arial, sans-serif; padding: 20px; background-color: #f4f4f4; }
+        .builder-container { max-width: 600px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        .form-preview { border: 1px solid #ccc; padding: 10px; min-height: 100px; background: #fff; margin-top: 10px; border-radius: 4px; }
+        .controls { margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap; }
+        button { padding: 10px; border: none; cursor: pointer; border-radius: 4px; background: #007BFF; color: #fff; transition: 0.3s; }
+        button:hover { background: #0056b3; }
+        .form-preview input, .form-preview select, .form-preview button { margin: 5px; padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+
+
+
+        
+    </style>
+</head>
+<body>
+
+    <div class="builder-container">
+        <h2>Form Builder</h2>
+        <div class="controls">
+            <button onclick="addElement('text')">Add Text Field</button>
+            <button onclick="addElement('checkbox')">Add Checkbox</button>
+            <button onclick="addElement('button')">Add Button</button>
+            <button onclick="addElement('select')">Add Dropdown</button>
+            <button onclick="addElement('textarea')">Add Textarea</button>
+        </div>
+        <div class="form-preview" id="formPreview"></div>
+    </div>
+
+    <script>
+        function addElement(type) {
+            let formPreview = document.getElementById('formPreview');
+            let element;
+
+            if (type === 'text') {
+                element = document.createElement('input');
+                element.type = 'text';
+                element.placeholder = 'Enter text';
+            } else if (type === 'checkbox') {
+                element = document.createElement('input');
+                element.type = 'checkbox';
+            } else if (type === 'button') {
+                element = document.createElement('button');
+                element.innerText = 'Click Me';
+            } else if (type === 'select') {
+                element = document.createElement('select');
+                let option1 = document.createElement('option');
+                option1.text = 'Option 1';
+                let option2 = document.createElement('option');
+                option2.text = 'Option 2';
+                element.add(option1);
+                element.add(option2);
+            } else if (type === 'textarea') {
+                element = document.createElement('textarea');
+                element.placeholder = 'Enter text here...';
+                
+            }
+
+            if (element) {
+                formPreview.appendChild(element);
+                formPreview.appendChild(document.createElement('br'));
+            }
+        }
+    </script>
+</body>
+</html>
