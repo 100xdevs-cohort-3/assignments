@@ -33,7 +33,23 @@ export async function createTravelPlan(
   endDate: string,
   budget: number
 ) {
-  
+  const query = `
+  INSERT INTO travel_plans (user_id, title, destination_city, destination_country, start_date, end_date, budget)
+  VALUES ($1, $2, $3, $4, $5, $6, $7)
+  RETURNING title, destination_city, destination_country, start_date, end_date, budget, id;
+  `;
+
+  const result: QueryResult<TravelPlan> = await client.query(query, [
+    userId,
+    title,
+    destinationCity,
+    destinationCountry,
+    startDate,
+    endDate,
+    budget,
+  ]);
+
+  return result.rows[0];
 }
 
 /*
@@ -45,7 +61,20 @@ export async function updateTravelPlan(
   title?: string,
   budget?: number
 ) {
- 
+  const query = `
+  UPDATE travel_plans 
+  SET title = $2, budget = $3 
+  WHERE id = $1
+  RETURNING title, destination_city, destination_country, start_date, end_date, budget, id;
+  `;
+
+  const result: QueryResult<TravelPlan> = await client.query(query, [
+    planId,
+    title,
+    budget,
+  ]);
+
+  return result.rows[0];
 }
 
 /*
@@ -62,5 +91,12 @@ export async function updateTravelPlan(
  * }]
  */
 export async function getTravelPlans(userId: number) {
+  const query = `
+  SELECT * FROM travel_plans
+  WHERE user_id = $1;
+  `;
 
+  const result = await client.query(query, [userId]);
+
+  return result.rows;
 }
