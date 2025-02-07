@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>Quiz-app</title>
+    
+</head>
+<body>
+    <div id="card">
+        <form id="quiz-content">
+            <h2 id="question"></h2>
+            <div id="options">
+                <div>
+                    <input type="radio" name="check" id="a" value="a" onchange="submitStatus()">
+                    <label id="option-a"></label>
+                </div>
+                <div>
+                    <input type="radio" name="check" id="b" value="b" onchange="submitStatus()">
+                    <label id="option-b"></label>
+                </div>
+                <div>
+                    <input type="radio" name="check" id="c" value="c" onchange="submitStatus()">
+                    <label id="option-c"></label>
+                </div>
+                <div>
+                    <input type="radio" name="check" id="d" value="d" onchange="submitStatus()">
+                    <label id="option-d"></label>
+                </div>
+            </div>
+        </form>
+        <button onclick="nextQuestion()" id="submit">Submit</button>
+    </div>
+
+    <script src="./data.js"></script>
+    <script>
+        let index = 0;
+        let finalScore = 0;
+        let submittedValue = '';
+        const size = quizData.length;
+
+        // Disabling the submit button
+        const radios = document.getElementsByName("check");
+        const button = document.getElementById("submit");
+        button.setAttribute("disabled", true);
+
+        // Function to enable submit button
+        function submitStatus(){
+            button.removeAttribute("disabled");
+        }
+
+        // Function to reload the window
+        function reload(){
+            window.location.reload();
+        }
+
+        // Function to get data of every next question when clicked on submit
+        function nextQuestion(){
+
+            for(let i = 0; i < size; i++){
+                if(radios[i].checked){
+                    submittedValue += radios[i].value;
+                    break;
+                }
+            }
+
+            // if the current question number is <= 3 get next question
+            if(index < quizData.length){
+                const questionBody = document.getElementById("quiz-content");
+                const question = document.getElementById("question");
+
+                question.innerText = quizData[index].question;
+
+                // Label each option on every submit for each question
+                for(let i = 0; i < size; i++){
+                    let name = 'abcd'
+                    const option = document.getElementById("option-"+name[i]);
+                    option.innerText = quizData[index][name[i]];
+                }
+
+                button.setAttribute("disabled", true);
+                radios.forEach((radio) => {
+                    radio.checked = false;
+                })
+
+                index++;
+            }
+            else{
+                for(let i = 0; i < submittedValue.length; i++){
+                    if(submittedValue[i] == quizData[i].correct){
+                        finalScore++;
+                    }
+                }
+
+                const quiz = document.getElementById('quiz-content');
+                const h2 = document.getElementById('question');
+                const options = document.getElementById('options');
+                const submit = document.getElementById('submit');
+
+                h2.innerText = "You answered " + finalScore + "/4 correctly";
+                quiz.removeChild(options);
+
+                submit.innerText = 'Reload';
+                submit.removeAttribute("onclick");
+
+                submit.setAttribute("onclick", "reload()");
+            }
+        }
+
+        nextQuestion();
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Taskify</title>
+</head>
+<body>
+    <div id="container">
+        <div id="todo" class="card">
+            <h3>Todo</h3>
+            <div id="todo-info" class="todo-container" >
+            </div>
+            <button onclick="addTodo('todo')">Add</button>
+        </div>
+        <div id="progress" class="card">
+            <h3>In Progress</h3>
+            <div id="progress-info" class="todo-container">
+            </div>
+            <button onclick="addTodo('progress')">Add</button>
+        </div>
+        <div id="review" class="card">
+            <h3>Under Review</h3>
+            <div id="review-info" class="todo-container">
+            </div>
+            <button onclick="addTodo('review')">Add</button>
+        </div>
+        <div id="finished" class="card">
+            <h3>Finished</h3>
+            <div id="finished-info" class="todo-container">
+            </div>
+            <button onclick="addTodo('finished')">Add</button>
+        </div>
+    </div>
+
+    <script src="./index.js"></script>
+</body>
+</html>

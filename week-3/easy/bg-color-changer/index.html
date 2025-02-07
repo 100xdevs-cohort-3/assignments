@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bg-changer</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="container">
+        <button onclick="bgChange('red')">Red</button>
+        <button onclick="bgChange('yellow')">Yellow</button>
+        <button onclick="bgChange('black')" style="color: white;">Black</button>
+        <button onclick="bgChange('purple')">Purple</button>
+        <button onclick="bgChange('green')">Green</button>
+        <button onclick="bgChange('blue')">Blue</button>
+        <button onclick="bgChange('white')">White</button>
+    </div>
+
+    <script>
+        const body = document.body
+
+        const buttons = document.getElementsByTagName('button');
+
+        for (let index = 0; index < buttons.length; index++) {
+            const element = buttons[index];
+            element.style.backgroundColor = element.innerText;
+            element.style.borderRadius = "5px"
+        }
+
+        function bgChange(color){
+            body.style.backgroundColor = color;
+        }
+    </script>
+</body>
+</html>
