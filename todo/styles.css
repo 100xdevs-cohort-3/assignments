@@ -1,0 +1,41 @@
+body {
+    font-size: 16px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px auto 0px auto;
+    padding: 25px;
+}
+
+.container1 {
+    display: flex;
+    justify-content: center;
+}
+
+.container2 {
+    display: flex;
+    justify-content: center;
+}
+
+
+#showTodo {
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+#showTodo div {
+    background-color: beige;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 10px 10px 10px;
+    margin-right: 7px;
+    margin-bottom: 7px;
+    justify-content: center;
+    width: 120px;
+    border-radius: 10px;
+}
