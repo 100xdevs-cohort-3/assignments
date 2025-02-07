@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Sour+Gummy&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: #335624;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(to right, #f5e8c7, #f6c3ab);
+  text-align: center;
+  overflow: hidden;
+}
+
+.header-text {
+  font-family: "Sour Gummy", sans-serif;
+  font-size: 24px;
+  color: #335624;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+  animation-delay: 0.2s;
+  max-width: 600px;
+}
+
+.animation-container {
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+  animation-delay: 0.5s;
+}
+
+.animation-image {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+.adoption-form-button {
+  padding: 12px 25px;
+  background-color: #335624;
+  color: #e2b997;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  width: auto;
+  margin-top: 20px;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+  animation-delay: 0.8s;
+  font-family: "Sour Gummy", sans-serif;
+  transition: all 0.3s ease-in-out;
+}
+
+.adoption-form-button:hover {
+  background-color: #53391e;
+  transform: scale(1.05);
+}
+
+.header-subtext {
+  font-family: "Sour Gummy", sans-serif;
+  color: #335624;
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.highlight {
+  font-weight: bold;
+  color: #b67c4d;
+}
