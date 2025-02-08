@@ -4,21 +4,31 @@
  * Return a promise chain which return the time in milliseconds it takes to complete the entire operation.
  * Compare it with the results from 3-promise-all.js
  */
-
 function wait1(t) {
-
+  return new Promise((resolve) => {
+    setTimeout(resolve, t * 1000);
+  });
 }
-
 function wait2(t) {
-
+  return new Promise((resolve) => {
+    setTimeout(resolve, t * 1000);
+  });
 }
-
 function wait3(t) {
-
+  return new Promise((resolve) => {
+    setTimeout(resolve, t * 1000);
+  });
 }
-
 function calculateTime(t1, t2, t3) {
+  const start = Date.now(); // Record the start time
 
+  return wait1(t1)
+    .then(() => wait2(t2)) // Wait for the first promise to resolve, then the second
+    .then(() => wait3(t3)) // Wait for the second promise to resolve, then the third
+    .then(() => {
+      const end = Date.now(); // Record the end time
+      return end - start; // Return the total time taken in milliseconds
+    });
 }
 
 module.exports = calculateTime;
