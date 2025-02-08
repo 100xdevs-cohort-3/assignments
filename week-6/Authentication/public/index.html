@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Auth Portal</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"></script>
+    <style>
+        :root {
+            --color-primary: #4f46e5;
+            --color-primary-dark: #4338ca;
+            --color-danger: #ef4444;
+            --color-danger-dark: #dc2626;
+            --color-success: #22c55e;
+            --color-text: #1f2937;
+            --color-text-light: #6b7280;
+            --color-background: #f3f4f6;
+            --color-white: #ffffff;
+            --color-border: #e5e7eb;
+            --color-input-bg: #f9fafb;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --transition: all 0.3s ease;
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-background);
+            color: var(--color-text);
+            line-height: 1.5;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 440px;
+            padding: 1.5rem;
+            margin: 0 auto;
+        }
+
+        .auth-card {
+            background-color: var(--color-white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+        }
+
+        .auth-section {
+            padding: 2rem;
+        }
+
+        .auth-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .auth-logo {
+            width: 48px;
+            height: 48px;
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        .auth-header h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .auth-header p {
+            color: var(--color-text-light);
+            font-size: 0.875rem;
+        }
+
+        .auth-form {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-wrapper {
+            position: relative;
+            margin-bottom: 1rem;
+        }
+
+        .input-wrapper input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            background-color: var(--color-input-bg);
+            font-size: 0.875rem;
+            transition: var(--transition);
+        }
+
+        .input-wrapper input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        .input-wrapper label {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--color-text-light);
+            font-size: 0.875rem;
+            transition: var(--transition);
+            pointer-events: none;
+            background-color: var(--color-input-bg);
+            padding: 0 0.25rem;
+        }
+
+        .input-wrapper input:focus + label,
+        .input-wrapper input:not(:placeholder-shown) + label {
+            top: 0;
+            transform: translateY(-50%) scale(0.85);
+            color: var(--color-primary);
+        }
+
+        .button {
+            display: block;
+            width: 100%;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .button-primary {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        .button-primary:hover {
+            background-color: var(--color-primary-dark);
+        }
+
+        .button-danger {
+            background-color: var(--color-danger);
+            color: var(--color-white);
+        }
+
+        .button-danger:hover {
+            background-color: var(--color-danger-dark);
+        }
+
+        .auth-footer {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.875rem;
+            color: var(--color-text-light);
+        }
+
+        .auth-footer a {
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .auth-footer a:hover {
+            text-decoration: underline;
+        }
+
+        .profile-info {
+            background-color: var(--color-input-bg);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-info-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .profile-info-item:last-child {
+            border-bottom: none;
+        }
+
+        .profile-info-label {
+            color: var(--color-text-light);
+            font-size: 0.875rem;
+        }
+
+        .profile-info-value {
+            color: var(--color-text);
+            font-weight: 500;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .notification {
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+            padding: 1rem 1.5rem;
+            border-radius: var(--radius-md);
+            color: var(--color-white);
+            box-shadow: var(--shadow-md);
+            transform: translateY(100%);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .notification.success {
+            background-color: var(--color-success);
+        }
+
+        .notification.error {
+            background-color: var(--color-danger);
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .auth-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <div class="auth-card">
+            <!-- Sign In Section -->
+            <section class="auth-section signin-section">
+                <header class="auth-header">
+                    <div class="auth-logo">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M13.8 12H3"/>
+                        </svg>
+                    </div>
+                    <h1>Welcome Back</h1>
+                    <p>Sign in to continue to your account</p>
+                </header>
+                <form class="auth-form" onsubmit="event.preventDefault(); signin()">
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <input id="signin-username" type="text" placeholder=" " required>
+                            <label for="signin-username">Username</label>
+                        </div>
+                        <div class="input-wrapper">
+                            <input id="signin-password" type="password" placeholder=" " required>
+                            <label for="signin-password">Password</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="button button-primary">Sign In</button>
+                </form>
+                <footer class="auth-footer">
+                    <p>Don't have an account? <a href="#" onclick="toggleForms('signup')">Sign Up</a></p>
+                </footer>
+            </section>
+
+            <!-- Sign Up Section -->
+            <section class="auth-section signup-section hidden">
+                <header class="auth-header">
+                    <div class="auth-logo">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h1>Create Account</h1>
+                    <p>Join us today and get started</p>
+                </header>
+                <form class="auth-form" onsubmit="event.preventDefault(); signup()">
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <input id="signup-username" type="text" placeholder=" " required>
+                            <label for="signup-username">Username</label>
+                        </div>
+                        <div class="input-wrapper">
+                            <input id="signup-password" type="password" placeholder=" " required>
+                            <label for="signup-password">Password</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="button button-primary">Sign Up</button>
+                </form>
+                <footer class="auth-footer">
+                    <p>Already have an account? <a href="#" onclick="toggleForms('signin')">Sign In</a></p>
+                </footer>
+            </section>
+
+            <!-- Profile Section -->
+            <section class="auth-section profile-section hidden">
+                <header class="auth-header">
+                    <div class="auth-logo">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                    </div>
+                    <h1>Profile Information</h1>
+                    <p>Welcome to your dashboard</p>
+                </header>
+                <div id="information" class="profile-info"></div>
+                <button onclick="logout()" class="button button-danger">Logout</button>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // Form toggle functionality
+        function toggleForms(show) {
+            const sections = document.querySelectorAll('.auth-section');
+            sections.forEach(section => {
+                section.classList.add('hidden');
+                if (section.classList.contains(show + '-section')) {
+                    section.classList.remove('hidden');
+                }
+            });
+        }
+
+        // Authentication functions
+        async function signup() {
+            const username = document.getElementById("signup-username").value;
+            const password = document.getElementById("signup-password").value;
+            try {
+                await axios.post("https://tridibs-in-memory-authentication-api.onrender.com/signup", {
+                    username: username,
+                    password: password
+                });
+                showNotification('Successfully signed up!', 'success');
+                toggleForms('signin');
+            } catch (error) {
+                showNotification('Signup failed: ' + error.message, 'error');
+            }
+        }
+
+        async function signin() {
+            const username = document.getElementById("signin-username").value;
+            const password = document.getElementById("signin-password").value;
+            try {
+                const response = await axios.post("https://tridibs-in-memory-authentication-api.onrender.com/signin", {
+                    username: username,
+                    password: password
+                });
+                localStorage.setItem("token", response.data.token);
+                showNotification('Successfully signed in!', 'success');
+                showUserInfo();
+            } catch (error) {
+                showNotification('Signin failed: ' + error.message, 'error');
+            }
+        }
+
+        // User information handling
+        async function getUserInformation() {
+            try {
+                const response = await axios.get("https://tridibs-in-memory-authentication-api.onrender.com/me", {
+                    headers: {
+                        token: localStorage.getItem("token")
+                    }
+                });
+                document.getElementById("information").innerHTML = `
+                    <div class="profile-info-item">
+                        <span class="profile-info-label">Username</span>
+                        <span class="profile-info-value">${response.data.username}</span>
+                    </div>
+                    <div class="profile-info-item">
+                        <span class="profile-info-label">Password</span>
+                        <span class="profile-info-value">${response.data.password}</span>
+                    </div>
+                `;
+            } catch (error) {
+                showNotification('Failed to get user information: ' + error.message, 'error');
+            }
+        }
+
+        function showUserInfo() {
+            toggleForms('profile');
+            getUserInformation();
+        }
+
+        function logout() {
+            localStorage.removeItem("token");
+            toggleForms('signin');
+            document.getElementById("information").innerHTML = "";
+        }
+
+        // Notification system
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.classList.add('show');
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                    setTimeout(() => {
+                        notification.remove();
+                    }, 300);
+                }, 3000);
+            }, 100);
+        }
+
+        // Check authentication status on load
+        if (localStorage.getItem("token")) {
+            showUserInfo();
+        }
+    </script>
+</body>
+</html>
