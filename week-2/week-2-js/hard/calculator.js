@@ -16,6 +16,52 @@
   Once you've implemented the logic, test your code by running
 */
 
-class Calculator {}
+
+const math = require('mathjs');
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
+
+  add(n) {
+    this.result += n;
+  }
+
+  subtract(n) {
+    this.result -= n;
+  }
+
+  multiply(n) {
+    this.result *= n;
+  }
+
+  divide(n) {
+      if(n !== 0)
+      this.result /= n;
+      else
+      throw new Error("Not defined");
+    
+  }
+
+  clear() {
+    this.result = 0;
+  }
+
+  getResult() {
+    return this.result;
+  }
+
+  calculate(expression) {
+    const trimmedExpression = expression.replace(/\s+/g, '');
+    try {
+      this.result =  math.evaluate(trimmedExpression);
+      if(this.result === Infinity || this.result === -Infinity){
+        throw new Error("Division by zero is not allowed");
+      }
+    } catch(error) {
+      throw new Error(`Invalid expression: ${error.message}`);
+    }
+  }
+}
 
 module.exports = Calculator;
