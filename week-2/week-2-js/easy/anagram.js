@@ -6,6 +6,18 @@
 
 function isAnagram(str1, str2) {
 
+  // Check if the length of the strings are equal
+  if (str1.length !== str2.length) {
+    return false;
+  }
+
+  // Convert the strings to lowercase
+  str1 = str1.toLowerCase();
+  str2 = str2.toLowerCase();
+
+  // Sort the strings and compare them
+  return str1.split('').sort().join('') === str2.split('').sort().join('');
+
 }
 
 module.exports = isAnagram;

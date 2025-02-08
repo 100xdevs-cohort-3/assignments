@@ -1,0 +1,30 @@
+.parent-div {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.color-btn{
+  padding:5px 10px;
+  font-size: 20px;
+  border: 2px solid #000;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+#red-btn{
+  background-color: red;
+}
+#blue-btn{
+  background-color: skyblue;
+}
+#green-btn{
+  background-color: green;
+}
+#yellow-btn{
+  background-color: yellow;
+}

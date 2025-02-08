@@ -1,0 +1,96 @@
+/* General Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #002303;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h1 {
+  color: #f0f0f0;
+  font-size: 2.5em;
+}
+
+.board {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 1000px;
+  background-color: rgb(0, 65, 75);
+  padding: 2rem;
+  border-radius: 30px;
+  width: 100%;
+}
+
+.column {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 200px;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  overflow-y: auto;
+}
+
+.column h2 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.task {
+  display: block;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  border: 1px #333 solid ;
+  padding: 15px;
+  margin-bottom: 10px;
+
+  cursor: grab;
+}
+
+.task:active {
+  cursor: grabbing;
+  /* opacity: 0.8; */
+}
+
+.add-btn {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 0.9em;
+  transition: background 0.3s;
+}
+
+.add-btn:hover {
+  background-color: #555;
+}
+
+.hold {
+  opacity: 0.5; /* Make it semi-transparent while dragging */
+  cursor: grabbing;
+  border: 2px dashed #ff6666; /* Add a dashed border while dragging */
+}
+
+.hide {
+  display: none; /* Hide the dragged item temporarily */
+}
+
+.drag-over {
+  border-top: 2px dashed #ff6666; /* Add a dashed border on the top of the target for indication */
+}
