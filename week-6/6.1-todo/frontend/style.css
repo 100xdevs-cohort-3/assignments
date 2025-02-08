@@ -1,42 +1,110 @@
+body{
+  margin: 0;
+  padding: 0;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: larger;
+  background-color: aqua;
+  display: flex;
+ justify-content: center;
+ align-items: center;
+ height: 100vh;
+  
+}
 
+.container{
+  /* display: flex; */
+  /* flex-direction: column; */
+  padding: 25px;
+  /* margin: 15px; */
+  /* border: none; */
+  width: 100%;
+  max-width: 400px;
+  border-radius: 20px ;
+  box-shadow: 0  4px 6px rgba(99, 216, 49, 0.5);
+  background-color: blue;
+}  
 
-body {
-  /*  write here */
-  }
-    
-  .container {
-  /*  write here */
-  }
-    
-  h1 {
-  /*  write here */
-  }
-    
-  .input-container {
-  /*  write here */
-  }
-    
-  #todo-input {
-  /*  write here */
-  }
-    
-  #add-todo-btn {
-  /*  write here */
-  }
-    
-  #todo-list {
-   /*  write here */
-  }
-    
-  #todo-list li {
-  /*  write here */
-  }
-    
-  #todo-list li.completed {
-  /*  write here */
-  }
-    
-  button.delete-btn {
-  /*  write here */
-  }
-    
+h1{
+  text-align: center;
+  margin: 20px;
+  font-size: 28px;
+  color: chartreuse;
+}
+
+.input{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#todo-input{
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background:  rgba(255, 255, 255, 0.1);
+  font-size: 20px;
+}
+
+#todo-input::placeholder{
+  color: yellow;
+}
+
+#add-todo-btn{
+  padding: 5px;
+  border: none;
+  border-radius: 20px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#add-todo-btn:hover{
+  background-color: yellowgreen;
+}
+
+#todo-list{
+list-style-type: none;
+padding: 0;
+}
+
+#todo-list li {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button{
+  background-color:  #c9184a;
+  color: #e0e0e0;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button.delete-btn:hover{
+  background-color: #ff4d6d;
+}
+
+#todo-input:focus,
+#add-todo-btn:focus,
+button.delete-btn:focus {
+outline: 2px solid #9d4edd;
+outline-offset: 2px;
+}
+
+/* Animation for new todo items */
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(-10px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+#todo-list li {
+animation: fadeIn 0.3s ease-out;
+}
