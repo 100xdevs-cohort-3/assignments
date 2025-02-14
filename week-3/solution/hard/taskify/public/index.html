@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taskify</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Taskify</h1>
+        <div class="categories">
+            <!-- To Do -->
+            <div class="category" id="todo">
+                <h2>To Do</h2>
+                <div class="tasks" id="todo-tasks"></div>
+            </div>
+
+            <!-- In Progress -->
+            <div class="category" id="in-progress">
+                <h2>In Progress</h2>
+                <div class="tasks" id="in-progress-tasks"></div>
+            </div>
+
+            <!-- Under Review -->
+            <div class="category" id="under-review">
+                <h2>Under Review</h2>
+                <div class="tasks" id="under-review-tasks"></div>
+            </div>
+
+            <!-- Finished -->
+            <div class="category" id="finished">
+                <h2>Finished</h2>
+                <div class="tasks" id="finished-tasks"></div>
+            </div>
+        </div>
+
+        <!-- Add New Task -->
+        <div class="add-task">
+            <input type="text" id="task-input" placeholder="Add a new task">
+            <button id="add-task-btn">Add</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

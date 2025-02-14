@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container" id="container">  <!-- Corrected the typo -->
+        <h1>Pokemon World</h1>
+        <form id="pokemonForm" aria-labelledby="formHeader"> <!-- Added aria-labelledby -->
+            <h2 id = "formHeader">Find your pokemon</h2>
+            <label for="numPokemon">Number of Pokémon:</label>
+            <input type="number" id="numPokemon" min="1" max="20" required aria-describedby="numPokemonHelp"> <!-- Added aria-describedby -->
+            <small id="numPokemonHelp">Enter a number between 1 and 20</small>
+            <label for="category">Category:</label>
+            <select id="category" aria-label="Select Pokémon Type"> <!-- Added aria-label -->
+                <option value="fire">Fire</option>
+                <option value="water">Water</option>
+                <option value="grass">Grass</option>
+                <option value="electric">Electric</option>
+                <option value="psychic">Psychic</option>
+                <option value="ice">Ice</option>
+                <option value="dragon">Dragon</option>
+                <option value="dark">Dark</option>
+                <option value="fairy">Fairy</option>
+                <option value="normal">Normal</option>
+                <option value="fighting">Fighting</option>
+                <option value="flying">Flying</option>
+                <option value="poison">Poison</option>
+                <option value="ground">Ground</option>
+                <option value="rock">Rock</option>
+                <option value="bug">Bug</option>
+                <option value="ghost">Ghost</option>
+                <option value="steel">Steel</option>
+            </select>
+            <button type="submit">Get Pokémon</button>
+        </form>
+        <div id="messageContainer" aria-live="polite"></div> <!-- Added aria-live -->
+        <div id="pokemonContainer"></div>
+    
+        
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
