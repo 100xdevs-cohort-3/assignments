@@ -1,0 +1,59 @@
+/* styles.css */
+
+html, body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0; /* Default background */
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.color-selector {
+    display: flex;
+}
+
+button, input {
+    border-radius: 8px;
+    width: 100px; /* Reduced Width */
+    height: 50px; /* Square Buttons */
+    margin: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Added subtle shadow */
+    transition: transform 0.2s ease; /* Smooth transition */
+}
+
+button:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+#white {
+    background-color: white;
+}
+
+#black {
+    background-color: black;
+}
+
+input[type="color"] {
+    width: 100px; /* Auto width for color input */
+    padding: 5px; /* Remove padding */
+}
+
+input:hover{
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}

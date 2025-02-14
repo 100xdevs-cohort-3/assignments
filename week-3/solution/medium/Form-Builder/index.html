@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container" id="builder">
+        <h1>Form Builder</h1>
+        <h3>Field type</h3>
+        <select id="type" aria-label="Select Type">
+            <option value="h3">Heading</option>
+            <option value="input">Input</option>
+            <option value="datalist">Datalist</option>
+            <option value="radio">Radio</option>
+        </select>
+        </input>
+
+        <h3>Field Label</h3>
+        <input type="text" placeholder="Add placeholder/field lable" id="labelName">
+
+        <h3>Placeholder (for Input)</h3>
+        <input type="text" placeholder="Enter placeholder (optional)" id="placeholder">
+
+        <div class="button">
+            <button id="addButton">Add</button>
+        </div>
+    </div>
+
+    <div class = "container" id="preview">
+        <h1>Form Preview</h1>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
