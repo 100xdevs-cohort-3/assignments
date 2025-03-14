@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Change Background Color</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .parent {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        height: 30px;
+        margin: 20px;
+      }
+      .but1 {
+        background-color: red;
+      }
+      .but2 {
+        background-color: purple;
+      }
+      .but3 {
+        background-color: green;
+      }
+      .but4 {
+        background-color: orange;
+      }
+      .but5{
+               background-color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <button class="but1" data-color="red">Red</button>
+      <button class="but2" data-color="purple">Purple</button>
+      <button class="but3" data-color="green">Green</button>
+      <button class="but4" data-color="orange">Orange</button>
+      <button class="but5" data-color="white">white</button.but5>
+    </div>
+    <div class="parenttwo">
+       
+    </div>
+    <script>
+      
+      const buttons = document.querySelectorAll('.parent button');
+
+      buttons.forEach(button => {
+        button.addEventListener('click', () => {
+          
+          const color = button.getAttribute('data-color');
+          
+          document.body.style.backgroundColor = color;
+        });
+      });
+    </script>
+  </body>
+</html>

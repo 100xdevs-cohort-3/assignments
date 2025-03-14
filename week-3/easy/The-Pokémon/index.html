@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokemon Card</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f8f8f8;
+      }
+      .card {
+        background: white;
+        
+        padding: 20px;
+        border-radius: 10px;       
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 250px;
+      }
+      .card img {
+        width: 100px;
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <div class="card" id="pokemon-card">
+      <h2>Loading...</h2>
+    </div>
+
+    <script>
+      fetch("https://pokeapi.co/api/v2/pokemon/1")
+        .then((response) => response.json())
+        .then((data) => {
+          const card = document.getElementById("pokemon-card");
+          card.innerHTML = `
+                    <h2>${data.name.toUpperCase()}</h2>
+                    <img src="${data.sprites.front_default}" alt="${data.name}">
+                    <p>Height: ${data.height}</p>
+                    <p>Weight: ${data.weight}</p>
+                `;
+        })
+        .catch((error) => console.error("Error fetching data:", error));
+    </script>
+  </body>
+</html>
