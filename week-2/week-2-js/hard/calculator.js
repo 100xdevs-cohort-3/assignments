@@ -16,6 +16,47 @@
   Once you've implemented the logic, test your code by running
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
+
+  add(number) {
+    this.result += number;
+  }
+  subtract(number) {
+    this.result -= number;
+  }
+  multiply(number) {
+    this.result *= number;
+  }
+  divide(number) {
+    if (number == 0) throw new Error("Division by zero");
+    this.result /= number;
+  }
+  clear() {
+    this.result = 0;
+  }
+  getResult() {
+    return this.result;
+  }
+
+  calculate(str) {
+    str = str.replace(/\s+/g, "");
+
+    //Added this complex regext just to fine with it properly
+    if (!/^[0-9+\-*/().]+$/.test(str)) {
+      throw new Error("Invalid input");
+    }
+    if (/\/0(?!\d)/.test(str)) {
+      throw new Error("Division by zero");
+    }
+    try {
+      this.result += eval(str);
+    } catch (err) {
+      throw new Error(err.message);
+    }
+  }
+}
 
 module.exports = Calculator;
