@@ -1,259 +1,114 @@
-/* Global Styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  background-color: #0d1117;
+  font-family: "Bricolage Grotesque", sans-serif;
+  color: #9ba3b4;
+  list-style-type: none;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+nav {
+  padding: 0px 20px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 10px;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
-a {
-    text-decoration: none;
-    color: #0078d4;
+.logo-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1px;
+}
+.logo-div > img {
+  width: 35px;
+  height: 35px;
 }
 
-.buttonBanner {
-    color: #9ba3b4;
-    background-color: rgba(255,255,255,0.04);
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 32px;
-    border: 1px solid rgba(255,255,255,0.07);
+nav > ul {
+  display: flex;
+}
+nav > ul > li {
+  margin-left: 40px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
 }
 
-.bannerLink {
-    padding-right: 8px;
+nav > ul > li:hover {
+  color: #cdcfd3;
 }
 
-.container {
-    display: flex;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+.input-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-left: 16px;
 }
 
-.heroContainer {
-    display: flex;
-    justify-content: space-between;
+.input-div > input,
+button {
+  padding: 6px;
+  font-weight: 400;
+  border: none;
+  border-radius: 4px;
 }
-
-.heroContainer > div {
-    text-align:left;
+.input-div > button {
+  background-color: rgb(14, 73, 169);
+  color: #d6d3d3d0;
 }
-
-.flex {
-    display: flex;
+.input-div > input {
+  border: solid white 1px;
+  color: #d6d3d3d0;
 }
-
-.navContainer {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-}
-
-.verticalCenter {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.navLink {
-    padding-left: 20px;
-    color: gray;
-}
-
-.topImage {
-    padding-right: 12px;
-}
-
-.banner {
-    padding: 10px;
-    background-color: black;
-    color: gray;
-    font-size: 14px;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-}
-
-.navLink:hover {
-    color: white;
-}
-
-.searchInput {
-    border-radius: 5px;
-    border: 1px solid rgb(255, 255, 255, 0.2);
-    padding: 8px;
-    font-size: 16px;
-    background-color: black;
-}
-
-.downloadButton {
-    background-color: #0078d4;
-    color: white;
-    border: none;
-    padding: 7px;
-    padding-left: 0px;
-    width: 120px;
-    padding-right: 0px;
-    font-size: 16px;
-    border-radius: 5px;
-    margin-left: 10px;
-}
-
-/* Header Styles */
-header {
-    background-color: black;
-    color: white;
-}
-
-section {
-    background-color: black;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2em;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: space-around;
-}
-
-nav li {
-    margin: 0 10px;
-}
-
-nav a {
-    color: #0078d4;
-    font-size: 1em;
-    transition: color 0.3s;
-}
-
-nav a:hover {
-    color: #007acc;
-}
-
-/* Hero Section Styles */
 .hero {
-    background: linear-gradient(180deg, #0e0e0e 0%, #141414 100%);
-    color: white;
-    padding: 50px 20px;
+  margin-top: 30px;
+  font-size: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+.hero > div {
+  margin-top: -20px;
+}
+.hero > div > button {
+  padding: 12px;
+  font-weight: 400;
+  border: none;
+  border-radius: 4px;
+  background-color: rgb(14, 73, 169);
+  color: #d6d3d3d0;
+  cursor: pointer;
+}
+.image-section {
+  margin-top: 30px;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main-img {
+  width: 90%;
+  border-radius: 4px;
 }
 
-.hero h2 {
-    font-size: 3em;
-    margin: 0;
+@media (max-width: 650px) {
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  nav > ul {
+    display: none;
+  }
+  .hero {
+    font-size: 20px;
+  }
 }
-
-.hero p {
-    font-size: 1.2em;
-}
-
-.cta-button {
-    display: inline-block;
-    background: #0078d4;
-    color: white;
-    padding: 15px 30px;
-    font-size: 1.2em;
-    border-radius: 5px;
-    margin-top: 20px;
-    transition: background 0.3s;
-}
-
-.cta-button:hover {
-    background: #e5b800;
-}
-
-/* Language Style  */
-.language {
-    color: white;
-}
-
-.language .container {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    column-gap: 2rem;
-}
-
-.language .container p {
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 160%;
-    color:#9ba3b4;
-}
-
-.language .languagePanel {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding-inline: 2.5rem
-}
-
-.languagePanel img {
-    height: 40px;
-    width: auto;
-}
-
-footer {
-    background: #333;
-    color: white;
-    text-align: center;
-    padding: 10px 20px;
-}
-
-/* Responsiveness, we'll discuss this when we reach tailwind
-@media (width < 1200px) {
-    .heroContainer div:has(img) {
-        width: 66.66666667%;
-        padding-inline: 2.5rem;
-    } 
-    .heroContainer img {
-        width: 100%;
-    }
-    .container {
-        max-width: 970px;
-    }
-    .navContainer {
-        max-width: 1060px;
-    }
-    .language .container {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero {
-        padding-block: 40px;
-    }
-    
-    .hero p {
-        font-size: 1em;
-    }
-    
-    .verticalCenter > div:has(.navLink) {
-        display: none;
-    }
-    .navContainer {
-       max-width: 600px;
-    }
-    .heroContainer {
-        flex-direction: column;
-        align-items: center;
-        gap:40px
-
-    }
-    .heroContainer > div {
-        text-align: center
-    }
-    .heroContainer div:has(img) {
-        width: 100%;
-    }
-    .language .languagePanel {
-        grid-template-columns: max-content 1fr max-content 1fr;
-    }
-}
- */
