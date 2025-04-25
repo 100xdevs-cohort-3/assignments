@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bg-color-changer</title>
+</head>
+<body>
+    <div style="margin: 0; height: 100vh; display: flex; align-items: flex-end; justify-content: center;">
+        <div style="display: flex; justify-content: center; list-style: none; background-color: bisque; margin: 0; padding: 0; border-radius: 1rem;  ">
+            <button onclick="changeBgColor(`red`)" style="margin: 1rem; background-color: red; border-radius: 8px; padding: 8px; cursor: pointer; border: none;">
+                Red
+            </button>
+            <button onclick="changeBgColor(`green`)" style="margin: 1rem; background-color: green; border-radius: 8px; padding: 8px; cursor: pointer; border: none;">
+                green
+            </button>
+            <button onclick="changeBgColor(`yellow`)" style="margin: 1rem; background-color: yellow; border-radius: 8px; padding: 8px; cursor: pointer; border: none;">
+                yellow
+            </button>
+            <button onclick="changeBgColor(`blue`)" style="margin: 1rem; background-color: blue; border-radius: 8px; padding: 8px; cursor: pointer; border: none;">
+                blue
+            </button>
+            <button onclick="changeBgColor(`orange`)" style="margin: 1rem; background-color: orange; border-radius: 8px; padding: 8px; cursor: pointer; border: none;">
+                orange
+            </button>
+            <button onclick="changeBgColor(`pink`)" style="margin: 1rem; background-color: pink; border-radius: 8px; padding: 8px; cursor: pointer; border: none;">
+                pink
+            </button>
+        
+        </div>
+    </div>
+
+    <script>
+        function changeBgColor(color){
+            document.body.style.backgroundColor = color
+        }
+    </script>
+</body>
+</html>

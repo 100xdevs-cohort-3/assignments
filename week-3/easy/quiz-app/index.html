@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quize App</title>
+</head>
+<body>
+    <h2>Quize App</h2>
+    <div id="quize-container">
+        <h2 id="question">question comes here........?</h2>
+        <input type="radio" name="option" value="a"><span id="option-a">A</span><br>
+        <input type="radio" name="option" value="b"><span id="option-b">B</span><br>
+        <input type="radio" name="option" value="c"><span id="option-c">C</span><br>
+        <input type="radio" name="option" value="d"><span id="option-d">D</span><br>
+    </div>
+    <button id="submit-btn">Submit</button>
+    <button id="result-btn">Show Result</button>
+    <h3 id="result-container" style="display: none;"></h3>
+    
+    <script type="module">
+
+        import {quizData} from './data.js'
+        console.log(quizData)
+
+        const question = document.getElementById('question')
+        const submitBtn = document.getElementById('submit-btn')
+        const resultBtn = document.getElementById('result-btn')
+        const resultContainer = document.getElementById('result-container')
+
+        const optionA = document.getElementById('option-a')
+        const optionB = document.getElementById('option-b')
+        const optionC = document.getElementById('option-c')
+        const optionD = document.getElementById('option-d')
+
+        let currentIndex = 0;
+        let score = 0;
+
+        function loadQuestion(){
+            const currentQuestion = quizData[currentIndex]
+            question.innerText =`${currentIndex +  1}. ${currentQuestion.question}`;
+
+            optionA.innerText = currentQuestion.a;
+            optionB.innerText = currentQuestion.b;
+            optionC.innerText = currentQuestion.c;
+            optionD.innerText = currentQuestion.d;
+
+            //clear previos selection
+            document.querySelectorAll('input[name="option"]').forEach(el=>el.checked = false);
+        }
+
+        submitBtn.addEventListener('click', ()=>{
+            const selectedOption = document.querySelector('input[name="option"]:checked');
+            if(!selectedOption){
+                alert("please select any option");
+                return;
+            }
+
+            if(selectedOption.value === quizData[currentIndex].correct){
+                score++
+            }
+
+            currentIndex++
+
+            //hiding submit btn (if condition)
+            if(currentIndex < quizData.length){
+                loadQuestion();
+            }else{
+                submitBtn.style.display = 'none'
+                // submitBtn.style.display = 'inline-block'
+            }
+        });
+
+        //result btn logic
+
+        resultBtn.addEventListener('click', ()=>{
+            //showing result container block
+            resultContainer.style.display= 'block';
+            resultContainer.innerHTML = `<h2> Your score ${score} out of ${quizData.length}</h2>`
+                //hiding result btn
+            resultBtn.style.display="none"
+        });
+
+        //load the question
+        loadQuestion();
+    </script>
+</body>
+    
+</html>
