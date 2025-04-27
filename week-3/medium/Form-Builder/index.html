@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+</head>
+<body>
+    <h1>form builder</h1>
+
+    <div id="field">
+        <!-- //field type selctor -->
+        <label for="">Select Field Type</label><br>
+        <select name="" id="field-type" >
+            <option value="text">text input</option>
+            <option value="checkbox">checkbox</option>
+            <option value="radio">radio</option>
+        </select><br>
+    </div><br>
+
+    <!-- input for labels -->
+     <label for="" >field label</label><br>
+     <input id="field-label"><br>
+<br>
+    <!-- //add field btn -->
+        <button id="add-field-btn">add field btn</button><br>
+
+<hr>
+
+    <!-- preview area -->
+    <h3>form Preview</h3>
+    <form action="" id="form-preview"></form>
+
+    <script>
+        const fieldType = document.getElementById('field-type')
+        const fieldLabel = document.getElementById('field-label')
+        const addFieldBtn = document.getElementById('add-field-btn')
+        const formPreview = document.getElementById('form-preview')
+
+        addFieldBtn.addEventListener('click', ()=>{
+            const type = fieldType.value;
+            const labelText = fieldLabel.value.trim();
+
+            if(!labelText){
+                alert('Please enter the label for the field')
+                return;
+            }
+
+            const wrapper = document.createElement('div')
+
+            const label = document.createElement('label')
+            label.innerText = labelText
+
+            const input = document.createElement('input')
+            input.type = type;
+
+            wrapper.appendChild(label)
+            wrapper.appendChild(document.createElement('br'));
+            wrapper.appendChild(input)
+            formPreview.appendChild(wrapper)
+
+            // clear lable inputs for next field
+            fieldLabel.value = ''
+        });
+    </script>
+</body>
+</html>

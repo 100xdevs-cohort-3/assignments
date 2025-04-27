@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Game</title>
+</head>
+<body>
+    <h1>Pokemon car Viewer</h1>
+    <div>
+        <input type="number" id="cardCount">
+        <button onclick="getCards()">Show cards</button>
+    </div>
+    <div id="cardContainer">
+        
+    </div>
+    <script>
+               // get pokemon by id 
+        async function getCards() {
+        const id = document.getElementById('cardCount').value;
+        const container = document.getElementById('cardContainer');
+        container.innerHTML = '';
+
+        if (!id) {
+            alert("Please enter a Pokémon ID");
+            return;
+        }
+
+        try {
+            const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+            const data = await response.json();
+
+            const cardDiv = document.createElement('div');
+            cardDiv.className = 'card';
+
+            cardDiv.innerHTML = `
+                <h3>${data.name.toUpperCase()}</h3>
+                <img src="${data.sprites.front_default}" alt="${data.name}">
+                <p><strong>Type:</strong> ${data.types.map(t => t.type.name).join(', ')}</p>
+            `;
+
+            container.appendChild(cardDiv);
+
+        } catch (error) {
+            container.innerHTML = "<p>Pokémon not found.</p>";
+            console.error(error);
+        }
+    }
+
+        
+</script>
+</body>
+</html>
