@@ -5,7 +5,14 @@
 */
 
 function isAnagram(str1, str2) {
-
+    function sortString(str) {
+        return str.toLowerCase().split("").sort().join("").replace(/\s/g, "");
+    }
+    return (sortString(str1) === sortString(str2)) 
 }
+
+console.log(isAnagram("spar", "raps")); //true
+console.log(isAnagram("spar", "rpas")); //true
+console.log(isAnagram("new york times", "monkeys write")); //true
 
 module.exports = isAnagram;

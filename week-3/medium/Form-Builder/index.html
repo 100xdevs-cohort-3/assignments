@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Dynamic Form Builder</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="main-container">
+                <div class="form-components-container">
+                    <h2
+                        style="
+                            grid-column: 1 / 3;
+                            border-bottom: 1px solid black;
+                            padding-bottom: 20px;
+                        "
+                    >
+                        Form Components
+                    </h2>
+                    <div class="form-components">
+                        <div id="text-input">Text Input</div>
+                        <div id="checkbox">Checkbox</div>
+                        <div id="radio-button">Radio Button</div>
+                        <div id="submit-button">Submit Button</div>
+                    </div>
+                </div>
+                <form action="">
+                    <div class="form-preview"></div>
+                </form>
+            </div>
+        </div>
+
+        <div class="model-container">
+            <div class="checkbox-model hidden">
+                <label for="checkbox-label">Title</label>
+                <input type="text" name="" id="checkbox-label" />
+                <label for="checkbox-items">Items</label>
+                <div class="checkbox-items">
+                    <input type="text" />
+                </div>
+                <div>
+                    <button
+                        class="add-checkbox-label"
+                        style="background-color: #e7e9ed; color: black"
+                    >
+                        +
+                    </button>
+                </div>
+                <button class="add-checkbox">Add</button>
+            </div>
+        </div>
+        <div class="model-container">
+            <div class="radio-button-model hidden">
+                <label for="radio-label">Title</label>
+                <input type="text" name="" id="radio-label" />
+                <label for="radio-items">Items</label>
+                <div class="radio-items">
+                    <input type="text" />
+                </div>
+                <div>
+                    <button
+                        class="add-radio-label"
+                        style="background-color: #e7e9ed; color: black"
+                    >
+                        +
+                    </button>
+                </div>
+                <button class="add-radio-button">Add</button>
+            </div>
+        </div>
+        <div class="model-container">
+            <div class="text-input-model hidden">
+                <label for="text-label">Title</label>
+                <input type="text" name="" id="text-label" />
+                <label for="text-options">Type</label>
+                <select name="" id="text-options">
+                    <option value="text">Text</option>
+                    <option value="email">Email</option>
+                    <option value="password">Password</option>
+                    <option value="number">Number</option>
+                </select>
+                <button class="add-text-input-button">Add</button>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

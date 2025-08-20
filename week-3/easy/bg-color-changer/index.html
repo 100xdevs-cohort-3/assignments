@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Bg Color Changer</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="main-container">
+                <div class="button-container">
+                    <div class="color-button">
+                        <button class="change-bg-button" data-color="#000000">
+                            Red
+                        </button>
+                        <button class="remove-color-button hidden">❌</button>
+                    </div>
+                    <div class="color-button">
+                        <button class="change-bg-button" data-color="#0e0e0e">
+                            Green
+                        </button>
+                        <button class="remove-color-button hidden">❌</button>
+                    </div>
+                    <div class="color-button">
+                        <button class="change-bg-button" data-color="#f8f8f8">
+                            Blue
+                        </button>
+                        <button class="remove-color-button hidden">❌</button>
+                    </div>
+                </div>
+                <div class="function-container">
+                    <span class="add-color">Add Colors</span>
+                    <span class="delete-color">Delete Colors</span>
+                    <button class="save-display hidden">✅</button>
+                </div>
+            </div>
+        </div>
+        <div class="modal-container hidden">
+            <h2>Add new color</h2>
+
+            <label for="color-name">Enter color name</label>
+            <input type="text" id="color-name" />
+
+            <label for="color-shade">Choose Shade:</label>
+            <input type="color" name="color" id="color-shade" />
+
+            <button
+                onclick="addColor()"
+                style="background-color: green; color: white"
+            >
+                Save
+            </button>
+
+            <button
+                onclick="closeModal()"
+                style="background-color: red; color: white"
+            >
+                Cancel
+            </button>
+        </div>
+        <script src="./script.js"></script>
+    </body>
+</html>

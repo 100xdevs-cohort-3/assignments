@@ -1,0 +1,108 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 0;
+}
+
+.main-container {
+    margin: 80px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    max-width: 70%;
+    height: max-content;
+    width: max-content;
+    background-color: aliceblue;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.color-button {
+    position: relative;
+    margin: 5px;
+}
+
+.change-bg-button:hover,
+.remove-color-button:hover,
+.modal-container button:hover,
+.add-color,
+.delete-color,
+.save-display {
+    cursor: pointer;
+}
+
+.change-bg-button {
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.remove-color-button {
+    font-size: 10px;
+    padding: 0px;
+    border-radius: 50%;
+    background-color: white;
+    border: none;
+    position: absolute;
+    left: -10%;
+    top: -10%;
+}
+
+.function-container span {
+    margin: 10px;
+    color: rgb(62, 62, 62);
+    text-decoration: underline;
+    text-align: left;
+    font-size: 12px;
+}
+
+.save-display{
+    background-color: transparent;
+    border: none;
+}
+
+.modal-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 5;
+    border: 1px solid black;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.modal-container label,
+input,
+button {
+    margin-top: 10px;
+}
+.modal-container button {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+}
+
+.modal-container input {
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.hidden{
+    display: none;
+}
