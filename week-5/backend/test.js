@@ -10,3 +10,14 @@ const { date } = require("zod");
 
 // console.log(filePath);
 
+const ans = new Set();
+
+ans.add("sd");
+ans.add("gf");
+ans.add("sd");
+let arr =[]
+console.log(ans.forEach((i)=>{
+    arr.push(i)
+}));
+
+console.log(arr)

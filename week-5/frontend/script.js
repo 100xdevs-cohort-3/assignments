@@ -16,7 +16,7 @@ document.getElementById("signup-form").addEventListener("submit", async (e)=>{
    const password =  document.getElementById("signup-password").value;
    e.preventDefault()
 
-  const response = await fetch("http://localhost:3000/users/signup", {
+  const response = await fetch("https://taskify-1-0czb.onrender.com/users/signup", {
    method : 'POST',
    headers : {
       'Content-Type' : 'application/json' 
@@ -43,7 +43,7 @@ document.getElementById("signin-form").addEventListener("submit", async (e)=>{
    const password =  document.getElementById("signin-password").value;
    e.preventDefault()
 
-  const response = await fetch("http://localhost:3000/users/signin", {
+  const response = await fetch("https://taskify-1-0czb.onrender.com/users/signin", {
    method : 'POST',
    headers : {
       'Content-Type' : 'application/json' 
@@ -91,7 +91,7 @@ document.getElementById("todo-form").addEventListener("submit",async (e)=>{
    // console.log(typeof task);
 
 
-   const response = await fetch("http://localhost:3000/todos/create",{
+   const response = await fetch("https://taskify-1-0czb.onrender.com/todos/create",{
       method : "POST",
       headers : {
          'Content-Type' : 'application/json' ,
@@ -126,7 +126,7 @@ async function addTodos(){
    try{
 
 const token = localStorage.getItem("token");
-const response = await fetch("http://localhost:3000/users/todos",{
+const response = await fetch("https://taskify-1-0czb.onrender.com/users/todos",{
    headers : {
       'Content-Type' : 'application/json' ,
       token : token
@@ -198,7 +198,7 @@ else {
 
 async function completeTodo(todoId , todoStatus){
    const token = localStorage.getItem("token");
-   const response = await fetch(`http://localhost:3000/todos/mark/${todoId}` ,{
+   const response = await fetch(`https://taskify-1-0czb.onrender.com/todos/mark/${todoId}` ,{
       method : "PUT",
       headers : {
          'Content-Type' : 'application/json' ,
@@ -232,7 +232,7 @@ async function completeTodo(todoId , todoStatus){
 async function deleteTodo(todoId){
    const token = localStorage.getItem("token");
 
-   const response = await fetch(`http://localhost:3000/todos/delete/${todoId}`,{
+   const response = await fetch(`https://taskify-1-0czb.onrender.com/todos/delete/${todoId}`,{
       method : "DELETE",
       headers : {
          'Content-Type' : 'application/json' ,
