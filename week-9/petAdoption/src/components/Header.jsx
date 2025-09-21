@@ -1,8 +1,8 @@
 import React from 'react'
-
-const Header = () => {
+import "./Header.css";
+const Header = ({ message }) => {
   return (
-    <div>Header</div>
+    <div className='header'>{message}</div>
   )
 }
 
