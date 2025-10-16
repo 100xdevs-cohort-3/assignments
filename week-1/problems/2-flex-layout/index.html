@@ -11,30 +11,34 @@
     <style>
         .container {
             width: 1200px;
-            margin: 0 auto;
+            margin: 50px auto;
+            height: 200px;
             display: flex;
+            justify-content: center;
+            align-items: center;
         }
-
         .left {
+            display: flex;
+            flex: 1;
             background-color: red;
-            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-
         .right {
+            flex: 2;
             background-color: blue;
-            flex-grow: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <div class="left">
-            <h1>Left</h1>
-        </div>
-        <div class="right">
-            <h1>Right</h1>
-        </div>
+            <h1 class="left">Left</h1>
+            <h1 class="right">Right</h1>
     </div>
 </body>
 
