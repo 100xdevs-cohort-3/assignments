@@ -7,33 +7,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grid Layout</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
         .container {
-            width: 1200px;
+            max-width: 1200px;
+            width: 100%;
             margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 2fr;
             gap: 10px;
+            min-height: 400px;
         }
 
         .left {
             background-color: red;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .left h1 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .left p {
+            line-height: 1.8;
+            margin-bottom: 15px;
         }
 
         .right {
             background-color: blue;
+            padding: 30px;
         }
-        .vertical-center {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-        }
-        .horizontal-center {
-            margin: 0 auto;
-        }
+
         .grid1 {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
         }
     </style>
 </head>

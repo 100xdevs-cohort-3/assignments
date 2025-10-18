@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Pokémon</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">The Pokémon Explorer</h1>
+
+    <div class="controls">
+      <input type="number" id="pokemonCount" placeholder="Enter number of Pokémon" min="1" max="50">
+      <select id="pokemonType">
+        <option value="all">All Types</option>
+        <option value="fire">Fire</option>
+        <option value="water">Water</option>
+        <option value="grass">Grass</option>
+        <option value="electric">Electric</option>
+        <option value="psychic">Psychic</option>
+        <option value="ice">Ice</option>
+        <option value="dragon">Dragon</option>
+        <option value="dark">Dark</option>
+        <option value="fairy">Fairy</option>
+      </select>
+      <button id="fetchBtn">Get Pokémon</button>
+    </div>
+
+    <div id="pokemonContainer" class="pokemon-container"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
