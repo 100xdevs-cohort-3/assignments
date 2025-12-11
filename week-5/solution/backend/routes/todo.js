@@ -3,11 +3,19 @@ const { Todo } = require("../db");
 const { authenticateJwt } = require("../middleware/user"); 
 
 const router = express.Router();
+// authenticateJwt middleware before every todo route
 router.use(authenticateJwt);
 
 router.post("/", async (req, res) => {
+    /*
+        receive req.body from script.js (submit button of todo)
+        {
+            title: "go to gym" (from todo-input input box)
+        }
+    */
     const createPayload = req.body;
     console.log(req.userId);
+    // req.userId from authenticateJwt middleware
 
     if (!createPayload.title) {
         return res.status(400).json({
@@ -36,6 +44,7 @@ router.post("/", async (req, res) => {
 });
 
 router.get("/", async (req, res) => {
+    // req.userId from authenticateJwt middleware
     try {
         const todos = await Todo.find({ userId: req.userId });
 

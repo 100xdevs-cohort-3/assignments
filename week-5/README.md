@@ -20,14 +20,16 @@ cp .env.example .env
 
 3. run the server.
 ```
-npm run dev
+C:\Users\tavis\OneDrive\Desktop\cohort\assignments\week-5\solution\backend> npm run dev
 ```
 start building.
 
 #### Frontend Setup
 
 - go inside week-5/frontend and run:
-
+```
+C:\Users\tavis\OneDrive\Desktop\cohort\assignments\week-5\solution\frontend> serve .
+```
 ### Reference UI:
 
 ![Image](https://utfs.io/f/A8JZzw0Laf9jdQzX4lrWunt9yxDYPKUZgv60iAroJbcMF5RN)

@@ -3,82 +3,25 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
 const dotenv = require("dotenv");
+const cors = require("cors");
+const { userRouter } = require('./routes/user');
+const { adminRouter } = require('./routes/admin');
+const { connectToDatabase } = require("./db/db");
 dotenv.config();
+// Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 
-const secret = process.env.JWT_SECRERT;  // This should be in an environment variable in a real application
-const port = process.env.PORT;
+const secret = process.env.JWT_SECRET; // This should be in an environment variable in a real application
+const PORT = process.env.PORT || 3000;
 
-// Define mongoose schemas
-const userSchema = new mongoose.Schema({
-  // userSchema here
-});
+app.use("/users", userRouter);
+app.use("/admin", adminRouter);
 
-const adminSchema = new mongoose.Schema({
-// adminSchema here
-});
-
-const courseSchema = new mongoose.Schema({
-// courseSchema here
-});
-
-// Define mongoose models
-const User = mongoose.model('User', userSchema);
-const Admin = mongoose.model('Admin', adminSchema);
-const Course = mongoose.model('Course', courseSchema);
-
-const authMiddleware = (req, res, next) => {
-//  authMiddleware logic here 
-};
-
-// Connect to MongoDB
-mongoose.connect('<YourMongoDbConnectionString>'); 
-
-
-// Admin routes
-app.post('/admin/signup', (req, res) => {
-    // logic to sign up admin
-});
-
-app.post('/admin/login', (req, res) => {
-    // logic to log in admin
-});
-
-app.post('/admin/courses', (req, res) => {
-    // logic to create a course
-});
-
-app.put('/admin/courses/:courseId', (req, res) => {
-    // logic to edit a course
-});
-
-app.get('/admin/courses', (req, res) => {
-    // logic to get all courses
-});
-
-// User routes
-app.post('/users/signup', (req, res) => {
-    // logic to sign up user
-});
-
-app.post('/users/login', (req, res) => {
-    // logic to log in user
-});
-
-app.get('/users/courses', (req, res) => {
-    // logic to list all courses
-});
-
-app.post('/users/courses/:courseId', (req, res) => {
-    // logic to purchase a course
-});
-
-app.get('/users/purchasedCourses', (req, res) => {
-    // logic to view purchased courses
-});
-
-app.listen(port, () => {
-    console.log('Server is listening on port 3000');
+app.listen(PORT, () => {
+  // Connect to MongoDB
+  mongoose.connect(process.env.MONGO_URI);
+  console.log(`Server running on port ${PORT}`);
 });

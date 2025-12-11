@@ -20,9 +20,16 @@
                 <label for="signup-password">Password:</label>
                 <input type="password" id="signup-password" required>
                 <button type="submit">Signup</button>
+                <!-- 
+                    invokes document.getElementById('signup-form').addEventListener('submit') 
+                    in script.js with signup-username and signup-password 
+                -->
             </form>
             <p>
                 Already have an account? <a href="#" id="show-signin">Sign In</a>
+                <!-- 
+                    invokes document.getElementById('show-signin').addEventListener('click')
+                -->
             </p>
         </div>
 
@@ -34,9 +41,16 @@
                 <label for="signin-password">Password:</label>
                 <input type="password" id="signin-password" required>
                 <button type="submit">Signin</button>
+                <!-- 
+                    invokes document.getElementById('signin-form').addEventListener('submit') 
+                    in script.js with signin-username and signin-password 
+                -->
             </form>
             <p>
                 Don't have an account? <a href="#" id="show-signup">Sign Up</a>
+                <!-- 
+                    invokes document.getElementById('show-signup').addEventListener('click')
+                -->
             </p>
         </div>
 
@@ -46,8 +60,10 @@
                 <input type="text" id="todo-input" placeholder="Add a new todo" required>
                 <button type="submit">Add Todo</button>
             </form>
-            <ul id="todo-list"></ul>
-            <!-- <button id="logout-button">Logout</button> -->
+            <ul id="todo-list">
+                <!-- todo-list will be appended here by loadTodos() in script.js -->
+            </ul>
+            <button id="logout-link">Logout</button>
 
         </div>
 

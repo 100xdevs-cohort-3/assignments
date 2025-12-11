@@ -2,6 +2,12 @@ const jwt = require('jsonwebtoken');
 const SECRET = process.env.SECRET || 'secret000'; 
 
 const authenticateJwt = (req, res, next) => {
+  /*
+    receive req.headers from script.js (submit button of todo)
+    {
+        Authorization: "Bearer abcdefghijklmnopqrstuvwxyz" (from local storage)
+    }
+  */
   const authHeader = req.headers.authorization;
   if (authHeader) {
     const token = authHeader.split(' ')[1];

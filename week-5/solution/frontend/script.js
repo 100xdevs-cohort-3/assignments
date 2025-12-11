@@ -11,19 +11,34 @@ document.getElementById('signup-form').addEventListener('submit', async (e) => {
     const password = document.getElementById('signup-password').value;
 
     try {
-        const response = await fetch('http://localhost:3000/user/signup', {
+        const response = await fetch('http://localhost:3003/user/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({ username, password }),
+            /*
+                send req.body to http://localhost:3003/user/signup
+                {
+                    username: username (from signup-username),
+                    password: password (from signup-password)
+                }
+            */
         });
         const result = await response.json();
+        /*
+            receive response.json() and response.status() from http://localhost:3003/user/signup
+            {
+                "message": "User created successfully/User already exists/Error creating user",
+                "token": "abcdefghijklmnopqrstuvwxyz"
+            }
+        */
         isSigningUp = false;
 
         if (response.ok) {
             document.getElementById('response-message').innerText = result.message || 'Signup successful, please sign in';
             document.getElementById('signup-container').style.display = 'none';
+            // The CSS property display: none; is used to completely hide an HTML element from the document.
             document.getElementById('signin-container').style.display = 'block';
         } else {
             document.getElementById('response-message').innerText = result.message || 'Signup failed';
@@ -43,21 +58,36 @@ document.getElementById('signin-form').addEventListener('submit', async (e) => {
     const password = document.getElementById('signin-password').value;
 
     try {
-        const response = await fetch('http://localhost:3000/user/signin', {
+        const response = await fetch('http://localhost:3003/user/signin', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({ username, password }),
         });
+        /*
+            send req.body to http://localhost:3003/user/signup
+            {
+                username: username (from signup-username),
+                password: password (from signup-password)
+            }
+        */
         const result = await response.json();
+        /*
+        response.json()
+        {
+            "message": "Logged in successfully/Invalid username or password/Error signing in",
+            "token": "abcdefghijklmnopqrstuvwxyz"
+        }
+        */
 
         if (response.ok) {
             localStorage.setItem('token', result.token);
             document.getElementById('signin-container').style.display = 'none';
+            // The CSS property display: none; is used to completely hide an HTML element from the document.
             document.getElementById('todo-container').style.display = 'block';
             document.getElementById('response-message').innerHTML = 
-                `Logged in successfully. <a href="#" id="logout-link">Logout</a>`;
+                `Logged in successfully.`;
             loadTodos();
 
             // Add event listener for the logout link
@@ -65,6 +95,7 @@ document.getElementById('signin-form').addEventListener('submit', async (e) => {
                 e.preventDefault();
                 localStorage.removeItem('token'); // Clear token
                 document.getElementById('todo-container').style.display = 'none';
+                // The CSS property display: none; is used to completely hide an HTML element from the document.
                 document.getElementById('signin-container').style.display = 'block';
                 document.getElementById('response-message').innerText = '';
             });
@@ -92,8 +123,9 @@ document.getElementById('todo-form').addEventListener('submit', async (e) => {
 
     const token = localStorage.getItem('token');
 
+    // router.post
     try {
-        const response = await fetch('http://localhost:3000/todo', {
+        const response = await fetch('http://localhost:3003/todo', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -101,11 +133,31 @@ document.getElementById('todo-form').addEventListener('submit', async (e) => {
             },
             body: JSON.stringify({ title: todoText }),
         });
+        /*
+            send req.headers to http://localhost:3003/user/todo
+            {
+                Authorization: "Bearer abcdefghijklmnopqrstuvwxyz" (from local storage)
+            }
+            send req.body to http://localhost:3003/user/todo
+            {
+                title: "go to gym" (from todo-input input box)
+            }
+        */
         const result = await response.json();
+        /*
+            response.json()
+            {
+                msg: "Todo created",
+                todo: newTodo where newTodo contains {
+                                                        title: "go to gym",
+                                                        completed: false,
+                                                        userId: req.userId, 
+                                                     }
+        */
         isAddingTodo = false;
 
         if (response.ok) {
-            todoInput.value = '';
+            todoInput.value = ''; // clear todo input box
             loadTodos();
         } else {
             console.error(result.msg);
@@ -120,12 +172,19 @@ document.getElementById('todo-form').addEventListener('submit', async (e) => {
 async function loadTodos() {
     const token = localStorage.getItem('token');
     try {
-        const response = await fetch('http://localhost:3000/todo', {
+        // router.get
+        const response = await fetch('http://localhost:3003/todo', {
             headers: {
                 'Authorization': `Bearer ${token}`,
             },
         });
         const { todos } = await response.json();
+        /*
+            response.json()
+            {
+                todos: todos
+            }       
+        */
         const todoList = document.getElementById('todo-list');
         todoList.innerHTML = '';
 
@@ -158,7 +217,7 @@ async function loadTodos() {
 async function completeTodo(id, completed) {
     const token = localStorage.getItem('token');
     try {
-        await fetch(`http://localhost:3000/todo/${id}`, {
+        await fetch(`http://localhost:3003/todo/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -166,6 +225,16 @@ async function completeTodo(id, completed) {
             },
             body: JSON.stringify({ completed }),
         });
+        /*
+            send req.headers to http://localhost:3003/user/todo/{todo._id}
+            {
+                Authorization: "Bearer abcdefghijklmnopqrstuvwxyz" (from local storage)
+            }
+            send req.body to http://localhost:3003/user/todo/{todo._id}
+            {
+                completed: !todo.completed
+            }
+        */
         loadTodos();
     } catch (error) {
         console.error('Error completing todo:', error);
@@ -176,11 +245,13 @@ async function completeTodo(id, completed) {
 document.getElementById('show-signin').addEventListener('click', (e) => {
     e.preventDefault();
     document.getElementById('signup-container').style.display = 'none';
+    // The CSS property display: none; is used to completely hide an HTML element from the document.
     document.getElementById('signin-container').style.display = 'block';
 });
 
 document.getElementById('show-signup').addEventListener('click', (e) => {
     e.preventDefault();
     document.getElementById('signin-container').style.display = 'none';
+    // The CSS property display: none; is used to completely hide an HTML element from the document.
     document.getElementById('signup-container').style.display = 'block';
 });
