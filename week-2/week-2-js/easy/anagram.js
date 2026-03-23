@@ -5,7 +5,9 @@
 */
 
 function isAnagram(str1, str2) {
-
+   return(
+    str1.toString().toLowerCase().split("").sorrt().join("") === str2.toString().toLowerCase().split("").sort().join("")
+   );
 }
 
 module.exports = isAnagram;

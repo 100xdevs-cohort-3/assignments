@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background color changer </title>
+    <style>
+        .nav{
+            display: flex;
+            justify-content: center;
+             margin: 50px 50px;
+            gap: 10px;
+        }
+     .flex{
+        display: flex;
+        justify-content: space-evenly;
+        /* margin-top: 10px; */
+     }
+     .btn{
+  /* Visual Design */
+  background-color: #4CAF50; /* Green */
+  color: #fff; /* White */
+  padding: 12px 24px; /* Size */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor */
+
+  /* Typography */
+  font-size: 16px; /* Font size */
+  font-family: Arial, sans-serif; /* Font family */
+
+  /* Interactive Design */
+  transition: background-color 0.3s; /* Transition effect */
+}
+
+.btn:hover {
+  /* Hover state */
+  background-color: #3e8e41; /* Darker green */
+}
+
+.btn:active {
+  /* Active state */
+  background-color: #2f6d31; /* Even darker green */
+}
+
+.btn:focus {
+  /* Focus state */
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 5px #4CAF50; /* Green glow */
+}
+
+.input-field {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #CCCCCC;
+  border-radius: 4px;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.input-field:hover {
+  border-color: #AAAAAA;
+}
+
+.input-field:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px #007bff;
+}
+
+
+    
+    </style>
+</head>
+<body>
+     
+        <div class="nav" >
+            <input class=" input-field" type="text" placeholder="add you custom color">
+            <button class="btn">Submit</button>
+         </div>
+     
+     
+      <div class="flex ">
+        <button class="btn">Red</button>
+        <button  class="btn">Black</button>
+        <button class="btn">Blue</button>
+        <button class="btn">Yellow</button>
+        <button class="btn">Green</button>
+      </div>
+   
+        
+       
+    
+</body>
+<script>
+     const colorButtons = document.querySelectorAll('.btn');
+
+     colorButtons.forEach(button =>{
+        button.addEventListener('click',()=>{
+            const color = button.textContent;
+            document.body.style.backgroundColor = color;
+        })
+     })
+          
+        
+</script>
+</html>

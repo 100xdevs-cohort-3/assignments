@@ -1,128 +1,182 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visual Studio Code Landing Page</title>
-    <link rel="stylesheet" href="./index.css">
+    <title> Visual Studio Code</title>
+    <link rel="stylesheet" href="index.css">
 </head>
-
 <body>
-    <header>
-        <div class="navContainer">
-            <div class="flex">
-                <div class="verticalCenter">
-                    <img src="https://code.visualstudio.com/favicon.ico" width="20" height="20" class="topImage" />
+        <header class="middle">
+            <nav>
+            
+              <ul>
+                <img src="download.png" alt="" style="width: 20px;">
+                <li style="color: white; font-weight: 500;">Visual Studio Code</li>
+                <li><a href="/" class="link">Docs</a></li>
+                <li><a href="/" class="link">Update</a></li>
+                <li><a href="/" class="link">Blog</a></li>
+                <li><a href="/" class="link">Extension</a></li>
+                <li><a href="/" class="link">FAQ</a></li>
+                <li><a href="/" class="link">GitHub Copilot</a></li>
+              </ul>
+            </nav>
+            <div >
+              <input type="search" placeholder="Search..">
+              <button style="background-color:blue; color: white; font-size: 15px;">Download</button>
+            </div>
+          </header>
+        
+            
+        <section>
+            <center>
+                <div>
+                    <a href="/">Version 1.92</a> 
+                    <span class="link">Version 1.95 is now available! Read about the new features and fixes from October.</span>
                 </div>
-                <h3>Visual Studio Code</h3>
-                <div class="verticalCenter">
+            </center>
+    
+            <center>
+                <div>
+                    <h1 style="color: whitesmoke; font-weight: bolder; font-size: 50px;">Code faster with AI</h1>
+                </div>
+    
+                <div>
+                  <h2 style="color: #9ba39b;">Visual Studio Code with GitHub Copilot supercharges your </h2>
+                  <h2 style="color: #9ba39b;"> code with AI-powered suggestions, right in your editor.</h2>
+                </div>
+    
+                <br>
+                
+                <div class="center">
+                    <div >
+                        <button style="background-color:blue; color: white; font-size: 15px;">Download for Windows</button>
+                    </div>
+    
                     <div>
-                        <a class="navLink" href="#">Docs</a>
-                        <a class="navLink" href="#">Updates</a>
-                        <a class="navLink" href="#">Blog</a>
-                        <a class="navLink" href="#">Api</a>
-                        <a class="navLink" href="#">Extensions</a>
-                        <a class="navLink" href="#">FAQ</a>
-                        <a class="navLink" href="#">Learn</a>
+                        <button style="background-color: black; color: white; font-size: 15px;">Try GitHub Copilot</button>
                     </div>
                 </div>
+               
+            </center>
+             
+            <br>
+            <br>
+            <br>
+    
+            <div class="center-img">
+                <img src="download1.png" alt="Copilot">
             </div>
-            <div class="verticalCenter">
-                <div class="searchContainer">
-                    <input type="text" placeholder="Search Docs" class="searchInput" />
-                    <button class="downloadButton">Download</button>
+    
+            <br>
+            <br>
+            <br>
+            <br>
+    
+            <div class="middle">
+               
+                <div style="padding-left: 100px;">
+                    <h1 style="color: white; font-size: 30px;">Code with GitHub Copilot</h1>
+                    <h3 style="color: #9ba39b;"> Write code faster and smarter with GitHub </h3>
+                    <h3 style="color: #9ba39b;"> Copilot, your AI pair programmer.</h3> 
+                    <a href="#">Try GitHub Copilot free for 30 days</a>
+                    <br>
+                    <br>
+    
+                    <p style="color: #9ba39b;"> <a href="#">Completions </a>present suggestions automatically   </p>
+                    <p style="color: #9ba39b;"> to help you code more efficiently</p>
+    
+                    <br>
+    
+                    <p style="color: #9ba39b;" ><a href="#">Copilot Chat </a> understands the context of your </p>
+                    <p style="color: #9ba39b;"> code, workspace, extensions, settings, and more. </p>
+    
+                    <br>
+    
+                    <p style="color: #9ba39b;"><a href="#">Inline Chat  </a> enables you to iteratively generate</p> 
+                    <p style="color: #9ba39b;"> edits and get answers to quick questions,</p>
+                    <p style="color: #9ba39b;" > directly on your code.</p>
+                   
+                       
                 </div>
-            </div>
-        </div>
-        </div>
-    </header>
-
-    <section>
-        <div class="banner">
-            <a href="#" class="bannerLink">Version 1.92</a> is now available! Read about the new features and fixes from
-            July.
-        </div>
-    </section>
-
-    <section class="hero">
-        <div class="container">
-            <div class="heroContainer">
-                <div>
-                    <br /><br /><br />
-                    <span class="buttonBanner">
-                        Free. Built on open source. Runs anywhere.
-                    </span>
-                    <br /><br />
-                    <h2 style="text-align: left;">Code Editing. Redefined.</h2>
-                    <a href="#" class="cta-button">Download for MacOS</a>
-                </div>
-                <div>
-                    <img src="https://code.visualstudio.com/assets/home/home-screenshot-mac-2x-v2.png" width="800px" />
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="language">
-        <div class="container">
-            <div>
-                <h2>Code in any language</h2>
-                <p>VS Code supports almost every major programming language. Several ship in the box, like JavaScript,
-                    TypeScript, CSS, and HTML, but extensions for others can be found in the VS Code Marketplace.</p>
-            </div>
-            <div class="languagePanel">
-                <div class="flex">
-                    <img src="https://code.visualstudio.com/assets/home/language-js.png" alt="Javascript">
-                    <code class="verticalCenter">JavaScript</code>
-                </div>
-                <div class="flex">
-                    <img src="https://code.visualstudio.com/assets/home/language-ts.png" alt="TypeScript">
-                    <code class="verticalCenter">TypeScript</code>
-                </div>
-                <div class="flex">
-                    <img src="https://code.visualstudio.com/assets/home/language-python.png" alt="Python">
-                    <code class="verticalCenter">Python</code>
-                </div>
-                <div class="flex">
-                    <img src="https://code.visualstudio.com/assets/home/language-cs.png" alt="C#">
-                    <code class="verticalCenter">C#</code>
-                </div>
-                <div class="flex">
-                    <img src="https://code.visualstudio.com/assets/home/language-cpp.png" alt="C++">
-                    <code class="verticalCenter">C++</code>
-                </div>
-                <div class="flex">
-                    <img src="https://code.visualstudio.com/assets/home/language-html.png" alt="HTML">
-                    <code class="verticalCenter">HTML</code>
-                </div>
-                <div class="flex">
-                    <img src="https://code.visualstudio.com/assets/home/language-java.png" alt="Java">
-                    <code class="verticalCenter">Java</code>
-                </div>
-                <div class="flex"> 
-                    <img src="https://code.visualstudio.com/assets/home/language-json.png" alt="JSON">
-                    <code class="verticalCenter">JSON</code>
-                </div>
-                <div class="flex">
-                    <img src="https://code.visualstudio.com/assets/home/language-php.png" alt="PHP">
-                    <code class="verticalCenter">PHP</code>
-                </div>
-                <div class="flex">
-                    <img src="https://code.visualstudio.com/assets/home/language-markdown.png" alt="Markdown">
-                    <code class="verticalCenter">Markdown</code>
-                </div>
-                <div class="flex">
-                    <img src="https://code.visualstudio.com/assets/home/language-powershell.png" alt="Powershell">
-                    <code class="verticalCenter">Powershell</code>
-                </div>
-                <div class="flex">
-                    <img src="https://code.visualstudio.com/assets/home/language-yaml.png" alt="YAML">
-                    <code class="verticalCenter">YAML</code>
+    
+                <div style="margin-right: 50px;" >
+                    <img src="download2.png" alt="" style="height: 450px;">
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    
+        <section class="language">
+    
+            <div class="container " >
+               
+                    <div>
+                         <h2 style="color: white; font-size: 30px;">Code in any language</h2>
+                         <p style="color: #9ba39b;"> VS Code supports almost every major programming language. 
+                            Several ship in the box, like JavaScript, 
+                            TypeScript, CSS, and HTML,
+                            but extensions for others can be found in the VS Code Marketplace.
+                          </p>
+                    </div>  
+    
+                    <div class="languagePanel">
+                          
+                        <div class="flex">
+                            <img src="https://code.visualstudio.com/assets/home/language-js.png" alt="Javascript">
+                            <code class="verticalCenter">JavaScript</code>
+                        </div>
+              
+                         
+                        <div class="flex">
+                            <img src="https://code.visualstudio.com/assets/home/language-ts.png" alt="TypeScript">
+                           <code class="verticalCenter">TypeScript</code>
+                        </div>
+    
+    
+                        <div class="flex">
+                            <img src="https://code.visualstudio.com/assets/home/language-python.png" alt="Python">
+                            <code class="verticalCenter">Python</code>
+                        </div>
+    
+                        <div class="flex">
+                            <img src="https://code.visualstudio.com/assets/home/language-cs.png" alt="C#">
+                            <code class="verticalCenter">C#</code>
+                        </div>
+    
+                        <div class="flex">
+                            <img src="https://code.visualstudio.com/assets/home/language-cpp.png" alt="C++">
+                             <code class="verticalCenter">C++</code>
+                        </div>
+    
+                        <div class="flex">
+                            <img src="https://code.visualstudio.com/assets/home/language-html.png" alt="HTML">
+                            <code class="verticalCenter">HTML</code>
+                        </div>
+    
+                        <div class="flex">
+                            <img src="https://code.visualstudio.com/assets/home/language-java.png" alt="Java">
+                            <code class="verticalCenter">Java</code>
+                        </div>
+    
+                        <div class="flex">
+                            <img src="https://code.visualstudio.com/assets/home/language-json.png" alt="JSON">
+                            <code class="verticalCenter">JSON</code>
+                        </div>
+    
+                        <div class="flex">
+                            <img src="https://code.visualstudio.com/assets/home/language-php.png" alt="PHP">
+                            <code class="verticalCenter">PHP</code>
+                        </div>
+    
+                        <div class="flex">
+                            <img src="https://code.visualstudio.com/assets/home/language-powershell.png" alt="Powershell">
+                            <code class="verticalCenter">Powershell</code>
+                        </div>
+                    </div>
+                
+            </div>
+        </section>
+   
 </body>
-
 </html>

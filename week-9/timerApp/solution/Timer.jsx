@@ -69,7 +69,9 @@ const Timer = () => {
   const { hours, minutes, seconds } = formatTime(time);
 
   return (
+    
     <div className={style.timerApp}>
+   
       <div className={style.timerDisplay}>
         <div className={style.timerCircle}>
           <div className={style.timerTime}>
