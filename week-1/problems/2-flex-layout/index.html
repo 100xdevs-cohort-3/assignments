@@ -6,23 +6,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flex Layout</title>
-    <link rel="stylesheet" href="./index.css">
 
     <style>
         .container {
-            width: 1200px;
+            width: 100%;
+            max-width: 1200px;
+            height: 100px;
             margin: 0 auto;
             display: flex;
         }
 
         .left {
             background-color: red;
-            flex-grow: 1;
+            flex: 1;
+            display: flex;
+            align-items: center;
         }
 
         .right {
             background-color: blue;
-            flex-grow: 2;
+            flex: 2;
+            display: flex;
+            align-items: center;
+        }
+
+        h1 {
+            margin: 0;
         }
     </style>
 </head>

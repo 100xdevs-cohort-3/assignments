@@ -7,7 +7,9 @@
     <title>Grid Layout</title>
     <style>
         .container {
-            width: 1200px;
+            width: 100%;
+            max-width: 1200px;
+            height: 100px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 2fr;
@@ -16,10 +18,18 @@
 
         .left {
             background-color: red;
+            display: flex;
+            align-items: center;
         }
 
         .right {
             background-color: blue;
+            display: flex;
+            align-items: center;
+        }
+
+        h1 {
+            margin: 0;
         }
     </style>
 </head>
