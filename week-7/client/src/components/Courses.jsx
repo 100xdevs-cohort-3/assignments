@@ -1,11 +1,39 @@
-// courses code here
-import React from 'react'
-
-// use axios here, similar to register and login
-const Courses = () => {
+export default function Courses({ courses, owned, admin, busy, onPurchase, onEdit }) {
   return (
-    <div>Courses</div>
-  )
+    <div className="grid">
+      {!courses.length && <p>No courses to show yet.</p>}
+      {courses.map((course) => (
+        <article key={course._id}>
+          {course.imageLink && (
+            <img
+              src={course.imageLink}
+              alt=""
+              style={{ width: '100%', height: 160 }}
+              onError={(event) => {
+                event.currentTarget.style.display = 'none';
+              }}
+            />
+          )}
+          <span className="tag">
+            {admin ? (course.published ? 'Published' : 'Draft') : 'COURSE'}
+          </span>
+          <h2>{course.title}</h2>
+          <p>{course.description}</p>
+          <p>
+            <strong>₹{course.price.toLocaleString('en-IN')}</strong>
+          </p>
+          {admin ? (
+            <button onClick={() => onEdit(course)}>Edit course</button>
+          ) : (
+            <button
+              disabled={busy || owned.includes(course._id)}
+              onClick={() => onPurchase(course._id)}
+            >
+              {owned.includes(course._id) ? 'Enrolled' : 'Enroll in course'}
+            </button>
+          )}
+        </article>
+      ))}
+    </div>
+  );
 }
-
-export default Courses

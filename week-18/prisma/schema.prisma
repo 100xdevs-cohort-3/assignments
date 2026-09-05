@@ -1,34 +1,25 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-
 generator client {
   provider = "prisma-client-js"
 }
-
 datasource db {
   provider = "postgresql"
-  url      = "<your db url>"
+  url = env("DATABASE_URL")
 }
-
 model User {
-  id       Int      @id @default(autoincrement())
-  username String   @unique
+  id Int @id @default(autoincrement())
+  username String @unique
   password String
-  name     String
-
+  name String
   travelPlans TravelPlan[]
 }
-
 model TravelPlan {
-  id                 Int      @id @default(autoincrement())
-  userId             Int
-  title              String
-  destinationCity    String
+  id Int @id @default(autoincrement())
+  userId Int
+  title String
+  destinationCity String
   destinationCountry String
-  startDate          DateTime
-  endDate            DateTime
-  budget             Float?
-
+  startDate DateTime
+  endDate DateTime
+  budget Float?
   user User @relation(fields: [userId], references: [id])
 }

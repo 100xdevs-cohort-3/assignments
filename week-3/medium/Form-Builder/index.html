@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Form builder</title>
+    <link rel="stylesheet" href="../../../assets/assignments.css" />
+  </head>
+  <body>
+    <main>
+      <p>WEEK 03 / DYNAMIC FORMS</p>
+      <h1>Build a better form.</h1>
+      <div class="grid">
+        <form id="builder">
+          <h2>Add a field</h2>
+          <label>Label <input name="label" required maxlength="100" /></label
+          ><label
+            >Type
+            <select name="type">
+              <option value="text">Text input</option>
+              <option value="checkbox">Checkbox</option>
+              <option value="radio">Radio group</option>
+            </select></label
+          ><label id="options-label" hidden
+            >Choices, one per line <textarea name="options"></textarea></label
+          ><label><input name="required" type="checkbox" />Required</label
+          ><button>Add field</button>
+          <p id="error" role="alert"></p>
+        </form>
+        <form id="preview">
+          <h2>Live preview</h2>
+          <div id="fields"><p>No fields yet. Add your first field.</p></div>
+          <button>Submit preview</button>
+          <pre id="result" role="status" style="white-space: pre-wrap"></pre>
+        </form>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

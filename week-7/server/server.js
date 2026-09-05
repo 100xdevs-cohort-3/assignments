@@ -1,84 +1,58 @@
-//  TODO: Can you create backend with standard folder structure like: week-4/hard ???
-const express = require('express');
-const jwt = require('jsonwebtoken');
-const mongoose = require('mongoose');
-const dotenv = require("dotenv");
-dotenv.config();
-const app = express();
-
-app.use(express.json());
-
-const secret = process.env.JWT_SECRERT;  // This should be in an environment variable in a real application
-const port = process.env.PORT;
-
-// Define mongoose schemas
-const userSchema = new mongoose.Schema({
-  // userSchema here
-});
-
-const adminSchema = new mongoose.Schema({
-// adminSchema here
-});
-
-const courseSchema = new mongoose.Schema({
-// courseSchema here
-});
-
-// Define mongoose models
-const User = mongoose.model('User', userSchema);
-const Admin = mongoose.model('Admin', adminSchema);
-const Course = mongoose.model('Course', courseSchema);
-
-const authMiddleware = (req, res, next) => {
-//  authMiddleware logic here 
+'use strict';
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
+Object.defineProperty(exports, '__esModule', { value: true });
+exports.app = void 0;
+exports.start = start;
+require('dotenv/config');
+const express_1 = __importDefault(require('express'));
+const cors_1 = __importDefault(require('cors'));
+const node_path_1 = __importDefault(require('node:path'));
+const models_1 = require('./models');
+const accounts_1 = require('./routes/accounts');
+const courses_1 = require('./routes/courses');
+exports.app = (0, express_1.default)();
+exports.app.use((0, cors_1.default)());
+exports.app.use(express_1.default.json({ limit: '32kb' }));
+exports.app.get('/healthy', (req, res) => res.json({ status: 'ok' }));
+exports.app.use('/admin', (0, accounts_1.accountRoutes)('admin'), courses_1.adminCourses);
+exports.app.use('/users', (0, accounts_1.accountRoutes)('user'), courses_1.userCourses);
+exports.app.use(express_1.default.static(node_path_1.default.join(__dirname, '../client-easy')));
+const errors = (error, req, res, next) => {
+  if (res.headersSent) {
+    next(error);
+    return;
+  }
+  const status =
+    error.status ||
+    (error.code === 11000
+      ? 409
+      : ['ValidationError', 'CastError'].includes(error.name)
+        ? 400
+        : 500);
+  res
+    .status(status)
+    .json({
+      message:
+        status === 409
+          ? 'Username already exists'
+          : status === 500
+            ? 'Server error'
+            : error.message,
+    });
 };
-
-// Connect to MongoDB
-mongoose.connect('<YourMongoDbConnectionString>'); 
-
-
-// Admin routes
-app.post('/admin/signup', (req, res) => {
-    // logic to sign up admin
-});
-
-app.post('/admin/login', (req, res) => {
-    // logic to log in admin
-});
-
-app.post('/admin/courses', (req, res) => {
-    // logic to create a course
-});
-
-app.put('/admin/courses/:courseId', (req, res) => {
-    // logic to edit a course
-});
-
-app.get('/admin/courses', (req, res) => {
-    // logic to get all courses
-});
-
-// User routes
-app.post('/users/signup', (req, res) => {
-    // logic to sign up user
-});
-
-app.post('/users/login', (req, res) => {
-    // logic to log in user
-});
-
-app.get('/users/courses', (req, res) => {
-    // logic to list all courses
-});
-
-app.post('/users/courses/:courseId', (req, res) => {
-    // logic to purchase a course
-});
-
-app.get('/users/purchasedCourses', (req, res) => {
-    // logic to view purchased courses
-});
-
-app.listen(port, () => {
-    console.log('Server is listening on port 3000');
-});
+exports.app.use(errors);
+async function start() {
+  if (!process.env.JWT_SECRET) throw new Error('Set JWT_SECRET in .env');
+  await (0, models_1.connectToDatabase)();
+  const port = Number(process.env.PORT) || 3007;
+  return exports.app.listen(port, () => console.log('Coursify API: http://localhost:' + port));
+}
+if (require.main === module)
+  start().catch((error) => {
+    console.error(error.message);
+    process.exitCode = 1;
+  });

@@ -1,14 +1,72 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <!-- write your code here -->
-     
-    <script src="./script.js"></script>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Coursify</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <p>LEARN SOMETHING THAT LASTS</p>
+          <h1>Coursify.</h1>
+        </div>
+        <button id="logout" hidden>Sign out</button>
+      </header>
+      <p id="message" role="status"></p>
+      <form id="auth">
+        <h2>Start learning. Start teaching.</h2>
+        <label
+          >Account type<select name="role">
+            <option value="user">Student</option>
+            <option value="admin">Instructor</option>
+          </select></label
+        ><label
+          >Username<input
+            name="username"
+            required
+            minlength="3"
+            maxlength="80"
+            autocomplete="username" /></label
+        ><label
+          >Password<input
+            name="password"
+            type="password"
+            required
+            minlength="8"
+            maxlength="200"
+            autocomplete="current-password"
+        /></label>
+        <div class="row">
+          <button value="login">Sign in</button
+          ><button value="signup" class="secondary">Create account</button>
+        </div>
+      </form>
+      <section id="workspace" hidden>
+        <form id="editor" hidden>
+          <h2 id="editor-title">Create a course</h2>
+          <label>Title<input name="title" required maxlength="150" /></label
+          ><label
+            >Description<textarea name="description" required maxlength="4000"></textarea></label
+          ><label
+            >Price (₹)<input
+              name="price"
+              type="number"
+              min="0"
+              step="0.01"
+              value="0"
+              required /></label
+          ><label>Image URL<input name="imageLink" type="url" /></label
+          ><label><input name="published" type="checkbox" checked />Publish to students</label
+          ><button>Save course</button
+          ><button type="button" class="secondary" id="cancel">Cancel edit</button>
+        </form>
+        <label id="owned-filter"><input type="checkbox" id="owned" />My courses only</label>
+        <div id="courses" class="grid"></div>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
 </html>

@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Bookmark — Your web, organized</title>
+  </head>
+  <body>
+    <header class="wrap flex justify-between items-center py-8">
+      <a href="/" class="font-bold text-2xl tracking-wide">● BOOKMARK</a
+      ><button class="md:hidden border rounded p-2" data-menu="bookmark-nav" aria-expanded="false">
+        Menu
+      </button>
+      <nav
+        id="bookmark-nav"
+        class="hidden md:flex gap-8 uppercase text-xs tracking-widest items-center"
+      >
+        <a href="#features">Features</a><a href="#download">Download</a><a href="#faq">FAQ</a
+        ><a href="#newsletter" class="bg-red-500 text-white px-7 py-3 rounded">Join us</a>
+      </nav>
+    </header>
+    <main>
+      <section class="wrap grid md:grid-cols-2 gap-16 items-center py-20">
+        <div>
+          <h1 class="text-5xl font-bold tracking-tight leading-tight">
+            Your favorite corners<br />of the web. Together.
+          </h1>
+          <p class="text-slate-500 text-lg mt-7 leading-relaxed">
+            Save useful pages, create collections, and find the link you need when inspiration
+            strikes.
+          </p>
+          <div class="flex flex-wrap gap-4 mt-8">
+            <a class="btn" href="#download">Get it for Chrome</a
+            ><a class="bg-slate-100 rounded-md px-6 py-3 shadow font-semibold" href="#download"
+              >Get it for Firefox</a
+            >
+          </div>
+        </div>
+        <div class="relative pb-10">
+          <div
+            class="absolute bg-indigo-500 rounded-l-full inset-x-0 top-20 bottom-0 translate-x-6"
+          ></div>
+          <div class="browser relative">
+            <div class="browser-bar">● ● ● <span class="ml-8">Your reading shelf</span></div>
+            <div class="p-7 flex gap-6">
+              <div class="bg-slate-100 w-1/4 rounded min-h-56"></div>
+              <div class="flex-1">
+                <div class="flex gap-3 border-b py-4">
+                  <span class="w-7 h-7 rounded-full bg-red-300"></span
+                  ><span class="text-sm">Design inspiration</span>
+                </div>
+                <div class="flex gap-3 border-b py-4">
+                  <span class="w-7 h-7 rounded-full bg-blue-300"></span
+                  ><span class="text-sm">The weekend read</span>
+                </div>
+                <div class="flex gap-3 border-b py-4">
+                  <span class="w-7 h-7 rounded-full bg-green-300"></span
+                  ><span class="text-sm">Recipes to remember</span>
+                </div>
+                <div class="flex gap-3 border-b py-4">
+                  <span class="w-7 h-7 rounded-full bg-purple-300"></span
+                  ><span class="text-sm">Places to explore</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="features" class="wrap py-16">
+        <div class="text-center max-w-xl mx-auto">
+          <h2 class="text-3xl font-bold">A calmer way to browse</h2>
+          <p class="text-slate-500 mt-5">
+            Less searching through open tabs. More time for the things you came to do.
+          </p>
+        </div>
+        <div
+          role="tablist"
+          aria-label="Features"
+          class="flex flex-wrap justify-center border-b max-w-2xl mx-auto mt-10"
+        >
+          <button
+            role="tab"
+            id="tab-0"
+            aria-controls="feature-panel"
+            aria-selected="true"
+            data-tab="0"
+            class="px-6 py-5 border-b-4 border-red-500"
+          >
+            Simple bookmarking</button
+          ><button
+            role="tab"
+            id="tab-1"
+            aria-controls="feature-panel"
+            aria-selected="false"
+            data-tab="1"
+            class="px-6 py-5 border-b-4 border-transparent"
+          >
+            Speedy searching</button
+          ><button
+            role="tab"
+            id="tab-2"
+            aria-controls="feature-panel"
+            aria-selected="false"
+            data-tab="2"
+            class="px-6 py-5 border-b-4 border-transparent"
+          >
+            Easy sharing
+          </button>
+        </div>
+        <div
+          id="feature-panel"
+          role="tabpanel"
+          aria-labelledby="tab-0"
+          tabindex="0"
+          class="grid md:grid-cols-2 gap-16 items-center mt-16"
+        >
+          <div class="browser">
+            <div class="browser-bar">● ● ●</div>
+            <div class="p-12 bg-indigo-50 text-center">
+              <span class="text-6xl text-indigo-500">▣</span>
+              <p class="text-xl font-semibold mt-5" id="feature-preview">Everything in its place</p>
+            </div>
+          </div>
+          <div>
+            <h3 id="feature-title" class="text-3xl font-bold">Save a page in a click</h3>
+            <p id="feature-description" class="text-slate-500 leading-relaxed mt-6">
+              Group your favorite links into collections that make sense to you.
+            </p>
+            <a class="btn mt-6" href="#download">Find your browser</a>
+          </div>
+        </div>
+      </section>
+      <section id="download" class="wrap py-20 text-center">
+        <h2 class="text-3xl font-bold">Make room in your browser</h2>
+        <p class="text-slate-500 mt-5">
+          Choose an extension store to explore bookmark tools for your browser.
+        </p>
+        <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto mt-12">
+          <article class="rounded-xl shadow-lg border p-7">
+            <div class="text-5xl text-indigo-500 my-8">◎</div>
+            <h3 class="font-bold text-xl">Chrome</h3>
+            <p class="text-sm text-slate-500 my-4">Explore browser extensions</p>
+            <a href="https://chromewebstore.google.com/category/extensions" class="btn text-sm mt-6"
+              >Visit extension store</a
+            >
+          </article>
+          <article class="rounded-xl shadow-lg border p-7 md:translate-y-8">
+            <div class="text-5xl text-indigo-500 my-8">◎</div>
+            <h3 class="font-bold text-xl">Firefox</h3>
+            <p class="text-sm text-slate-500 my-4">Explore browser extensions</p>
+            <a href="https://addons.mozilla.org/firefox/extensions/" class="btn text-sm mt-6"
+              >Visit extension store</a
+            >
+          </article>
+          <article class="rounded-xl shadow-lg border p-7 md:translate-y-16">
+            <div class="text-5xl text-indigo-500 my-8">◎</div>
+            <h3 class="font-bold text-xl">Opera</h3>
+            <p class="text-sm text-slate-500 my-4">Explore browser extensions</p>
+            <a href="https://addons.opera.com/extensions/" class="btn text-sm mt-6"
+              >Visit extension store</a
+            >
+          </article>
+        </div>
+      </section>
+      <section id="faq" class="wrap py-24">
+        <h2 class="text-3xl font-bold text-center">A few helpful answers</h2>
+        <div class="max-w-xl mx-auto mt-10">
+          <details class="border-b py-5">
+            <summary class="cursor-pointer font-medium">What is Bookmark?</summary>
+            <p class="text-slate-500 pt-4 leading-relaxed">
+              A landing-page concept for keeping your favorite websites organized.
+            </p>
+          </details>
+          <details class="border-b py-5">
+            <summary class="cursor-pointer font-medium">Can I organize links by topic?</summary>
+            <p class="text-slate-500 pt-4 leading-relaxed">
+              Collections let you group links around projects, interests, or reading lists.
+            </p>
+          </details>
+          <details class="border-b py-5">
+            <summary class="cursor-pointer font-medium">Which browsers can I use?</summary>
+            <p class="text-slate-500 pt-4 leading-relaxed">
+              The links above take you to the official Chrome, Firefox, and Opera extension stores.
+            </p>
+          </details>
+          <details class="border-b py-5">
+            <summary class="cursor-pointer font-medium">
+              Does this page install an extension?
+            </summary>
+            <p class="text-slate-500 pt-4 leading-relaxed">
+              No. This assignment demonstrates the website interface; it does not include a browser
+              extension.
+            </p>
+          </details>
+        </div>
+      </section>
+      <section id="newsletter" class="bg-indigo-600 text-white py-16 text-center">
+        <div class="wrap max-w-xl">
+          <p class="uppercase tracking-[.3em] text-xs">KEEP IN TOUCH</p>
+          <h2 class="text-3xl font-bold mt-5">
+            A little less clutter.<br />A little more discovery.
+          </h2>
+          <form id="newsletter-form" class="flex gap-3 mt-8 flex-wrap">
+            <label class="flex-1"
+              ><span class="sr-only">Email address</span
+              ><input
+                required
+                type="email"
+                class="rounded p-3 w-full text-slate-900"
+                placeholder="Your email address" /></label
+            ><button class="bg-red-500 rounded px-6 py-3">Join the list</button>
+          </form>
+          <p id="newsletter-status" role="status" class="mt-4 text-sm"></p>
+        </div>
+      </section>
+    </main>
+    <footer class="bg-slate-900 text-white py-8">
+      <div class="wrap flex gap-8 flex-wrap items-center">
+        <strong>● BOOKMARK</strong><a href="#features">Features</a><a href="#download">Download</a
+        ><a href="#faq">FAQ</a><a class="ml-auto" href="/">Week 13 assignments</a>
+      </div>
+    </footer>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

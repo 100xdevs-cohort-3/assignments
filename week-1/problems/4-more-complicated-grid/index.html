@@ -1,71 +1,80 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grid Layout</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>4-more-complicated-grid</title>
     <style>
-        .container {
-            width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 10px;
-        }
-
-        .left {
-            background-color: red;
-        }
-
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: system-ui;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        min-height: 500px;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+      }
+      .left,
+      .right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        min-width: 0;
+      }
+      .left {
+        background: #ed333b;
+      }
+      .right {
+        background: #2454e6;
+        color: white;
+      }
+      .inner {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+        width: 100%;
+      }
+      h1 {
+        font-size: clamp(1rem, 4vw, 2rem);
+      }
+      @media (max-width: 500px) {
+        .left,
         .right {
-            background-color: blue;
+          padding: 10px;
         }
-        .vertical-center {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
+        .inner {
+          gap: 6px;
         }
-        .horizontal-center {
-            margin: 0 auto;
-        }
-        .grid1 {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-        }
+      }
     </style>
-</head>
-
-<body>
-    <div class="container">
-        <div class="left">
-            <div>
-                <div class="horizontal-center">
-                    <h1>Left</h1>
-                </div>
-                <div>
-                    <h3>
-                    text text text text text text text text text text text text text
-                    </h3>
-                </div>
-            </div>
+  </head>
+  <body>
+    <main class="container">
+      <section class="left">
+        <div>
+          <h1>Left</h1>
+          <p>Text text text text<br />Text text text text<br />Text text text text</p>
         </div>
-        <div class="right">
-            <div class="grid1">
-                <h2>Col 1</h2>
-                <h2>Col 2</h2>
-                <h2>Col 3</h2>
-                <h2>Col 1</h2>
-                <h2>Col 2</h2>
-                <h2>Col 3</h2>
-                <h2>Col 1</h2>
-                <h2>Col 2</h2>
-                <h2>Col 3</h2>
-            </div>
+      </section>
+      <section class="right">
+        <div class="inner">
+          <div>Col 1</div>
+          <div>Col 2</div>
+          <div>Col 3</div>
+          <div>Col 1</div>
+          <div>Col 2</div>
+          <div>Col 3</div>
+          <div>Col 1</div>
+          <div>Col 2</div>
+          <div>Col 3</div>
         </div>
-    </div>
-</body>
-
+      </section>
+    </main>
+  </body>
 </html>

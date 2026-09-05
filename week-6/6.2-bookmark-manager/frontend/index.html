@@ -1,24 +1,28 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bookmark Manager</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="container">
-    <h1>Bookmark Manager</h1>
-
-    <div class="input-container">
-      <input type="text" id="bookmark-url" placeholder="Enter bookmark URL" />
-      <input type="text" id="bookmark-category" placeholder="Enter category" />
-      <button id="add-bookmark-btn">Add Bookmark</button>
-    </div>
-
-    <ul id="bookmark-list"></ul>
-  </div>
-
-  <script src="script.js"></script>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Bookmark manager</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <p>WEEK 06 / YOUR READING SHELF</p>
+      <h1>Keep the good links.</h1>
+      <p>Saved in server memory for this session.</p>
+      <form id="add">
+        <label>Category <input name="category" required maxlength="80" /></label
+        ><label
+          >Website URL
+          <input name="url" type="url" required placeholder="https://example.com" /></label
+        ><button>Add bookmark</button>
+      </form>
+      <label>Search <input id="search" type="search" /></label
+      ><label><input id="favorites" type="checkbox" />Favorites only</label>
+      <p id="message" role="status"></p>
+      <div id="items"></div>
+    </main>
+    <script src="script.js"></script>
+  </body>
 </html>

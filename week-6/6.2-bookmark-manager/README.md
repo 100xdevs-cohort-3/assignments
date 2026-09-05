@@ -1,14 +1,15 @@
+> **Implemented setup:** Run `npm install` and `npm start` in `backend`, then open http://localhost:3003. The frontend needs no separate npm install. Search, favorites, and URL validation are implemented.
+
 # Bookmark Manager
 
 Create an in-memory Bookmark Manager application using Node.js, HTML, CSS, and JavaScript.
-
-
 
 ### Setup Instructions
 
 #### 1. Backend Setup
 
 1. Navigate to the backend folder:
+
    ```bash
    cd week-6/6.2-bookmark-manager/backend
    ```
@@ -21,6 +22,7 @@ Create an in-memory Bookmark Manager application using Node.js, HTML, CSS, and J
 #### 2. Frontend Setup
 
 1. Navigate to the frontend folder:
+
    ```bash
    cd week-6/6.2-bookmark-manager/frontend
    ```
@@ -29,7 +31,6 @@ Create an in-memory Bookmark Manager application using Node.js, HTML, CSS, and J
    ```bash
    npm install
    ```
-
 
 ### Reference UI
 

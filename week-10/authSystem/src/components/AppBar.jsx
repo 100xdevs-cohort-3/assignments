@@ -1,9 +1,17 @@
-import React from 'react'
-
-const AppBar = () => {
+export default function AppBar({ username, onLogout }) {
   return (
-    <div>AppBar</div>
-  )
+    <header className="card">
+      <strong>Learning space</strong>
+      {username ? (
+        <nav>
+          <span>Welcome, {username}</span>
+          <button className="secondary" onClick={onLogout}>
+            Sign out
+          </button>
+        </nav>
+      ) : (
+        <span>Guest</span>
+      )}
+    </header>
+  );
 }
-
-export default AppBar

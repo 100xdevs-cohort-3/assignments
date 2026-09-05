@@ -1,9 +1,8 @@
-import React from 'react'
-
-const Home = () => {
+export default function Home({ username }) {
   return (
-    <div>Home</div>
-  )
+    <section className="card">
+      <h2>Hello, {username}.</h2>
+      <p>Your name now appears in the app bar because the components share authentication state.</p>
+    </section>
+  );
 }
-
-export default Home

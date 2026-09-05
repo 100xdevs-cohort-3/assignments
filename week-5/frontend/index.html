@@ -1,13 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taskify Frontend</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <!-- start writing code -->
-    <script src="./script.js"></script>    
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Taskify</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <p>YOUR DAILY WORKSPACE</p>
+          <h1>Taskify.</h1>
+        </div>
+        <button id="logout" hidden>Sign out</button>
+      </header>
+      <p id="message" role="status"></p>
+      <form id="auth">
+        <h2>Welcome back</h2>
+        <label
+          >Username
+          <input
+            name="username"
+            required
+            minlength="3"
+            maxlength="80"
+            autocomplete="username" /></label
+        ><label
+          >Password
+          <input
+            name="password"
+            type="password"
+            required
+            minlength="8"
+            maxlength="200"
+            autocomplete="current-password"
+        /></label>
+        <div class="row">
+          <button name="action" value="login">Sign in</button
+          ><button name="action" value="signup" class="secondary">Create account</button>
+        </div>
+      </form>
+      <section id="workspace" hidden>
+        <form id="add">
+          <h2>Plan your next step</h2>
+          <label>Title <input name="title" required maxlength="200" /></label
+          ><label>Description <textarea name="description" maxlength="2000"></textarea></label
+          ><button>Add task</button>
+        </form>
+        <label>Search tasks <input id="search" type="search" /></label>
+        <div id="board" class="grid"></div>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
 </html>

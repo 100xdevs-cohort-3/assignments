@@ -1,41 +1,66 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flex Layout</title>
-    <link rel="stylesheet" href="./index.css">
-
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>2-flex-layout</title>
     <style>
-        .container {
-            width: 1200px;
-            margin: 0 auto;
-            display: flex;
-        }
-
-        .left {
-            background-color: red;
-            flex-grow: 1;
-        }
-
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: system-ui;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        min-height: 500px;
+        display: flex;
+      }
+      .left,
+      .right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        min-width: 0;
+      }
+      .left {
+        background: #ed333b;
+        flex: 0 0 33.333333%;
+      }
+      .right {
+        background: #2454e6;
+        color: white;
+        flex: 0 0 66.666667%;
+      }
+      .inner {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+        width: 100%;
+      }
+      h1 {
+        font-size: clamp(1rem, 4vw, 2rem);
+      }
+      @media (max-width: 500px) {
+        .left,
         .right {
-            background-color: blue;
-            flex-grow: 2;
+          padding: 10px;
         }
+        .inner {
+          gap: 6px;
+        }
+      }
     </style>
-</head>
-
-<body>
-    <div class="container">
-        <div class="left">
-            <h1>Left</h1>
-        </div>
-        <div class="right">
-            <h1>Right</h1>
-        </div>
-    </div>
-</body>
-
+  </head>
+  <body>
+    <main class="container">
+      <section class="left">
+        <div><h1>Left</h1></div>
+      </section>
+      <section class="right"><h1>Right</h1></section>
+    </main>
+  </body>
 </html>

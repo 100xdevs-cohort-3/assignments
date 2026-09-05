@@ -1,3 +1,5 @@
+> **Implemented setup:** Run `npm install` and `npm start` in `backend`, then open http://localhost:3001. The frontend needs no separate npm install. CRUD, search, and completion are implemented.
+
 # Todo Application
 
 Create a simple Todo application that stores tasks in in-memory storage.
@@ -7,6 +9,7 @@ Create a simple Todo application that stores tasks in in-memory storage.
 #### 1. Backend Setup
 
 1. Navigate to the backend folder:
+
    ```bash
    cd week-6/6.1-todo/backend
    ```
@@ -19,6 +22,7 @@ Create a simple Todo application that stores tasks in in-memory storage.
 #### 2. Frontend Setup
 
 1. Navigate to the frontend folder:
+
    ```bash
    cd week-6/6.1-todo/frontend
    ```
@@ -27,8 +31,6 @@ Create a simple Todo application that stores tasks in in-memory storage.
    ```bash
    npm install
    ```
-
-
 
 ### Reference UI
 

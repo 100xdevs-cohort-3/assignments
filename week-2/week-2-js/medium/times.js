@@ -1,13 +1,17 @@
-/*
-Write a function that calculates the time (in seconds) it takes for the JS code to calculate sum from 1 to n, given n as the input.
-Try running it for
-1. Sum from 1-100
-2. Sum from 1-100000
-3. Sum from 1-1000000000
-Hint - use Date class exposed in JS
-There is no automated test for this one, this is more for you to understand time goes up as computation goes up
-*/
-
+// Measure an actual loop, rather than the constant-time arithmetic formula.
 function calculateTime(n) {
-    return 0.01;
+  if (!Number.isSafeInteger(n) || n < 0) throw new RangeError('n must be a nonnegative integer');
+  const start = performance.now();
+  let sum = 0;
+  for (let i = 1; i <= n; i++) sum += i;
+  const seconds = (performance.now() - start) / 1000;
+  if (require.main === module) console.log({ n, sum, seconds });
+  return seconds;
 }
+if (require.main === module) {
+  for (const n of process.argv.slice(2).length
+    ? process.argv.slice(2).map(Number)
+    : [100, 100000, 1000000000])
+    calculateTime(n);
+}
+module.exports = calculateTime;

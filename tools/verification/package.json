@@ -1,0 +1,16 @@
+{
+  "name": "assignment-verification",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node integration.mjs",
+    "dom": "node dom.mjs"
+  },
+  "devDependencies": {
+    "embedded-postgres": "^18.4.0-beta.17",
+    "jsdom": "^30.0.1",
+    "mongodb-memory-server": "^10.1.4",
+    "prettier": "^3.9.6",
+    "supertest": "^7.0.0"
+  }
+}

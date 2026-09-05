@@ -6,7 +6,8 @@
   "scripts": {
     "build": "tsc -b",
     "start": "node dist/index.js",
-    "test": "jest"
+    "test": "jest --runInBand",
+    "seed": "npm run build && node dist/seed.js"
   },
   "keywords": [],
   "author": "",
@@ -15,7 +16,8 @@
     "@types/jest": "^29.5.12",
     "@types/pg": "^8.11.0",
     "pg": "^8.11.3",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "dotenv": "^16.4.5"
   },
   "devDependencies": {
     "jest": "^29.7.0",

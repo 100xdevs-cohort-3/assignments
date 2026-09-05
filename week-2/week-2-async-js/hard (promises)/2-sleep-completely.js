@@ -1,10 +1,13 @@
-/*
- * Write a function that halts the JS thread (make it busy wait) for a given number of milliseconds.
- * During this time the thread should not be able to do anything else.
- * the function should return a promise just like before
- */
-
+// Deliberately blocks the thread, as required by this exercise.
 function sleep(milliseconds) {
+  return new Promise((resolve, reject) => {
+    if (!Number.isFinite(milliseconds) || milliseconds < 0)
+      return reject(new RangeError('Invalid duration'));
+    const start = Date.now();
+    while (Date.now() - start < milliseconds) {
+      /* busy wait */
+    }
+    resolve();
+  });
 }
-
 module.exports = sleep;

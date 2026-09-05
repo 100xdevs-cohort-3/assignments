@@ -1,23 +1,23 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>100xTODO</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="container">
-    <h1>100xTODO</h1>
-
-    <div class="input-container">
-      <input type="text" id="todo-input" placeholder="Enter a todo..." />
-      <button id="add-todo-btn">Add Todo</button>
-    </div>
-
-    <ul id="todo-list"></ul>
-  </div>
-
-  <script src="script.js"></script>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Todo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <p>WEEK 06 / DAILY TASKS</p>
+      <h1>A little more done.</h1>
+      <p>Saved in server memory for this session.</p>
+      <form id="add">
+        <label>Task <input name="task" required maxlength="200" /></label><button>Add task</button>
+      </form>
+      <label>Search <input id="search" type="search" /></label>
+      <p id="message" role="status"></p>
+      <div id="items"></div>
+    </main>
+    <script src="script.js"></script>
+  </body>
 </html>

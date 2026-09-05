@@ -1,20 +1,4 @@
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
-
-/*
- * Function should insert a new travel plan for this user
- * Should return a travel plan object
- * {
- *  title: string,
- *  destination_city: string,
- *  destination_country: string,
- *  start_date: string,
- *  end_date: string,
- *  budget: number,
- *  id: number
- * }
- */
+import { prisma } from './client';
 export async function createTravelPlan(
   userId: number,
   title: string,
@@ -22,36 +6,37 @@ export async function createTravelPlan(
   destinationCountry: string,
   startDate: string,
   endDate: string,
-  budget: number
+  budget?: number,
 ) {
- 
+  const start = new Date(startDate),
+    end = new Date(endDate);
+  if (!title.trim() || !destinationCity.trim() || !destinationCountry.trim())
+    throw new Error('Title and destination are required');
+  if (!Number.isFinite(start.getTime()) || !Number.isFinite(end.getTime()) || end < start)
+    throw new Error('Invalid travel dates');
+  if (budget !== undefined && (!Number.isFinite(budget) || budget < 0))
+    throw new Error('Budget must be nonnegative');
+  return prisma.travelPlan.create({
+    data: {
+      userId,
+      title: title.trim(),
+      destinationCity,
+      destinationCountry,
+      startDate: start,
+      endDate: end,
+      budget,
+    },
+  });
 }
-
-/*
- * Function should update the budget or title for a specific travel plan
- * Should return the updated travel plan object
- */
-export async function updateTravelPlan(
-  planId: number,
-  title?: string,
-  budget?: number
-) {
- 
+export async function updateTravelPlan(planId: number, title?: string, budget?: number) {
+  if (title !== undefined && !title.trim()) throw new Error('Title cannot be empty');
+  if (budget !== undefined && (!Number.isFinite(budget) || budget < 0))
+    throw new Error('Budget must be nonnegative');
+  return prisma.travelPlan.update({
+    where: { id: planId },
+    data: { title: title?.trim(), budget },
+  });
 }
-
-/*
- * Function should get all the travel plans of a given user
- * Should return an array of travel plan objects
- * [{
- *  title: string,
- *  destination_city: string,
- *  destination_country: string,
- *  start_date: string,
- *  end_date: string,
- *  budget: number,
- *  id: number
- * }]
- */
 export async function getTravelPlans(userId: number) {
- 
+  return prisma.travelPlan.findMany({ where: { userId }, orderBy: { id: 'asc' } });
 }

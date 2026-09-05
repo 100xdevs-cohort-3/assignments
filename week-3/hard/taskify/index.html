@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Taskify</title>
+    <link rel="stylesheet" href="../../../assets/assignments.css" />
+  </head>
+  <body>
+    <main>
+      <p>WEEK 03 / TASK BOARD</p>
+      <h1>Make room for focus.</h1>
+      <p>Drag tasks between columns, or use the status menu.</p>
+      <form id="add" class="row">
+        <label style="flex: 1"
+          >New task
+          <input
+            name="title"
+            required
+            maxlength="150"
+            placeholder="What needs to get done?" /></label
+        ><button>Add task</button>
+      </form>
+      <p id="message" role="status"></p>
+      <div id="board" class="grid"></div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

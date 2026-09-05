@@ -1,28 +1,9 @@
-import { PrismaClient } from '@prisma/client';
-const prisma = new PrismaClient();
-
-/*
- * Should insert into the users table
- * Should return the User object
- * {
- *   username: string,
- *   password: string,
- *   name: string
- * }
- */
+import { prisma } from './client';
 export async function createUser(username: string, password: string, name: string) {
-    // Insert a new user into the users table
-
+  if (!username.trim() || !name.trim() || !password)
+    throw new Error('Username, name and password are required');
+  return prisma.user.create({ data: { username: username.trim(), password, name: name.trim() } });
 }
-/*
- * Should return the User object
- * {
- *   username: string,
- *   password: string,
- *   name: string
- * }
- */
 export async function getUser(userId: number) {
-    // Retrieve a user by ID from the users table
-
+  return prisma.user.findUnique({ where: { id: userId } });
 }

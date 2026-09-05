@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Pokémon explorer</title>
+    <link rel="stylesheet" href="../../../assets/assignments.css" />
+  </head>
+  <body>
+    <main>
+      <p>WEEK 03 / FETCH API</p>
+      <h1>A pocket full of Pokémon.</h1>
+      <form id="search" class="row">
+        <label
+          >Number of cards
+          <input id="count" type="number" min="1" max="30" value="6" required /></label
+        ><label
+          >Type
+          <select id="type">
+            <option value="fire">Fire</option>
+            <option value="water">Water</option>
+            <option value="grass">Grass</option>
+            <option value="electric">Electric</option>
+            <option value="normal">Normal</option>
+            <option value="psychic">Psychic</option>
+            <option value="ice">Ice</option>
+            <option value="dragon">Dragon</option>
+            <option value="fairy">Fairy</option>
+            <option value="fighting">Fighting</option>
+            <option value="poison">Poison</option>
+            <option value="ground">Ground</option>
+            <option value="flying">Flying</option>
+            <option value="bug">Bug</option>
+            <option value="rock">Rock</option>
+            <option value="ghost">Ghost</option>
+            <option value="dark">Dark</option>
+            <option value="steel">Steel</option>
+          </select></label
+        ><button>Explore</button>
+      </form>
+      <p id="status" role="status"></p>
+      <div id="cards" class="grid"></div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

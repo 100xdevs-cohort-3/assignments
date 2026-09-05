@@ -1,16 +1,10 @@
-// register code here
-import React from 'react'
-import axios from "axios"
-
-
-const Register = () => {
-    // call the functions onClick of button.
-    async function handleRegister() {
-        const resposne = await axios.post(); // if you don't know about axios, give it a read https://axios-http.com/docs/intro
-    }
-    return (
-        <div>Register</div>
-    )
+import Login from './Login';
+export default function Register(props) {
+  return (
+    <section>
+      <h2>Create your account</h2>
+      <p>Choose Student to enroll, or Instructor to publish courses.</p>
+      <Login {...props} mode="signup" onSubmit={(values) => props.onSubmit(values, 'signup')} />
+    </section>
+  );
 }
-
-export default Register

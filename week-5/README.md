@@ -1,3 +1,5 @@
+> **Implemented setup:** Run `npm install` and `npm run dev` in `backend` after configuring `.env`. Open http://localhost:3002; the server also serves the frontend.
+
 # Taskify
 
 Create a Full-Stack Task Management Application.
@@ -7,21 +9,25 @@ Create a Full-Stack Task Management Application.
 ### Setup Guide
 
 #### Backend Setup
+
 1. go inside week-5/backend and run:
 
 ```
- npm install 
+ npm install
 ```
 
 2. copy .env.example to .env.
+
 ```
 cp .env.example .env
 ```
 
 3. run the server.
+
 ```
 npm run dev
 ```
+
 start building.
 
 #### Frontend Setup
@@ -32,6 +38,5 @@ start building.
 
 ![Image](https://utfs.io/f/A8JZzw0Laf9jdQzX4lrWunt9yxDYPKUZgv60iAroJbcMF5RN)
 ![Image](https://utfs.io/f/A8JZzw0Laf9j7O4YAiCkbTYcosHutBJ0wAWjzMN61dIF3C7R)
-
 
 start building.

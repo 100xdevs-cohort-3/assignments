@@ -1,128 +1,257 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visual Studio Code Landing Page</title>
-    <link rel="stylesheet" href="./index.css">
-</head>
-
-<body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Visual Studio Code — Landing page exercise</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
     <header>
-        <div class="navContainer">
-            <div class="flex">
-                <div class="verticalCenter">
-                    <img src="https://code.visualstudio.com/favicon.ico" width="20" height="20" class="topImage" />
-                </div>
-                <h3>Visual Studio Code</h3>
-                <div class="verticalCenter">
-                    <div>
-                        <a class="navLink" href="#">Docs</a>
-                        <a class="navLink" href="#">Updates</a>
-                        <a class="navLink" href="#">Blog</a>
-                        <a class="navLink" href="#">Api</a>
-                        <a class="navLink" href="#">Extensions</a>
-                        <a class="navLink" href="#">FAQ</a>
-                        <a class="navLink" href="#">Learn</a>
-                    </div>
-                </div>
-            </div>
-            <div class="verticalCenter">
-                <div class="searchContainer">
-                    <input type="text" placeholder="Search Docs" class="searchInput" />
-                    <button class="downloadButton">Download</button>
-                </div>
-            </div>
-        </div>
-        </div>
+      <div class="wrap nav">
+        <a class="brand" href="https://code.visualstudio.com/"
+          ><img src="https://code.visualstudio.com/favicon.ico" alt="" />Visual Studio Code</a
+        >
+        <nav aria-label="Main navigation">
+          <a href="https://code.visualstudio.com/docs">Docs</a
+          ><a href="https://code.visualstudio.com/updates">Updates</a
+          ><a href="https://code.visualstudio.com/blogs">Blog</a
+          ><a href="https://code.visualstudio.com/api">API</a><a href="#extensions">Extensions</a
+          ><a href="https://code.visualstudio.com/docs/supporting/faq">FAQ</a>
+        </nav>
+        <a class="button" href="https://code.visualstudio.com/download">Download</a>
+      </div>
     </header>
+    <main>
+      <div class="banner">
+        Explore the editor, discover extensions, and
+        <a href="https://code.visualstudio.com/docs">start building something.</a>
+      </div>
+      <section class="hero wrap">
+        <span class="badge">Free. Built on open source. Runs anywhere.</span>
+        <h1>Code Editing.<br />Redefined.</h1>
+        <a class="button" href="https://code.visualstudio.com/download">Download VS Code</a
+        ><a class="button secondary" href="https://vscode.dev/">Try it in your browser</a>
+        <p>A familiar workspace for your next idea.</p>
+        <div class="editor" aria-label="Example code editor">
+          <div class="editor-top">hello-world — Visual Studio Code</div>
+          <div class="editor-body">
+            <aside class="explorer">
+              EXPLORER<br />⌄ HELLO-WORLD<br />　src<br />　　index.js<br />　　styles.css<br />　package.json<br />　README.md
+            </aside>
+            <pre
+              class="code"
+            ><span class="purple">import</span> { createApp } <span class="purple">from</span> <span class="green">'./app.js'</span>;
 
-    <section>
-        <div class="banner">
-            <a href="#" class="bannerLink">Version 1.92</a> is now available! Read about the new features and fixes from
-            July.
+// Your next idea starts here.
+<span class="blue">const</span> app = createApp({
+  name: <span class="green">'Hello, world'</span>,
+  theme: <span class="green">'dark'</span>
+});
+
+app.start();</pre>
+          </div>
+          <div class="status">
+            main ✓　　0 errors　0 warnings <span style="float: right">JavaScript　UTF-8</span>
+          </div>
         </div>
-    </section>
-
-    <section class="hero">
-        <div class="container">
-            <div class="heroContainer">
-                <div>
-                    <br /><br /><br />
-                    <span class="buttonBanner">
-                        Free. Built on open source. Runs anywhere.
-                    </span>
-                    <br /><br />
-                    <h2 style="text-align: left;">Code Editing. Redefined.</h2>
-                    <a href="#" class="cta-button">Download for MacOS</a>
-                </div>
-                <div>
-                    <img src="https://code.visualstudio.com/assets/home/home-screenshot-mac-2x-v2.png" width="800px" />
-                </div>
-            </div>
+      </section>
+      <section class="wrap section">
+        <div>
+          <h2>Code in any language</h2>
+          <p>Work with the languages you know and explore the ones you want to learn.</p>
         </div>
-    </section>
-
-    <section class="language">
-        <div class="container">
-            <div>
-                <h2>Code in any language</h2>
-                <p>VS Code supports almost every major programming language. Several ship in the box, like JavaScript,
-                    TypeScript, CSS, and HTML, but extensions for others can be found in the VS Code Marketplace.</p>
-            </div>
-            <div class="languagePanel">
-                <div class="flex">
-                    <img src="https://code.visualstudio.com/assets/home/language-js.png" alt="Javascript">
-                    <code class="verticalCenter">JavaScript</code>
-                </div>
-                <div class="flex">
-                    <img src="https://code.visualstudio.com/assets/home/language-ts.png" alt="TypeScript">
-                    <code class="verticalCenter">TypeScript</code>
-                </div>
-                <div class="flex">
-                    <img src="https://code.visualstudio.com/assets/home/language-python.png" alt="Python">
-                    <code class="verticalCenter">Python</code>
-                </div>
-                <div class="flex">
-                    <img src="https://code.visualstudio.com/assets/home/language-cs.png" alt="C#">
-                    <code class="verticalCenter">C#</code>
-                </div>
-                <div class="flex">
-                    <img src="https://code.visualstudio.com/assets/home/language-cpp.png" alt="C++">
-                    <code class="verticalCenter">C++</code>
-                </div>
-                <div class="flex">
-                    <img src="https://code.visualstudio.com/assets/home/language-html.png" alt="HTML">
-                    <code class="verticalCenter">HTML</code>
-                </div>
-                <div class="flex">
-                    <img src="https://code.visualstudio.com/assets/home/language-java.png" alt="Java">
-                    <code class="verticalCenter">Java</code>
-                </div>
-                <div class="flex"> 
-                    <img src="https://code.visualstudio.com/assets/home/language-json.png" alt="JSON">
-                    <code class="verticalCenter">JSON</code>
-                </div>
-                <div class="flex">
-                    <img src="https://code.visualstudio.com/assets/home/language-php.png" alt="PHP">
-                    <code class="verticalCenter">PHP</code>
-                </div>
-                <div class="flex">
-                    <img src="https://code.visualstudio.com/assets/home/language-markdown.png" alt="Markdown">
-                    <code class="verticalCenter">Markdown</code>
-                </div>
-                <div class="flex">
-                    <img src="https://code.visualstudio.com/assets/home/language-powershell.png" alt="Powershell">
-                    <code class="verticalCenter">Powershell</code>
-                </div>
-                <div class="flex">
-                    <img src="https://code.visualstudio.com/assets/home/language-yaml.png" alt="YAML">
-                    <code class="verticalCenter">YAML</code>
-                </div>
-            </div>
+        <div class="languages">
+          <div>
+            <img src="https://code.visualstudio.com/assets/home/language-js.png" alt="" /><code
+              >JavaScript</code
+            >
+          </div>
+          <div>
+            <img src="https://code.visualstudio.com/assets/home/language-ts.png" alt="" /><code
+              >TypeScript</code
+            >
+          </div>
+          <div>
+            <img src="https://code.visualstudio.com/assets/home/language-python.png" alt="" /><code
+              >Python</code
+            >
+          </div>
+          <div>
+            <img src="https://code.visualstudio.com/assets/home/language-cs.png" alt="" /><code
+              >C#</code
+            >
+          </div>
+          <div>
+            <img src="https://code.visualstudio.com/assets/home/language-cpp.png" alt="" /><code
+              >C++</code
+            >
+          </div>
+          <div>
+            <img src="https://code.visualstudio.com/assets/home/language-html.png" alt="" /><code
+              >HTML</code
+            >
+          </div>
+          <div>
+            <img src="https://code.visualstudio.com/assets/home/language-java.png" alt="" /><code
+              >Java</code
+            >
+          </div>
+          <div>
+            <img src="https://code.visualstudio.com/assets/home/language-json.png" alt="" /><code
+              >JSON</code
+            >
+          </div>
+          <div>
+            <img src="https://code.visualstudio.com/assets/home/language-php.png" alt="" /><code
+              >PHP</code
+            >
+          </div>
+          <div>
+            <img
+              src="https://code.visualstudio.com/assets/home/language-markdown.png"
+              alt=""
+            /><code>Markdown</code>
+          </div>
+          <div>
+            <img
+              src="https://code.visualstudio.com/assets/home/language-powershell.png"
+              alt=""
+            /><code>PowerShell</code>
+          </div>
+          <div>
+            <img src="https://code.visualstudio.com/assets/home/language-yaml.png" alt="" /><code
+              >YAML</code
+            >
+          </div>
         </div>
-    </section>
-</body>
-
+      </section>
+      <section class="wrap section" id="extensions">
+        <div>
+          <h2>Make it your editor</h2>
+          <p>Add language tools, themes, and services to match the way you work.</p>
+          <a href="https://marketplace.visualstudio.com/vscode">Browse extensions →</a>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <h3>Python</h3>
+            <p>Tools for Python projects.</p>
+          </article>
+          <article class="card">
+            <h3>Jupyter</h3>
+            <p>Explore data in notebooks.</p>
+          </article>
+          <article class="card">
+            <h3>GitHub Pull Requests</h3>
+            <p>Review code in your workspace.</p>
+          </article>
+          <article class="card">
+            <h3>C/C++</h3>
+            <p>Build native applications.</p>
+          </article>
+          <article class="card">
+            <h3>ESLint</h3>
+            <p>Find problems as you type.</p>
+          </article>
+          <article class="card">
+            <h3>Prettier</h3>
+            <p>Keep formatting consistent.</p>
+          </article>
+        </div>
+      </section>
+      <section class="wrap section">
+        <div>
+          <h2>Your setup.<br />Your workflow.</h2>
+          <p>Choose your theme, arrange your workspace, and make common tasks a keystroke away.</p>
+          <a href="https://code.visualstudio.com/docs/configure/themes">Explore customization →</a>
+        </div>
+        <div class="panel">
+          <h3>settings.json</h3>
+          <pre><code>{
+  "workbench.colorTheme": "Default Dark Modern",
+  "editor.fontSize": 16,
+  "editor.formatOnSave": true,
+  "files.autoSave": "afterDelay"
+}</code></pre>
+        </div>
+      </section>
+      <section class="wrap section">
+        <div>
+          <h2>Work wherever<br />your code lives</h2>
+          <p>Start in a browser or connect to a development environment that fits your project.</p>
+          <a href="https://code.visualstudio.com/docs/remote/remote-overview"
+            >Explore remote development →</a
+          >
+        </div>
+        <div class="cards">
+          <article class="card">
+            <h3>Local</h3>
+            <p>Your machine, your tools.</p>
+          </article>
+          <article class="card">
+            <h3>Remote</h3>
+            <p>Connect to another environment.</p>
+          </article>
+          <article class="card">
+            <h3>Browser</h3>
+            <p>A lightweight place to start.</p>
+          </article>
+        </div>
+      </section>
+      <div class="center">
+        <h2>Tools for the whole journey</h2>
+        <p>From your first line to your next release.</p>
+      </div>
+      <section class="wrap cards features">
+        <article class="card">
+          <h3><a href="https://code.visualstudio.com/docs/terminal/basics">Terminal</a></h3>
+          <p>Run project commands beside your code.</p>
+        </article>
+        <article class="card">
+          <h3><a href="https://code.visualstudio.com/docs/debugtest/debugging">Debugging</a></h3>
+          <p>Step through code and inspect values.</p>
+        </article>
+        <article class="card">
+          <h3>
+            <a href="https://code.visualstudio.com/docs/sourcecontrol/overview">Source control</a>
+          </h3>
+          <p>Keep track of the changes you make.</p>
+        </article>
+        <article class="card">
+          <h3><a href="https://code.visualstudio.com/docs/debugtest/tasks">Tasks</a></h3>
+          <p>Automate repeatable project work.</p>
+        </article>
+        <article class="card">
+          <h3>
+            <a href="https://code.visualstudio.com/docs/configure/accessibility/accessibility"
+              >Accessibility</a
+            >
+          </h3>
+          <p>Configure a workspace that works for you.</p>
+        </article>
+        <article class="card">
+          <h3><a href="https://code.visualstudio.com/docs/configure/profiles">Profiles</a></h3>
+          <p>Switch setups between projects.</p>
+        </article>
+        <article class="card">
+          <h3><a href="https://code.visualstudio.com/docs/debugtest/testing">Testing</a></h3>
+          <p>Keep feedback close to the code.</p>
+        </article>
+        <article class="card">
+          <h3><a href="https://code.visualstudio.com/docs/languages/emmet">Emmet</a></h3>
+          <p>Write HTML and CSS with abbreviations.</p>
+        </article>
+      </section>
+    </main>
+    <footer>
+      <div class="wrap">
+        <span>Week 1 · HTML & CSS practice</span>
+        <nav>
+          <a href="https://github.com/microsoft/vscode">GitHub</a
+          ><a href="https://code.visualstudio.com/docs/supporting/faq">Support</a
+          ><a href="https://privacy.microsoft.com/privacystatement">Privacy</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
 </html>

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Favorite questions</title>
+  </head>
+  <body>
+    <div class="min-h-screen bg-[#f7f7f8]">
+      <header class="bg-white border-b flex items-center justify-between px-6 py-4">
+        <a href="/" class="font-bold text-xl">〈/〉 Practice</a>
+        <nav class="flex gap-5 text-sm">
+          <a href="/task-1/">Problems</a><a href="#questions">My favorites</a>
+        </nav>
+        <button
+          id="sidebar-toggle"
+          aria-expanded="true"
+          aria-controls="sidebar"
+          class="border rounded px-3 py-2"
+        >
+          Toggle filters
+        </button>
+      </header>
+      <div class="max-w-7xl mx-auto flex">
+        <aside
+          id="sidebar"
+          class="hidden md:block w-64 shrink-0 p-6 bg-white min-h-[85vh] border-r"
+        >
+          <p class="text-xs text-slate-500 uppercase tracking-widest mb-6">My lists</p>
+          <h2 class="font-semibold mb-8">★ Favorite questions</h2>
+          <div class="flex justify-between mb-4">
+            <h3 class="font-semibold">Difficulty</h3>
+            <button id="reset" class="text-sm text-slate-500">Reset</button>
+          </div>
+          <label class="flex items-center gap-3 py-3"
+            ><input type="checkbox" name="difficulty" value="Easy" class="accent-orange-500" /><span
+              class="text-emerald-700"
+              >Easy</span
+            ></label
+          ><label class="flex items-center gap-3 py-3"
+            ><input
+              type="checkbox"
+              name="difficulty"
+              value="Medium"
+              class="accent-orange-500"
+            /><span class="text-amber-700">Medium</span></label
+          ><label class="flex items-center gap-3 py-3"
+            ><input type="checkbox" name="difficulty" value="Hard" class="accent-orange-500" /><span
+              class="text-red-600"
+              >Hard</span
+            ></label
+          ><label class="flex items-center gap-3 mt-8"
+            ><input id="show-tags" type="checkbox" checked class="accent-orange-500" />Show
+            tags</label
+          >
+        </aside>
+        <main class="p-6 md:p-12 flex-1 min-w-0">
+          <div
+            class="bg-amber-100 text-amber-600 w-16 h-16 rounded-xl text-4xl grid place-items-center"
+          >
+            ★
+          </div>
+          <h1 class="text-3xl font-bold mt-6">Favorite questions</h1>
+          <p class="text-slate-500 mt-3">Your personal collection. A little practice, every day.</p>
+          <label class="block mt-8"
+            ><span class="sr-only">Search questions</span
+            ><input
+              id="question-search"
+              type="search"
+              placeholder="Search questions or tags"
+              class="w-full border rounded-lg p-3 bg-white"
+          /></label>
+          <p id="question-count" role="status" class="text-sm text-slate-500 my-5"></p>
+          <div id="questions" class="rounded-xl border overflow-hidden bg-white"></div>
+        </main>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
