@@ -5,6 +5,7 @@
  */
 
 function sleep(milliseconds) {
+  return new promise((resovle)=>(resolve,milliseconds*1000));
 }
 
 module.exports = sleep;
